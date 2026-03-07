@@ -1,5 +1,5 @@
 
-# 📘 Assignment: Python Basics
+# 📘 Assignment: Level 0 - Python Basics
 
 ## 🎯 Objective
 
@@ -20,6 +20,8 @@ Completed program should:
   `Hello, [name]! You are [age] years old and your favorite color is [color].`
 - Example output:
   `Hello, Alice! You are 25 years old and your favorite color is blue.`
+- Hint: Save each `input()` result to a variable (`name`, `age`, `color`) before formatting the message.
+- Hint: Use an f-string like `f"Hello, {name}! ..."` for cleaner string formatting.
 
 ### 🛠️ Basic Arithmetic
 
@@ -35,6 +37,8 @@ Completed program should:
   Enter the first number: 3
   Enter the second number: 7
   10
+- Hint: Convert input values to numbers using `int()` or `float()` before adding.
+- Hint: Return the result too, so your function is easier to test later.
 
 ### 🛠️ Conditional Statements
 
@@ -51,4 +55,6 @@ Completed program should:
   print(is_even(4))  # True
   print(is_even(5))  # False
   ```
+- Hint: Use the modulo operator `%` and check whether `number % 2 == 0`.
+- Hint: Start by testing easy values like `0`, `1`, `2`, and `-2`.
 

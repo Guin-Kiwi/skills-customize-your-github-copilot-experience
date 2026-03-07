@@ -1,4 +1,4 @@
-# 📘 Assignment: Python Classes
+# 📘 Assignment: Level 2 - Python Classes
 
 ## 🎯 Objective
 
@@ -17,6 +17,8 @@ Completed program should:
 - Define a class `Car` with `make`, `model`, and `year` attributes
 - Include a method `display_info()` that prints the car's details
 - Create an instance of `Car` and call `display_info()`
+- Hint: In `__init__`, assign values using `self.make = make`, `self.model = model`, and `self.year = year`.
+- Hint: In `display_info()`, print a single formatted sentence so output is easy to read.
 
 
 ### 🛠️ Add Methods and Interactions
@@ -31,3 +33,5 @@ Completed program should:
 - Add a method `update_mileage(new_mileage)` to update the mileage
 - Add a method `display_mileage()` to print the current mileage
 - Demonstrate updating and displaying mileage for a `Car` instance
+- Hint: Add `self.mileage = 0` in `__init__` before testing update methods.
+- Hint: In `update_mileage`, consider preventing mileage from decreasing.

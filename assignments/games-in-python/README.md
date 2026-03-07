@@ -1,5 +1,5 @@
 
-# 📘 Assignment: Hangman Game Challenge
+# 📘 Assignment: Level 1 - Hangman Game Challenge
 
 ## 🎯 Objective
 

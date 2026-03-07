@@ -26,17 +26,13 @@ class AssignmentPortal {
     this.config = await response.json();
   }
 
-  getAssignmentStatus(assignment) {
-    if (!assignment.dueDate) return 'active'; // No due date means always active
-    
-    const currentDate = new Date();
-    const assignmentDueDate = new Date(assignment.dueDate);
-    
-    // Set both dates to start of day for accurate comparison
-    currentDate.setHours(0, 0, 0, 0);
-    assignmentDueDate.setHours(0, 0, 0, 0);
-    
-    return assignmentDueDate >= currentDate ? 'active' : 'overdue';
+  getAssignmentStatus() {
+    return "active";
+  }
+
+  getAssignmentLevel(assignment) {
+    const match = assignment.title && assignment.title.match(/Level\s+(\d+)/i);
+    return match ? parseInt(match[1], 10) : Number.MAX_SAFE_INTEGER;
   }
 
   renderCourseInfo() {
@@ -50,74 +46,30 @@ class AssignmentPortal {
   renderNextDueAssignment() {
     const { assignments } = this.config;
     const nextDueContainer = document.getElementById("next-due-assignment");
-    
-    // Find the next assignment due (active assignments only)
-    const activeAssignments = assignments.filter(a => this.getAssignmentStatus(a) === 'active' && a.dueDate);
-    if (activeAssignments.length === 0) {
-      nextDueContainer.innerHTML = '<div class="loading">No upcoming assignments</div>';
+
+    if (!assignments || assignments.length === 0) {
+      nextDueContainer.innerHTML = '<div class="loading">No assignments available</div>';
       return;
     }
 
-    const currentDate = new Date();
-    const sortedAssignments = activeAssignments.sort((a, b) => {
-      const dateA = new Date(a.dueDate);
-      const dateB = new Date(b.dueDate);
-      return dateA - dateB;
-    });
-
-    // Find the next due assignment (either due today or in the future)
-    let nextAssignment = sortedAssignments.find(a => {
-      const dueDate = new Date(a.dueDate);
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      dueDate.setHours(0, 0, 0, 0);
-      return dueDate >= today;
-    });
-
-    // If no future assignments, show the most recently due
-    if (!nextAssignment) {
-      nextAssignment = sortedAssignments[sortedAssignments.length - 1];
-    }
+    const sortedAssignments = [...assignments].sort(
+      (a, b) => this.getAssignmentLevel(a) - this.getAssignmentLevel(b)
+    );
+    const nextAssignment = sortedAssignments[0];
 
     nextDueContainer.innerHTML = this.createNextDueCard(nextAssignment);
   }
 
   createNextDueCard(assignment) {
-    const dueDate = new Date(assignment.dueDate);
-    const currentDate = new Date();
-    const timeDiff = dueDate - currentDate;
-    const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-    
-    let urgencyClass = 'low';
-    let urgencyText = `${daysDiff} days remaining`;
-    
-    if (daysDiff < 0) {
-      urgencyClass = 'high';
-      urgencyText = `${Math.abs(daysDiff)} days overdue`;
-    } else if (daysDiff === 0) {
-      urgencyClass = 'high';
-      urgencyText = 'Due today!';
-    } else if (daysDiff <= 3) {
-      urgencyClass = 'high';
-      urgencyText = `${daysDiff} days remaining`;
-    } else if (daysDiff <= 7) {
-      urgencyClass = 'medium';
-      urgencyText = `${daysDiff} days remaining`;
-    }
-
-    const formattedDate = dueDate.toLocaleDateString('en-US', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
+    const timeToComplete = assignment.timeToComplete || "Not provided";
+    const levelText = `Level ${this.getAssignmentLevel(assignment)}`;
 
     return `
       <h3>${assignment.title}</h3>
       <p>${assignment.description}</p>
       <div class="next-due-meta">
-        <div class="next-due-date">📅 Due: ${formattedDate}</div>
-        <div class="next-due-urgency ${urgencyClass}">⏰ ${urgencyText}</div>
+        <div class="next-due-date">⏱️ Estimated time: ${timeToComplete}</div>
+        <div class="next-due-urgency low">📚 ${levelText}</div>
       </div>
       <div class="next-due-actions">
         <a href="assets/pages/assignment.html?id=${assignment.id}" class="btn btn-next-due">
@@ -136,18 +88,10 @@ class AssignmentPortal {
       return;
     }
 
-    // Sort assignments by due date: latest due date first
-    const sortedAssignments = [...assignments].sort((a, b) => {
-      // If one has no due date, put it at the end
-      if (!a.dueDate && !b.dueDate) return 0;
-      if (!a.dueDate) return 1;
-      if (!b.dueDate) return -1;
-
-      const dateA = new Date(a.dueDate);
-      const dateB = new Date(b.dueDate);
-      
-      return dateB - dateA;
-    });
+    // Sort assignments by level: easiest first
+    const sortedAssignments = [...assignments].sort(
+      (a, b) => this.getAssignmentLevel(a) - this.getAssignmentLevel(b)
+    );
 
     const assignmentRows = sortedAssignments
       .map((assignment) => this.createAssignmentRow(assignment))
@@ -157,12 +101,7 @@ class AssignmentPortal {
   }
 
   createAssignmentRow(assignment) {
-    const dueDate = assignment.dueDate
-      ? new Date(assignment.dueDate).toLocaleDateString('en-US', {
-          month: 'short',
-          day: 'numeric'
-        })
-      : "No due date";
+    const timeToComplete = assignment.timeToComplete || "Not provided";
 
     const dynamicStatus = this.getAssignmentStatus(assignment);
 
@@ -172,8 +111,8 @@ class AssignmentPortal {
           <h3>${assignment.title}</h3>
           <p>${assignment.description}</p>
           <div class="assignment-quick-meta">
-            <span class="due-date">📅 ${dueDate}</span>
-            <span class="status ${dynamicStatus}">${dynamicStatus}</span>
+            <span class="time-estimate">⏱️ ${timeToComplete}</span>
+            <span class="status ${dynamicStatus}">available</span>
           </div>
         </div>
         <div class="assignment-actions-compact">

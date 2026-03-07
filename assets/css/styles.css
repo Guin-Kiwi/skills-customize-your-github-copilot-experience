@@ -259,7 +259,7 @@ body {
 
 
 
-.due-date {
+.time-estimate {
   color: var(--accent-color);
   font-weight: bold;
 }

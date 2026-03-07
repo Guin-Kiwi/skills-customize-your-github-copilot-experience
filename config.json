@@ -7,10 +7,10 @@
   "assignments": [
     {
       "id": "python-basics",
-      "title": "Python Basics",
+      "title": "Level 0: Python Basics",
       "description": "Variables, data types, conditionals, and loops",
       "path": "assignments/python-basics",
-      "dueDate": "2026-01-21",
+      "timeToComplete": "45-60 minutes",
       "attachments": [
         {
           "name": "Starter Code",
@@ -21,17 +21,17 @@
     },
     {
       "id": "games-in-python",
-      "title": "Games in Python",
+      "title": "Level 1: Games in Python",
       "description": "Creating games using Python",
       "path": "assignments/games-in-python",
-      "dueDate": "2026-02-05"
+      "timeToComplete": "1.5-2.5 hours"
     },
     {
       "id": "python-classes",
-      "title": "Python Classes",
+      "title": "Level 2: Python Classes",
       "description": "Defining and using classes in Python",
       "path": "assignments/python-classes",
-      "dueDate": "2026-02-15",
+      "timeToComplete": "1-1.5 hours",
       "attachments": [
         {
           "name": "Starter Code",
@@ -42,10 +42,10 @@
     },
     {
       "id": "data-analysis",
-      "title": "Data Analysis",
+      "title": "Level 3: Data Analysis",
       "description": "Basics of data analysis: loading, exploring, and visualizing data in Python.",
       "path": "assignments/data-analysis",
-      "dueDate": "2026-03-21",
+      "timeToComplete": "2-3 hours",
       "attachments": [
         {
           "name": "Starter Code",
@@ -60,11 +60,39 @@
       ]
     },
     {
+      "id": "testing-with-pytest",
+      "title": "Level 4: Testing with Pytest",
+      "description": "Learn unit testing with pytest by covering normal behavior, edge cases, and invalid inputs.",
+      "path": "assignments/testing-with-pytest",
+      "timeToComplete": "2-3 hours",
+      "attachments": [
+        {
+          "name": "Starter Code",
+          "file": "starter-code.py",
+          "type": "python"
+        }
+      ]
+    },
+    {
       "id": "fastapi-rest-apis",
-      "title": "Building REST APIs with FastAPI",
+      "title": "Level 5: Building REST APIs with FastAPI",
       "description": "Learn to build modern REST APIs with FastAPI framework, including CRUD operations and data validation",
       "path": "assignments/fastapi-rest-apis",
-      "dueDate": "2026-03-14",
+      "timeToComplete": "3-4 hours",
+      "attachments": [
+        {
+          "name": "Starter Code",
+          "file": "starter-code.py",
+          "type": "python"
+        }
+      ]
+    },
+    {
+      "id": "agentic-timer-app",
+      "title": "Level 6: Agentic Timer App",
+      "description": "Co-engineer a small software project using custom prompts or agents across requirements, architecture, implementation, and validation.",
+      "path": "assignments/agentic-timer-app",
+      "timeToComplete": "4-6 hours",
       "attachments": [
         {
           "name": "Starter Code",
