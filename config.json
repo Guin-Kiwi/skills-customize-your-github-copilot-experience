@@ -142,6 +142,48 @@
           "type": "python"
         }
       ]
+    },
+    {
+      "id": "pydantic-data-validator",
+      "title": "Level 10: Data Parsing and Validation with Pydantic",
+      "description": "Validate messy CSV and JSON data using strict Pydantic schemas and error reporting",
+      "path": "assignments/pydantic-data-validator",
+      "timeToComplete": "2-3 hours",
+      "attachments": [
+        {
+          "name": "Starter Code",
+          "file": "starter-code.py",
+          "type": "python"
+        }
+      ]
+    },
+    {
+      "id": "sqlalchemy-experiment-tracker",
+      "title": "Level 11: Database Programming with SQLAlchemy",
+      "description": "Build an experiment tracker with SQLAlchemy ORM, SQLite, CRUD operations, and query summaries",
+      "path": "assignments/sqlalchemy-experiment-tracker",
+      "timeToComplete": "2.5-3.5 hours",
+      "attachments": [
+        {
+          "name": "Starter Code",
+          "file": "starter-code.py",
+          "type": "python"
+        }
+      ]
+    },
+    {
+      "id": "streamlit-data-dashboard",
+      "title": "Level 12: Web GUI with Streamlit",
+      "description": "Create an interactive data dashboard with file upload, filters, charts, and summary insights",
+      "path": "assignments/streamlit-data-dashboard",
+      "timeToComplete": "2-3 hours",
+      "attachments": [
+        {
+          "name": "Starter Code",
+          "file": "starter-code.py",
+          "type": "python"
+        }
+      ]
     }
   ]
 }
