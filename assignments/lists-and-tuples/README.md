@@ -6,7 +6,7 @@ Master fundamental data structures in Python: lists and tuples. Learn how to cre
 
 ## 🔗 Builds On
 
-- `Level 1: Games in Python`
+- `Level 1: Contact Data Validator`
 
 ## 🚀 Unlocks Next
 

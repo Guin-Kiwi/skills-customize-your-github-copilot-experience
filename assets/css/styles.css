@@ -376,9 +376,16 @@ body {
   flex: 1;
 }
 
+.assignment-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
 .assignment-info h3 {
   color: var(--primary-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
   font-size: 1.3rem;
 }
 
@@ -446,6 +453,59 @@ body {
 .status.active {
   background-color: #d4edda;
   color: #155724;
+}
+
+/* Progress Tracking Badges */
+.progress-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.progress-complete {
+  background-color: #28a745;
+  color: white;
+  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+}
+
+.progress-in-progress {
+  background-color: #ffc107;
+  color: #000;
+  box-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
+}
+
+.progress-not-started {
+  background-color: #6c757d;
+  color: white;
+  opacity: 0.7;
+}
+
+.progress-unknown {
+  background-color: #e9ecef;
+  color: #6c757d;
+  opacity: 0.5;
+}
+
+.btn-config {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-config:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
 }
 
 .status.overdue {

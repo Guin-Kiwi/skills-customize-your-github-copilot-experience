@@ -10,7 +10,7 @@ Build your first complete Python workflow: read input, clean values, apply logic
 
 ## 🚀 Unlocks Next
 
-- `Level 1: Games in Python`
+- `Level 1: Contact Data Validator`
 
 ## ⏱️ 20-Minute Chunk Plan
 

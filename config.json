@@ -57,15 +57,15 @@
     },
     {
       "id": "games-in-python",
-      "title": "Level 1: Games in Python",
-      "description": "Creating games using Python with strings, loops, and random selection",
+      "title": "Level 1: Contact Data Validator",
+      "description": "Validate email and phone formats using string methods, conditionals, and pattern detection",
       "path": "assignments/games-in-python",
       "program": "foundations",
       "moduleOrder": 2,
       "track": "Both",
       "milestoneGate": true,
       "prerequisites": ["python-basics"],
-      "timeToComplete": "1.5-2.5 hours"
+      "timeToComplete": "1.5-2 hours"
     },
     {
       "id": "lists-and-tuples",

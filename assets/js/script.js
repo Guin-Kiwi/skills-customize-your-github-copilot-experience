@@ -1,9 +1,185 @@
 // Computer Science Portal JavaScript
 
+// Progress Tracking Module
+class ProgressTracker {
+  constructor() {
+    this.repoContext = this.detectRepoContext();
+    this.cache = new Map();
+    this.CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+  }
+
+  detectRepoContext() {
+    // Try to detect from GitHub Pages URL
+    const hostname = window.location.hostname;
+    const path = window.location.pathname;
+
+    if (hostname.endsWith('.github.io')) {
+      const username = hostname.split('.')[0];
+      // Extract repo name from path (first segment after /)
+      const pathParts = path.split('/').filter(Boolean);
+      const repo = pathParts[0] || 'skills-customize-your-github-copilot-experience';
+      return { owner: username, repo: repo };
+    }
+
+    // Check localStorage for manual configuration
+    const stored = localStorage.getItem('repo-context');
+    if (stored) {
+      try {
+        return JSON.parse(stored);
+      } catch (e) {
+        console.warn('Invalid stored repo context:', e);
+      }
+    }
+
+    // No context available (viewing template)
+    return null;
+  }
+
+  getCacheKey(assignmentId) {
+    return `progress-${assignmentId}`;
+  }
+
+  getCachedProgress(assignmentId) {
+    const key = this.getCacheKey(assignmentId);
+    const cached = this.cache.get(key);
+    
+    if (!cached) return null;
+    if (Date.now() - cached.timestamp > this.CACHE_DURATION) {
+      this.cache.delete(key);
+      return null;
+    }
+
+    return cached.status;
+  }
+
+  cacheProgress(assignmentId, status) {
+    const key = this.getCacheKey(assignmentId);
+    this.cache.set(key, {
+      status: status,
+      timestamp: Date.now()
+    });
+    
+    // Also persist to localStorage for page reloads
+    try {
+      localStorage.setItem(key, JSON.stringify({
+        status: status,
+        timestamp: Date.now()
+      }));
+    } catch (e) {
+      console.warn('LocalStorage quota exceeded:', e);
+    }
+  }
+
+  loadCacheFromStorage() {
+    // Load cached progress from localStorage
+    try {
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith('progress-')) {
+          const data = JSON.parse(localStorage.getItem(key));
+          if (Date.now() - data.timestamp < this.CACHE_DURATION) {
+            const assignmentId = key.replace('progress-', '');
+            this.cache.set(key, data);
+          } else {
+            localStorage.removeItem(key);
+          }
+        }
+      }
+    } catch (e) {
+      console.warn('Failed to load cache from storage:', e);
+    }
+  }
+
+  async checkAssignmentProgress(assignmentId) {
+    // Return cached if available
+    const cached = this.getCachedProgress(assignmentId);
+    if (cached) return cached;
+
+    // No tracking if no repo context
+    if (!this.repoContext) return 'unknown';
+
+    try {
+      // Check for commits in assignment folder
+      const url = `https://api.github.com/repos/${this.repoContext.owner}/${this.repoContext.repo}/commits?path=assignments/${assignmentId}&page=1&per_page=1`;
+      const response = await fetch(url, {
+        headers: { 'Accept': 'application/vnd.github.v3+json' }
+      });
+
+      if (!response.ok) {
+        if (response.status === 404) {
+          // Repository or path not found
+          const status = 'not-started';
+          this.cacheProgress(assignmentId, status);
+          return status;
+        }
+        throw new Error(`GitHub API error: ${response.status}`);
+      }
+
+      const commits = await response.json();
+      const status = (commits && commits.length > 0) ? 'in-progress' : 'not-started';
+      this.cacheProgress(assignmentId, status);
+      return status;
+
+    } catch (error) {
+      console.warn(`Could not check progress for ${assignmentId}:`, error);
+      return 'unknown';
+    }
+  }
+
+  async loadAllProgress(assignments) {
+    const progressMap = new Map();
+    
+    // Load cache first
+    this.loadCacheFromStorage();
+
+    // Check all assignments with rate limit consideration
+    for (const assignment of assignments) {
+      const status = await this.checkAssignmentProgress(assignment.id);
+      progressMap.set(assignment.id, status);
+      
+      // Small delay to avoid rate limiting
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+
+    return progressMap;
+  }
+
+  getStatusIcon(status) {
+    switch(status) {
+      case 'complete': return '✅';
+      case 'in-progress': return '🔄';
+      case 'not-started': return '⭕';
+      default: return '';
+    }
+  }
+
+  getStatusText(status) {
+    switch(status) {
+      case 'complete': return 'Complete';
+      case 'in-progress': return 'In Progress';
+      case 'not-started': return 'Not Started';
+      default: return '';
+    }
+  }
+
+  showConfigDialog() {
+    const owner = prompt('Enter your GitHub username:');
+    const repo = prompt('Enter repository name:', 'skills-customize-your-github-copilot-experience');
+    
+    if (owner && repo) {
+      localStorage.setItem('repo-context', JSON.stringify({ owner, repo }));
+      this.repoContext = { owner, repo };
+      location.reload();
+    }
+  }
+}
+
 class AssignmentPortal {
   constructor() {
     this.config = null;
     this.assignmentChunks = new Map();
+    this.progressTracker = new ProgressTracker();
+    this.progressMap = new Map();
     this.init();
   }
 
@@ -12,11 +188,50 @@ class AssignmentPortal {
       await this.loadConfig();
       await this.loadChunkMetadata();
       this.renderCourseInfo();
+      this.addProgressConfigButton();
+      
+      // Load progress data
+      if (this.progressTracker.repoContext) {
+        this.progressMap = await this.progressTracker.loadAllProgress(this.config.assignments || []);
+      }
+      
       this.renderNextDueAssignment();
       this.renderAllAssignments();
     } catch (error) {
       console.error("Failed to initialize portal:", error);
       this.showError("Failed to load course information");
+    }
+  }
+
+  addProgressConfigButton() {
+    const header = document.querySelector('.header-content');
+    if (!header) return;
+
+    const context = this.progressTracker.repoContext;
+    const buttonHtml = context
+      ? `<button class="btn btn-config" onclick="window.portalInstance.showProgressInfo()" title="Progress tracking: ${context.owner}/${context.repo}">📊 Progress: ${context.owner}</button>`
+      : `<button class="btn btn-config" onclick="window.portalInstance.configureProgress()" title="Configure progress tracking">⚙️ Setup Progress</button>`;
+    
+    const buttonDiv = document.createElement('div');
+    buttonDiv.innerHTML = buttonHtml;
+    header.appendChild(buttonDiv);
+  }
+
+  configureProgress() {
+    this.progressTracker.showConfigDialog();
+  }
+
+  showProgressInfo() {
+    const context = this.progressTracker.repoContext;
+    if (!context) return;
+    
+    const progressCount = Array.from(this.progressMap.values()).filter(s => s === 'in-progress' || s === 'complete').length;
+    const totalCount = this.progressMap.size;
+    
+    alert(`Progress Tracking Active\n\nRepository: ${context.owner}/${context.repo}\nModules Started: ${progressCount}/${totalCount}\n\nClick OK to reconfigure.`);
+    
+    if (confirm('Reconfigure progress tracking?')) {
+      this.configureProgress();
     }
   }
 
@@ -289,6 +504,14 @@ class AssignmentPortal {
     const chunks = this.assignmentChunks.get(assignment.id) || [];
 
     const dynamicStatus = this.getAssignmentStatus(assignment);
+    
+    // Get progress status
+    const progressStatus = this.progressMap.get(assignment.id) || 'unknown';
+    const progressIcon = this.progressTracker.getStatusIcon(progressStatus);
+    const progressText = this.progressTracker.getStatusText(progressStatus);
+    const progressBadge = progressStatus !== 'unknown'
+      ? `<span class="progress-badge progress-${progressStatus}" title="${progressText}">${progressIcon} ${progressText}</span>`
+      : '';
 
     const chunkLinks = chunks.length
       ? `
@@ -317,7 +540,10 @@ class AssignmentPortal {
     return `
       <div class="assignment-row">
         <div class="assignment-info">
-          <h3>${assignment.title}</h3>
+          <div class="assignment-header">
+            ${progressBadge}
+            <h3>${assignment.title}</h3>
+          </div>
           <p>${assignment.description}</p>
           <div class="assignment-quick-meta">
             <span class="module-sequence">Module ${this.getAssignmentSequence(assignment)}</span>
@@ -344,5 +570,5 @@ class AssignmentPortal {
 
 // Initialize the portal when the page loads
 document.addEventListener("DOMContentLoaded", () => {
-  new AssignmentPortal();
+  window.portalInstance = new AssignmentPortal();
 });
