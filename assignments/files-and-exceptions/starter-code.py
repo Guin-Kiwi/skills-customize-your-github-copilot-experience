@@ -1,10 +1,4 @@
-"""Starter code for Files and Exceptions assignment.
-
-Hints:
-1. Use 'with' statements to automatically close files.
-2. Test exception handling by intentionally causing errors.
-3. Always consider: what could go wrong? Then handle it.
-"""
+# Starter code for Files and Exceptions assignment
 
 # Task 1: Reading Files
 # TODO: Create a test.txt file with some data first

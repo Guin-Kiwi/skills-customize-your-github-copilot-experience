@@ -1,10 +1,4 @@
-"""Starter code for Dictionaries and Sets assignment.
-
-Hints:
-1. Create a simple dictionary first before trying nested structures.
-2. Test set operations one at a time.
-3. Remember: {} with colons is a dictionary, {} without colons is a set.
-"""
+# Starter code for Dictionaries and Sets assignment
 
 # Task 1: Dictionary Basics
 # Create a person dictionary

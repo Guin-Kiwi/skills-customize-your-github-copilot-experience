@@ -12,19 +12,74 @@ Use tests to protect analytics logic and metric calculations before they are shi
 
 - `Level 9: AI Analyst Workflow Lab`
 
-## ⏱️ 20-Minute Chunk Plan
+## 📚 Key Concepts
 
-- `7.1` (20 min): Write baseline tests for core functions.
-- `7.2` (20 min): Add edge and boundary tests.
-- `7.3` (20 min): Add exception and invalid-input tests.
-- `7.4` (20 min): Produce a readable test report for mixed audiences.
+### Writing Test Functions
+Test functions start with `test_` and use assertions.
+
+**Try it yourself:**
+<!--exercise:answer=assert,hint=Use assert to check expected results-->
+
+```python
+def add(a, b):
+    return a + b
+
+def test_add():
+    ____ add(2, 3) == 5  # Test passes if True
+```
+
+### Running Pytest
+Execute tests from the command line.
+
+**Try it yourself:**
+<!--exercise:answer=pytest,hint=Run pytest command to execute tests-->
+
+```python
+# In terminal:
+# ____ test_file.py
+# Output shows pass/fail results
+```
+
+### Testing for Exceptions
+Verify that code raises expected errors.
+
+**Try it yourself:**
+<!--exercise:answer=pytest.raises,hint=Use pytest.raises to test for exceptions-->
+
+```python
+import pytest
+
+def divide(a, b):
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
+    return a / b
+
+def test_divide_by_zero():
+    with ____(ValueError):
+        divide(10, 0)
+```
+
+### Test Organization
+Structure tests in a dedicated tests/ directory.
+
+**Try it yourself:**
+<!--exercise:answer=tests/,hint=Create a tests/ folder for test files-->
+
+```python
+# Project structure:
+# project/
+#   ____
+#     test_calculator.py
+#     test_validator.py
+#   calculator.py
+```
 
 ## 📝 Tasks
 
-### 🛠️ Test Core Analysis Functions (`Both`)
+### 🛠️ Test Core Analysis Functions (20 min) (`Both`)
 
 #### Description
-Write tests for utility functions that compute totals, rates, or derived fields.
+Write baseline tests for core functions. Write tests for utility functions that compute totals, rates, or derived fields.
 
 #### Requirements
 Completed program should:
@@ -34,10 +89,10 @@ Completed program should:
 - Use descriptive test names.
 - Run `pytest` successfully and fix failing cases.
 
-### 🛠️ Cover Edge and Failure Paths (`Both`)
+### 🛠️ Cover Edge and Failure Paths (20 min) (`Both`)
 
 #### Description
-Expand coverage so your code handles difficult inputs safely.
+Add edge and boundary tests. Expand coverage so your code handles difficult inputs safely.
 
 #### Requirements
 Completed program should:
@@ -47,10 +102,10 @@ Completed program should:
 - Reach at least 10 total tests.
 - Log a short summary of discovered bugs and fixes in `artifacts/test-results.md`.
 
-### 🛠️ Communicate Test Outcomes (`BA` + `JDS`)
+### 🛠️ Communicate Test Outcomes (20 min) (`BA` + `JDS`)
 
 #### Description
-Translate test evidence for different stakeholders.
+Produce a readable test report for mixed audiences. Translate test evidence for different stakeholders.
 
 #### Requirements
 Completed program should:
@@ -67,3 +122,10 @@ To mark this assignment complete, submit:
 - `Code Artifact`: Test suite with at least 10 tests across normal, edge, and failure paths.
 - `Interpretation Artifact`: Written summary explaining risk and root-cause findings.
 - `Verification Artifact`: Actual `pytest` output showing final passing status.
+
+## 🔗 Quick Access
+
+Open assignment files directly in your browser:
+
+- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/testing-with-pytest/starter-code.py)
+- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/testing-with-pytest)

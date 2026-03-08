@@ -1,10 +1,4 @@
-"""Starter code for the Pydantic Data Validator assignment.
-
-Student guidance:
-1. Define strict models in schemas.py.
-2. Validate each row from CSV/JSON.
-3. Split valid and invalid records into separate outputs.
-"""
+# Starter code for the Pydantic Data Validator assignment
 
 from pathlib import Path
 import json

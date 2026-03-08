@@ -1,7 +1,4 @@
-"""Starter code for Statistics and Hypothesis Testing.
-
-Implement basic group comparison helpers before adding statistical tests.
-"""
+# Starter code for Statistics and Hypothesis Testing
 
 
 def mean(values):

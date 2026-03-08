@@ -1,5 +1,5 @@
 
-# 📘 Assignment: Level 1 - Contact Data Validator
+# 📘 Assignment: Level 1 - String Validation and Data Quality
 
 ## 🎯 Objective
 
@@ -14,13 +14,6 @@ Build your first data quality tool: validate contact information using string ch
 - `Level 2: Lists and Tuples` (you'll batch-validate multiple contacts)
 - `Level 5: Python Classes` (you'll encapsulate validators as objects)
 - `Level 10: Pydantic` (professional-grade validation frameworks)
-
-## ⏱️ 20-Minute Chunk Plan
-
-- `1.1` (20 min): Build email format validator with string methods.
-- `1.2` (20 min): Build phone number validator with digit checks.
-- `1.3` (20 min): Combine validators and return clean vs invalid status.
-- `1.4` (20 min): Generate test data and verify edge cases.
 
 ## 📚 Key Concepts
 
@@ -74,10 +67,10 @@ print(is_valid)  # True - all characters are digits
 
 ## 📝 Tasks
 
-### 🛠️ Build Email Validator (`Both`)
+### 🛠️ Build Email Validator (20 min) (`Both`)
 
 #### Description
-Create a function that checks if an email address follows basic format rules.
+Build email format validator with string methods. Create a function that checks if an email address follows basic format rules.
 
 #### Requirements
 Completed program should:
@@ -95,10 +88,10 @@ validate_email("student@@school.edu")  # "Invalid: Multiple @ symbols"
 validate_email("@school.edu")  # "Invalid: @ at start"
 ```
 
-### 🛠️ Build Phone Validator (`Both`)
+### 🛠️ Build Phone Validator (20 min) (`Both`)
 
 #### Description
-Create a function that validates US phone numbers (10 digits only, no formatting).
+Build phone number validator with digit checks. Create a function that validates US phone numbers (10 digits only, no formatting).
 
 #### Requirements
 Completed program should:
@@ -116,10 +109,10 @@ validate_phone("555-123-4567")  # "Invalid: Contains non-digit characters"
 validate_phone("123456")  # "Invalid: Must be exactly 10 digits"
 ```
 
-### 🛠️ Build Combined Contact Validator (`Both`)
+### 🛠️ Build Combined Contact Validator (20 min) (`Both`)
 
 #### Description
-Create a unified function that validates both email and phone in one call.
+Combine validators and return clean vs invalid status. Create a unified function that validates both email and phone in one call.
 
 #### Requirements
 Completed program should:
@@ -138,10 +131,10 @@ result = validate_contact("invalid-email", "123")
 # {"email_valid": False, "phone_valid": False, "status": "needs review"}
 ```
 
-### 🛠️ Generate Test Data with Random Selection (`Both`)
+### 🛠️ Generate Test Data with Random Selection (20 min) (`Both`)
 
 #### Description
-Use Python's `random` module to create test contacts and verify your validators handle edge cases.
+Generate test data and verify edge cases. Use Python's `random` module to create test contacts and verify your validators handle edge cases.
 
 #### Requirements
 Completed program should:
@@ -169,3 +162,10 @@ To mark this assignment complete, submit:
 - `Code Artifact`: Working validator functions for email, phone, and combined contact.
 - `Interpretation Artifact`: A brief explanation (3-4 sentences) of why data validation matters before analysis, using one real-world example (e.g., "Invalid emails in marketing lists waste budget").
 - `Verification Artifact`: Test run output showing at least 5 test cases with both valid and invalid inputs, demonstrating your validators correctly identify clean vs problematic data.
+
+## 🔗 Quick Access
+
+Open assignment files directly in your browser:
+
+- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/string-validation-and-data-quality/starter-code.py)
+- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/string-validation-and-data-quality)

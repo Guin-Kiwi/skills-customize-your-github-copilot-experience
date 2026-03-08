@@ -72,19 +72,12 @@ point = ____10, 20____
 print(point)  # Output: (10, 20)
 ```
 
-## ⏱️ 20-Minute Chunk Plan
-
-- `2.1` (20 min): Create lists and practice indexing.
-- `2.2` (20 min): Use append/remove and basic list methods.
-- `2.3` (25 min): Practice slicing, reversing, and combining lists.
-- `2.4` (20 min): Compare tuples vs lists and conversion between them.
-
 ## 📝 Tasks
 
-### 🛠️ List Creation and Indexing (`Both`)
+### 🛠️ List Creation and Indexing (20 min) (`Both`)
 
 #### Description
-Create a list, access elements by index, and use list methods to add and remove items.
+Create lists and practice indexing. Create a list, access elements by index, and use list methods to add and remove items.
 
 #### Requirements
 Completed program should:
@@ -97,10 +90,10 @@ Completed program should:
 - Hint: Remember that Python uses 0-based indexing (first item is at index 0)
 - Hint: Use negative indexing to access items from the end (`list[-1]` for the last item)
 
-### 🛠️ Slicing and List Operations (`Both`)
+### 🛠️ Slicing and List Operations (25 min) (`Both`)
 
 #### Description
-Use slicing to extract portions of a list and combine lists together.
+Practice slicing, reversing, and combining lists. Use slicing to extract portions of a list and combine lists together.
 
 #### Requirements
 Completed program should:
@@ -113,10 +106,10 @@ Completed program should:
 - Hint: Slicing syntax is `list[start:end:step]` where step can be negative
 - Hint: Remember `list[1:4]` includes index 1, 2, 3 but NOT 4
 
-### 🛠️ Tuples and Immutability (`Both`)
+### 🛠️ Tuples and Immutability (20 min) (`Both`)
 
 #### Description
-Create tuples, understand why they're useful, and convert between lists and tuples.
+Compare tuples vs lists and conversion between them. Create tuples, understand why they're useful, and convert between lists and tuples.
 
 #### Requirements
 Completed program should:
@@ -143,3 +136,10 @@ To mark this assignment complete, submit:
 - `Code Artifact`: Completed list and tuple operations covering indexing, slicing, and conversion.
 - `Interpretation Artifact`: A brief comparison of when to use a list versus a tuple.
 - `Verification Artifact`: Printed outputs that demonstrate each required operation works.
+
+## 🔗 Quick Access
+
+Open assignment files directly in your browser:
+
+- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/lists-and-tuples/starter-code.py)
+- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/lists-and-tuples)

@@ -1,10 +1,4 @@
-"""Starter code for the Testing with Pytest assignment.
-
-Student guidance:
-1. Implement utility functions.
-2. Create tests in tests/test_starter_code.py.
-3. Run: pytest -q
-"""
+# Starter code for the Testing with Pytest assignment
 
 
 def add(a, b):
@@ -13,15 +7,12 @@ def add(a, b):
 
 
 def divide(a, b):
-    # TODO: Return a / b.
-    # Hint: Raise ValueError with a helpful message if b is 0.
+    # TODO: Return a / b
     pass
 
 
 def normalize_name(name):
-    # TODO: Return a cleaned name string.
-    # Requirements idea: trim spaces and title-case the result.
-    # Example: "  aLiCe  " -> "Alice"
+    # TODO: Return a cleaned name string
     pass
 
 

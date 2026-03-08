@@ -1,10 +1,4 @@
-"""Starter code for Lists and Tuples assignment.
-
-Hints:
-1. Create lists and test indexing before moving to slicing.
-2. Try to modify a tuple to see what error you get.
-3. Test each operation one at a time.
-"""
+# Starter code for Lists and Tuples assignment
 
 # Task 1: List Creation and Indexing
 # Create a list of favorite foods

@@ -1,8 +1,8 @@
-# 📘 Assignment: Level 9 - Agentic Timer App
+# 📘 Assignment: Level 9A - Agentic Software Engineering
 
 ## 🎯 Objective
 
-Build a small timer application by co-engineering with custom prompts or custom agents. You will practice a full software process from requirements to architecture, implementation, and validation.
+Build a complete application by co-engineering with custom prompts or custom agents. You will practice a full software process from requirements to architecture, implementation, and validation.
 
 ## 🔗 Builds On
 
@@ -12,18 +12,59 @@ Build a small timer application by co-engineering with custom prompts or custom 
 
 - `Level 13: KPI Design and Business Questions`
 
-## ⏱️ 20-Minute Chunk Plan
+## 🔑 Key Concepts
 
-- `9.1` (30 min): Draft measurable requirements with IDs.
-- `9.2` (30 min): Design architecture and trace components to requirements.
-- `9.3` (30 min): Implement countdown mode and verify behavior.
-- `9.4` (30 min): Implement pomodoro mode and configuration.
-- `9.5` (30 min): Add extra features from requirements.
-- `9.6` (30 min): Write tests and traceability validation artifacts.
+Before you start, explore these essential software engineering patterns:
+
+**1. Requirements Traceability - Linking Specs to Code**
+```
+Requirement: REQ-001 - Countdown timer must accept minutes input
+Architecture: CountdownTimer class with set_duration(minutes)
+Implementation: countdown.py, line 15
+Test: test_countdown.py::test_set_duration_converts_to_seconds
+
+Each requirement gets a unique <!--exercise:answer=ID,hint=What tracking code helps us trace requirements through the system?-->
+```
+
+**2. State Machines - Modeling Timer Behavior**
+```
+Timer States:
+- IDLE: waiting to start
+- <!--exercise:answer=RUNNING,hint=What state means the timer is actively counting?-->: counting down
+- PAUSED: temporarily stopped
+- COMPLETED: time reached zero
+
+Transitions: start(), pause(), resume(), reset()
+```
+
+**3. Test Coverage by Requirements - Systematic Validation**
+```python
+import pytest
+
+def test_req_001_countdown_accepts_minutes():
+    # Maps to REQ-001
+    timer = CountdownTimer()
+    timer.set_duration(<!--exercise:answer=5,hint=What test value represents 5 minutes?-->)
+    assert timer.total_seconds == 300
+```
+
+**4. Agentic Workflow - Human-AI Collaboration**
+```
+Phase 1: Requirements (Human defines WHAT)
+  Prompt: "Draft measurable requirements for timer app"
+  Output: specification.md
+  
+Phase 2: <!--exercise:answer=Architecture,hint=What phase designs HOW the system works?--> (Co-design structure)
+  Prompt: "Design modular architecture"
+  Output: architecture.md
+  
+Phase 3: Implementation (AI generates, human reviews)
+Phase 4: Validation (Human verifies correctness)
+```
 
 ## 📝 Tasks
 
-### 🛠️ Specification of Requirements (`Both`)
+### 🛠️ Specification of Requirements (30 min) (`Both`)
 
 #### Description
 Define what your app must do before writing code. The app must include both a countdown timer and a pomodoro timer, plus additional features of your choice.
@@ -40,7 +81,7 @@ Completed program should:
 - Hint prompt pattern: `You are a product requirements analyst. Draft measurable requirements for a timer app with countdown and pomodoro modes.`
 - Hint file checklist: `specification.md`, `prompts/requirements.prompt.md`, `artifacts/requirements-session.md`.
 
-### 🛠️ Design the Software Architecture (`Both`)
+### 🛠️ Design the Software Architecture (30 min) (`Both`)
 
 #### Description
 Design the app structure so your implementation can be built in small, testable parts. Explain components, data flow, and how requirements map to architecture.
@@ -57,7 +98,7 @@ Completed program should:
 - Hint prompt pattern: `Design a modular architecture for a timer app and explain why each component exists.`
 - Hint file checklist: `architecture.md`, `prompts/architecture.prompt.md`, `artifacts/architecture-session.md`.
 
-### 🛠️ Implement the Timer App (`Both`)
+### 🛠️ Implement the Timer App (90 min) (`Both`)
 
 #### Description
 Implement your design using your chosen tech stack. Keep code organized and align implementation with the documented requirements.
@@ -75,7 +116,7 @@ Completed program should:
 - Hint prompt pattern: `Generate implementation steps for a countdown + pomodoro app with requirement traceability.`
 - Hint process strategy: implement one requirement ID at a time and update status as done.
 
-### 🛠️ Validate with Code Review and Testing (`Both`)
+### 🛠️ Validate with Code Review and Testing (30 min) (`Both`)
 
 #### Description
 Validate quality through automated tests and review feedback. Show that your app behavior matches requirements.
@@ -100,3 +141,10 @@ To mark this assignment complete, submit:
 - `Code Artifact`: Timer app implementation with countdown, pomodoro, and added features.
 - `Interpretation Artifact`: Requirement-to-architecture and review summary across agentic steps.
 - `Verification Artifact`: Test results and traceability matrix linking requirement IDs to tests.
+
+## 🔗 Quick Access
+
+Open assignment files directly in your browser:
+
+- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/agentic-software-engineering)
+- [📝 View prompts folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/agentic-software-engineering/prompts)

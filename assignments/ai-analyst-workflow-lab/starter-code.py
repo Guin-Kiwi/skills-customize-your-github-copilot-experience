@@ -1,20 +1,9 @@
-"""Starter code for AI Analyst Workflow Lab.
-
-Guidance:
-1. Use AI to draft one helper function.
-2. Validate behavior with tests.
-3. Record review notes and fixes.
-"""
+# Starter code for AI Analyst Workflow Lab
 
 
 def summarize_kpis(rows):
-    """Return a simple KPI summary dictionary.
-
-    TODO:
-    - Count rows
-    - Compute average score if present
-    - Handle empty input safely
-    """
+    """Return a simple KPI summary dictionary."""
+    # TODO: Implement summary logic
     pass
 
 

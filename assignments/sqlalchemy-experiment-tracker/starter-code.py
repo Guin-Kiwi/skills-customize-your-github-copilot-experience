@@ -1,14 +1,4 @@
-"""Starter code for the SQLAlchemy Experiment Tracker assignment.
-
-Student guidance:
-1. Define ORM models for experiments and runs.
-2. Implement CRUD helpers in db.py.
-3. Add summary queries and tests.
-"""
-
-# TODO: from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey, DateTime
-# TODO: from sqlalchemy.orm import declarative_base, relationship, sessionmaker
-# TODO: from datetime import datetime
+# Starter code for the SQLAlchemy Experiment Tracker assignment
 
 DB_URL = "sqlite:///experiments.db"
 

@@ -92,19 +92,12 @@ ____:
     file.close()
 ```
 
-## ⏱️ 20-Minute Chunk Plan
-
-- `4.1` (20 min): Read files safely using context managers.
-- `4.2` (20 min): Write and append output files.
-- `4.3` (25 min): Handle conversion and file errors with try/except.
-- `4.4` (20 min): Add finally cleanup and user-friendly error messages.
-
 ## 📝 Tasks
 
-### 🛠️ Reading Files (`Both`)
+### 🛠️ Reading Files (20 min) (`Both`)
 
 #### Description
-Read data from a text file and process the content.
+Read files safely using context managers. Read data from a text file and process the content.
 
 #### Requirements
 Completed program should:
@@ -118,10 +111,10 @@ Completed program should:
 - Hint: Use `with open(...) as file:` to automatically close files
 - Hint: Use `.strip()` to remove newline characters from lines
 
-### 🛠️ Writing and Appending Files (`Both`)
+### 🛠️ Writing and Appending Files (20 min) (`Both`)
 
 #### Description
-Create new files and add content to existing files.
+Write and append output files. Create new files and add content to existing files.
 
 #### Requirements
 Completed program should:
@@ -134,10 +127,10 @@ Completed program should:
 - Hint: Use `"w"` to write (overwrites), `"a"` to append (keeps existing content)
 - Hint: Remember to include `\n` to create new lines when writing
 
-### 🛠️ Error Handling and Validation (`Both`)
+### 🛠️ Error Handling and Validation (25 min) (`Both`)
 
 #### Description
-Build robust code that handles various errors gracefully.
+Handle conversion and file errors with try/except, and add finally cleanup. Build robust code that handles various errors gracefully.
 
 #### Requirements
 Completed program should:
@@ -166,3 +159,10 @@ To mark this assignment complete, submit:
 - `Code Artifact`: A script that reads, writes, appends, and handles errors as required.
 - `Interpretation Artifact`: A brief note describing one error path and how your code recovers.
 - `Verification Artifact`: Output evidence for a successful run and at least one handled exception.
+
+## 🔗 Quick Access
+
+Open assignment files directly in your browser:
+
+- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/files-and-exceptions/starter-code.py)
+- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/files-and-exceptions)

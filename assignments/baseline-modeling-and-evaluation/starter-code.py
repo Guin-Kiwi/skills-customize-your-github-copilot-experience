@@ -1,7 +1,4 @@
-"""Starter code for Baseline Modeling and Evaluation.
-
-Train and evaluate a simple baseline model.
-"""
+# Starter code for Baseline Modeling and Evaluation
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score

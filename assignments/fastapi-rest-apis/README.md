@@ -12,6 +12,48 @@ Expose analysis-ready metrics through a validated API so data products can serve
 
 - `Level 12: Web GUI with Streamlit`
 
+## 🔑 Key Concepts
+
+Before you start, explore these essential FastAPI patterns:
+
+**1. @app.get() - Defining Routes**
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.<!--exercise:answer=get,hint=What decorator creates a GET endpoint?-->("/health")
+def health_check():
+	return {"status": "ok"}
+```
+
+**2. Path Parameters - Dynamic URLs**
+```python
+@app.get("/kpis/{<!--exercise:answer=kpi_id,hint=What parameter name captures the dynamic part of the URL?-->}")
+def get_kpi(kpi_id: int):
+	return {"id": kpi_id, "name": "Revenue"}
+```
+
+**3. Request/Response Models - Validation with Pydantic**
+```python
+from pydantic import BaseModel
+
+class KPI(BaseModel):
+	name: str
+	value: float
+
+@app.post("/kpis")
+def create_kpi(kpi: <!--exercise:answer=KPI,hint=What type annotation ensures automatic validation?-->):
+	return kpi
+```
+
+**4. status_code Parameter - HTTP Responses**
+```python
+@app.post("/kpis", <!--exercise:answer=status_code=201,hint=What parameter sets the HTTP status code for successful creation?-->)
+def create_kpi(kpi: KPI):
+	return kpi
+```
+
 ## ⏱️ 20-Minute Chunk Plan
 
 - `8.1` (20 min): Create FastAPI app and health endpoint.
@@ -22,6 +64,7 @@ Expose analysis-ready metrics through a validated API so data products can serve
 ## 📝 Tasks
 
 ### 🛠️ Bootstrap the Metrics API (`Both`)
+### 🛠️ Bootstrap the Metrics API (20 min) (`Both`)
 
 #### Description
 Set up a FastAPI app with baseline endpoints and consistent response structure.
@@ -35,6 +78,7 @@ Completed program should:
 - Add one in-memory sample metric payload for testing.
 
 ### 🛠️ Implement CRUD for KPI Records (`BA` + `JDS`)
+### 🛠️ Implement CRUD for KPI Records (40 min) (`BA` + `JDS`)
 
 #### Description
 Create endpoints to manage KPI definitions and current values.
@@ -48,6 +92,7 @@ Completed program should:
 - Include at least one BA-focused field (`business_owner`) and one JDS-focused field (`calculation_version`).
 
 ### 🛠️ Validate and Document API Quality (`Both`)
+### 🛠️ Validate and Document API Quality (20 min) (`Both`)
 
 #### Description
 Prove endpoint behavior with manual checks and lightweight automated tests.
@@ -67,3 +112,10 @@ To mark this assignment complete, submit:
 - `Code Artifact`: FastAPI app with validated KPI CRUD endpoints.
 - `Interpretation Artifact`: Short API contract notes explaining design decisions.
 - `Verification Artifact`: Test/check output plus sample API responses from `/docs` or curl.
+
+## 🔗 Quick Access
+
+Open assignment files directly in your browser:
+
+- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/fastapi-rest-apis/starter-code.py)
+- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/fastapi-rest-apis)

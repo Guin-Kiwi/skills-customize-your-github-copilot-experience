@@ -84,19 +84,12 @@ if "red" ____ colors:
     print("Red is a color!")
 ```
 
-## ⏱️ 20-Minute Chunk Plan
-
-- `3.1` (20 min): Create dictionaries and access/update values.
-- `3.2` (25 min): Iterate through key-value pairs and compute summaries.
-- `3.3` (20 min): Use sets to remove duplicates and test membership.
-- `3.4` (20 min): Perform set operations (union/intersection/difference).
-
 ## 📝 Tasks
 
-### 🛠️ Dictionary Basics (`Both`)
+### 🛠️ Dictionary Basics (20 min) (`Both`)
 
 #### Description
-Create dictionaries to store structured data and access values using keys.
+Create dictionaries and access/update values. Create dictionaries to store structured data and access values using keys.
 
 #### Requirements
 Completed program should:
@@ -110,10 +103,10 @@ Completed program should:
 - Hint: Think of dictionaries like a phonebook where names are keys and phone numbers are values
 - Hint: Use `.get(key, default_value)` to safely access keys that might not exist
 
-### 🛠️ Dictionary Iteration (`Both`)
+### 🛠️ Dictionary Iteration (25 min) (`Both`)
 
 #### Description
-Iterate through dictionaries to process all key-value pairs.
+Iterate through key-value pairs and compute summaries. Iterate through dictionaries to process all key-value pairs.
 
 #### Requirements
 Completed program should:
@@ -126,10 +119,10 @@ Completed program should:
 - Hint: Use `for key, value in dictionary.items():` to loop through pairs
 - Hint: Think about filtering: which grades are above/below average?
 
-### 🛠️ Sets and Unique Values (`Both`)
+### 🛠️ Sets and Unique Values (20 min) (`Both`)
 
 #### Description
-Use sets to eliminate duplicates and perform set operations.
+Use sets to remove duplicates and test membership. Use sets to eliminate duplicates and perform set operations.
 
 #### Requirements
 Completed program should:
@@ -158,3 +151,10 @@ To mark this assignment complete, submit:
 - `Code Artifact`: Completed dictionary and set task implementations with iteration and set operations.
 - `Interpretation Artifact`: A short explanation of one scenario where sets are better than lists.
 - `Verification Artifact`: Output logs showing dictionary summaries and set operation results.
+
+## 🔗 Quick Access
+
+Open assignment files directly in your browser:
+
+- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/dictionaries-and-sets/starter-code.py)
+- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/dictionaries-and-sets)

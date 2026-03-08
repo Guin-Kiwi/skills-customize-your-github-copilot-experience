@@ -56,10 +56,10 @@
       ]
     },
     {
-      "id": "games-in-python",
-      "title": "Level 1: Contact Data Validator",
+      "id": "string-validation-and-data-quality",
+      "title": "Level 1: String Validation and Data Quality",
       "description": "Validate email and phone formats using string methods, conditionals, and pattern detection",
-      "path": "assignments/games-in-python",
+      "path": "assignments/string-validation-and-data-quality",
       "program": "foundations",
       "moduleOrder": 2,
       "track": "Both",
@@ -75,7 +75,7 @@
       "program": "foundations",
       "moduleOrder": 3,
       "track": "Both",
-      "prerequisites": ["games-in-python"],
+      "prerequisites": ["string-validation-and-data-quality"],
       "timeToComplete": "60-90 minutes",
       "attachments": [
         {
@@ -201,8 +201,24 @@
         }
       ]
     },
-    {
-      "id": "ai-analyst-workflow-lab",
+    {      "id": "agentic-software-engineering",
+      "title": "Level 9A: Agentic Software Engineering",
+      "description": "Build a complete application using AI-assisted requirements, architecture, implementation, and testing workflow",
+      "path": "assignments/agentic-software-engineering",
+      "program": "data-ai",
+      "moduleOrder": 3,
+      "track": "Both",
+      "prerequisites": ["testing-with-pytest"],
+      "timeToComplete": "4-6 hours",
+      "attachments": [
+        {
+          "name": "README",
+          "file": "README.md",
+          "type": "markdown"
+        }
+      ]
+    },
+    {      "id": "ai-analyst-workflow-lab",
       "title": "Level 9: AI Analyst Workflow Lab",
       "description": "Use AI coding assistance with structured validation, review, and evidence-driven analyst workflows",
       "path": "assignments/ai-analyst-workflow-lab",
@@ -332,10 +348,10 @@
       ]
     },
     {
-      "id": "data-storytelling-memo",
-      "title": "Level 16: Data Storytelling Memo",
+      "id": "data-communication-and-storytelling",
+      "title": "Level 16: Data Communication and Storytelling",
       "description": "Communicate data findings through a concise recommendation memo for stakeholders",
-      "path": "assignments/data-storytelling-memo",
+      "path": "assignments/data-communication-and-storytelling",
       "program": "data-ai",
       "moduleOrder": 7,
       "track": "BA",

@@ -3,8 +3,6 @@
 import random
 
 # TODO: Task 1 - Email Validator
-# Create validate_email(email) function
-# Check for exactly one @, @ not at start/end, and . after @
 
 def validate_email(email):
     """
@@ -16,8 +14,6 @@ def validate_email(email):
 
 
 # TODO: Task 2 - Phone Validator
-# Create validate_phone(phone) function
-# Check for exactly 10 digits, no other characters
 
 def validate_phone(phone):
     """
@@ -29,8 +25,6 @@ def validate_phone(phone):
 
 
 # TODO: Task 3 - Combined Contact Validator
-# Create validate_contact(email, phone) function
-# Returns dict with validation results
 
 def validate_contact(email, phone):
     """
@@ -42,8 +36,6 @@ def validate_contact(email, phone):
 
 
 # TODO: Task 4 - Generate Test Data
-# Create lists of valid and invalid test cases
-# Use random.choice() to pick test pairs
 
 valid_emails = [
     "student@school.edu",

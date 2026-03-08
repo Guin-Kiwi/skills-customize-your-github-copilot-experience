@@ -16,19 +16,28 @@ All assignment markdown files should follow these guidelines:
 
 The section headers should reflect the structure in the template, including the exact icon usage.
 
-- **Title**: Replace `[Assignment Title]` with a short, descriptive name (e.g., `Python Basics`, `Loops and Conditionals`, `Functions and Modules`).
+- **Title**: Replace `[Assignment Title]` with a short, descriptive name using concepts not tasks (e.g., `Python Basics`, `String Validation and Data Quality`, `Dictionaries and Sets`).
 - **Objective**: Write 1-2 sentences summarizing what the student will learn or accomplish. Focus on the main skills or concepts.
 - **Builds On**: State prerequisite module(s) or prior concepts this assignment depends on.
 - **Unlocks Next**: State what module or capability becomes possible after completion.
-- **20-Minute Chunk Plan**: Keep chunk IDs (`X.Y`) and target each chunk to 20 minutes.
-- **Achievement Evidence**: Include required completion artifacts.
-: At minimum require one code artifact, one interpretation/communication artifact, and one verification artifact.
+- **Key Concepts**: Include 3-5 interactive fill-in-the-blank examples that teach core concepts needed for tasks. Each example should:
+  - Demonstrate 1-2 specific techniques or concepts
+  - Use different function names, data, and logic than the actual assignment tasks (similar but not identical)
+  - Include the exercise markup: `<!--exercise:answer=value,hint=hint text-->`
+  - Keep examples simple and focused on teaching, not solving the assignment
 - **Tasks**: For each task:
-   - Use a specific, action-oriented task name
-   - In the Description, clearly state what the student must do.
-   - In Requirements, use bullet points to list the expected outcomes or features. Be specific and measurable
-   - Prefix each task with role relevance tags when useful: `Both`, `BA`, `JDS`.
-   - Provide example input/output in code blocks if helpful.
+  - Include timing estimate in header: `### 🛠️ Task Name (20 min) (`Both`)`
+  - Use a specific, action-oriented task name
+  - In the Description, clearly state what the student must do. Integrate any workflow steps or mini-objectives here
+  - In Requirements, use bullet points to list the expected outcomes or features. Be specific and measurable
+  - Prefix each task with role relevance tags when useful: `Both`, `BA`, `JDS`
+  - Provide example input/output in code blocks if helpful
+- **Achievement Evidence**: Include required completion artifacts:
+  - At minimum require one code artifact, one interpretation/communication artifact, and one verification artifact
+- **Quick Access**: Include direct Codespaces links:
+  - Use format: `https://github.dev/{owner}/{repo}/blob/{branch}/assignments/{folder}/{file}`
+  - Replace placeholders with actual repository information
+  - Include links for starter code and any data files
 
 ## 3. Flow And Motivation Rules
 

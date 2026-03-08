@@ -1,12 +1,4 @@
-"""
-FastAPI REST API Starter Code
-Student: Complete the tasks below to build a functional REST API
-
-Before starting:
-1. Install dependencies: pip install fastapi uvicorn
-2. Run the server: uvicorn starter-code:app --reload
-3. Visit http://localhost:8000/docs for interactive documentation
-"""
+# FastAPI REST API Starter Code
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
@@ -20,12 +12,6 @@ app = FastAPI(
 )
 
 # TODO: Define your Pydantic models here
-# Example:
-# class Todo(BaseModel):
-#     id: int
-#     title: str = Field(..., min_length=1, max_length=100)
-#     description: Optional[str] = None
-#     completed: bool = False
 
 # In-memory storage for todos
 todos_db = []
@@ -37,20 +23,13 @@ next_id = 1
 @app.get("/")
 def read_root():
     """Welcome endpoint"""
-    # TODO: Return a welcome message
     pass
 
 
 @app.get("/health")
 def health_check():
     """Health check endpoint"""
-    # TODO: Return API status
     pass
 
 
 # TODO: Implement CRUD endpoints
-# - POST /todos - Create a new todo
-# - GET /todos - Get all todos
-# - GET /todos/{id} - Get a specific todo
-# - PUT /todos/{id} - Update a todo
-# - DELETE /todos/{id} - Delete a todo

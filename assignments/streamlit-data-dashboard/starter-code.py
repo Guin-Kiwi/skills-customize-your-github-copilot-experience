@@ -1,10 +1,4 @@
-"""Starter code for the Streamlit Data Dashboard assignment.
-
-Student guidance:
-1. Build upload and preview workflow.
-2. Add filters and charts.
-3. Move analysis logic into helper functions for testing.
-"""
+# Starter code for the Streamlit Data Dashboard assignment
 
 # TODO: import streamlit as st
 # TODO: import pandas as pd
@@ -41,11 +35,7 @@ def summarize_data(df):
 
 def build_dashboard():
     """Build Streamlit UI and interactions."""
-    # TODO: st.set_page_config(page_title="Data Dashboard", layout="wide")
-    # TODO: uploaded_file = st.file_uploader("Upload CSV", type=["csv"])
-    # TODO: load DataFrame and validate columns
-    # TODO: add sidebar filters
-    # TODO: render 3 charts and insight summary
+    # TODO: Build UI components
     pass
 
 

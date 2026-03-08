@@ -1,7 +1,4 @@
-"""Starter code for Data Storytelling Memo.
-
-Use these helpers to structure evidence summaries.
-"""
+# Starter code for Data Communication and Storytelling
 
 
 def summarize_findings(findings):

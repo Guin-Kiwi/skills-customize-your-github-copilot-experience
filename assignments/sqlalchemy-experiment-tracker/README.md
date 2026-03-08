@@ -12,6 +12,54 @@ Create an experiment tracking system that stores machine learning run metadata i
 
 - `Level 8: Building REST APIs with FastAPI`
 
+## 🔑 Key Concepts
+
+Before you start, explore these essential SQLAlchemy patterns:
+
+**1. declarative_base() - Creating ORM Base Class**
+```python
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = <!--exercise:answer=declarative_base(),hint=What function creates the base class for ORM models?-->
+
+class Experiment(Base):
+	__tablename__ = 'experiments'
+```
+
+**2. Column and Data Types - Defining Table Structure**
+```python
+from sqlalchemy import Column, Integer, String, Float
+
+class Run(Base):
+	__tablename__ = 'runs'
+	id = Column(<!--exercise:answer=Integer,hint=What data type for auto-incrementing IDs?-->, primary_key=True)
+	model_name = Column(String(100))
+	accuracy = Column(Float)
+```
+
+**3. relationship() - Connecting Tables**
+```python
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship
+
+class Experiment(Base):
+	__tablename__ = 'experiments'
+	id = Column(Integer, primary_key=True)
+	runs = <!--exercise:answer=relationship,hint=What creates the ORM linkage between tables?-->('Run', back_populates='experiment')
+```
+
+**4. Session - Database Operations**
+```python
+from sqlalchemy.orm import sessionmaker
+
+Session = sessionmaker(bind=engine)
+session = Session()
+
+new_run = Run(model_name="RandomForest", accuracy=0.92)
+session.<!--exercise:answer=add,hint=What method adds objects to the session?-->(new_run)
+session.commit()
+```
+
 ## ⏱️ 20-Minute Chunk Plan
 
 - `11.1` (20 min): Define ORM models and relationships.
@@ -22,6 +70,7 @@ Create an experiment tracking system that stores machine learning run metadata i
 ## 📝 Tasks
 
 ### 🛠️ Design ORM Models (`Both`)
+### 🛠️ Design ORM Models (20 min) (`Both`)
 
 #### Description
 Model experiments and runs with clear relationships and constraints.
@@ -37,6 +86,7 @@ Completed program should:
 - Hint: Include `__repr__` methods for easier debugging.
 
 ### 🛠️ Implement CRUD Operations (`Both`)
+### 🛠️ Implement CRUD Operations (25 min) (`Both`)
 
 #### Description
 Build scripts that create, read, update, and delete experiment records.
@@ -53,6 +103,7 @@ Completed program should:
 - Hint: Commit only after validation checks pass.
 
 ### 🛠️ Query Insights and Validate Behavior (`Both`)
+### 🛠️ Query Insights and Validate Behavior (25 min) (`Both`)
 
 #### Description
 Produce useful analytics queries and verify behavior with tests.
@@ -75,3 +126,10 @@ To mark this assignment complete, submit:
 - `Code Artifact`: SQLAlchemy models plus CRUD/query implementation.
 - `Interpretation Artifact`: A short explanation of schema design choices and one query insight.
 - `Verification Artifact`: Test output and generated `reports/experiment-summary.txt`.
+
+## 🔗 Quick Access
+
+Open assignment files directly in your browser:
+
+- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/sqlalchemy-experiment-tracker/starter-code.py)
+- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/sqlalchemy-experiment-tracker)

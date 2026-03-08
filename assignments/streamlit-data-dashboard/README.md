@@ -12,6 +12,42 @@ Build an interactive Streamlit dashboard that allows users to upload tabular dat
 
 - `Level 13: KPI Design and Business Questions`
 
+## 🔑 Key Concepts
+
+Before you start, explore these essential Streamlit patterns:
+
+**1. st.title() - Page Headers**
+```python
+import streamlit as st
+
+st.<!--exercise:answer=title,hint=What function creates the main page title?-->("Sales Dashboard")
+st.header("Upload Your Data")
+```
+
+**2. st.file_uploader() - File Inputs**
+```python
+uploaded_file = st.<!--exercise:answer=file_uploader,hint=What widget allows users to upload files?-->("Choose a CSV file", type="csv")
+
+if uploaded_file:
+	df = pd.read_csv(uploaded_file)
+	st.dataframe(df)
+```
+
+**3. st.selectbox() - Interactive Filters**
+```python
+category = st.<!--exercise:answer=selectbox,hint=What creates a dropdown selection widget?-->("Select Category", options=df['category'].unique())
+
+filtered_df = df[df['category'] == category]
+```
+
+**4. st.plotly_chart() - Visualizations**
+```python
+import plotly.express as px
+
+fig = px.bar(df, x='month', y='revenue')
+st.<!--exercise:answer=plotly_chart,hint=What displays an interactive plotly chart?-->(fig)
+```
+
 ## ⏱️ 20-Minute Chunk Plan
 
 - `12.1` (20 min): Build upload and dataset preview UI.
@@ -22,6 +58,7 @@ Build an interactive Streamlit dashboard that allows users to upload tabular dat
 ## 📝 Tasks
 
 ### 🛠️ Build the Dashboard Layout (`Both`)
+### 🛠️ Build the Dashboard Layout (20 min) (`Both`)
 
 #### Description
 Set up a clear page structure with upload, filter, chart, and summary sections.
@@ -38,6 +75,7 @@ Completed program should:
 - Hint: Use clear labels so users understand each control quickly.
 
 ### 🛠️ Add Interactive Analysis (`Both`)
+### 🛠️ Add Interactive Analysis (30 min) (`Both`)
 
 #### Description
 Enable filtering and plotting so users can explore trends without editing code.
@@ -54,6 +92,7 @@ Completed program should:
 - Hint: Guard against empty filtered datasets and show a friendly message.
 
 ### 🛠️ Validate Inputs and Package the App (`Both`)
+### 🛠️ Validate Inputs and Package the App (25 min) (`Both`)
 
 #### Description
 Add data validation and provide clear run instructions.
@@ -76,3 +115,10 @@ To mark this assignment complete, submit:
 - `Code Artifact`: Working Streamlit app with upload, filters, and charts.
 - `Interpretation Artifact`: A short insight summary tied to one filtered dashboard state.
 - `Verification Artifact`: Test output plus a run log or screenshot-equivalent evidence of dashboard behavior.
+
+## 🔗 Quick Access
+
+Open assignment files directly in your browser:
+
+- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/streamlit-data-dashboard/starter-code.py)
+- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/streamlit-data-dashboard)

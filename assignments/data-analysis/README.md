@@ -12,19 +12,62 @@ Analyze a real dataset end-to-end and produce both decision-ready insight (`BA`)
 
 - `Level 7: Testing with Pytest`
 
-## ⏱️ 20-Minute Chunk Plan
+## 📚 Key Concepts
 
-- `6.1` (20 min): Load dataset and inspect schema.
-- `6.2` (20 min): Compute descriptive statistics and missing-value checks.
-- `6.3` (20 min): Create one chart and extract one actionable insight.
-- `6.4` (20 min): Produce BA and JDS outputs from the same analysis.
+### Loading Data with Pandas
+Pandas DataFrames are the foundation for Python data analysis.
+
+**Try it yourself:**
+<!--exercise:answer=pd.read_csv,hint=Use pd.read_csv() to load CSV files-->
+
+```python
+import pandas as pd
+data = ____("filename.csv")
+print(data.head())  # Shows first 5 rows
+```
+
+### Inspecting Data Structure
+Check shape, columns, and data types before analysis.
+
+**Try it yourself:**
+<!--exercise:answer=.shape,hint=Use .shape to get row and column count-->
+
+```python
+data = pd.DataFrame({"name": ["Alice", "Bob"], "age": [25, 30]})
+rows, cols = data____
+print(f"{rows} rows, {cols} columns")  # Output: 2 rows, 2 columns
+```
+
+### Descriptive Statistics
+Get quick summaries of numeric columns.
+
+**Try it yourself:**
+<!--exercise:answer=.describe,hint=Use .describe() for statistical summary-->
+
+```python
+data = pd.DataFrame({"score": [85, 92, 78, 95, 88]})
+summary = data____()
+print(summary)  # Shows count, mean, std, min, max, quartiles
+```
+
+### Basic Plotting
+Visualize patterns quickly with built-in plotting.
+
+**Try it yourself:**
+<!--exercise:answer=.plot,hint=Use .plot() to create visualizations-->
+
+```python
+data = pd.DataFrame({"values": [10, 20, 15, 25, 30]})
+data["values"]____(kind="line")
+plt.show()  # Display the chart
+```
 
 ## 📝 Tasks
 
-### 🛠️ Profile the Dataset (`Both`)
+### 🛠️ Profile the Dataset (20 min) (`Both`)
 
 #### Description
-Load the dataset and document structure, quality, and numeric patterns.
+Load dataset and inspect schema. Load the dataset and document structure, quality, and numeric patterns.
 
 #### Requirements
 Completed program should:
@@ -34,10 +77,10 @@ Completed program should:
 - Report missing values per column.
 - Generate summary stats for numeric columns.
 
-### 🛠️ Build Insight Views (`Both`)
+### 🛠️ Build Insight Views (20 min) (`Both`)
 
 #### Description
-Create visuals that reveal trends and support analysis decisions.
+Compute descriptive statistics and create charts. Create visuals that reveal trends and support analysis decisions.
 
 #### Requirements
 Completed program should:
@@ -47,10 +90,10 @@ Completed program should:
 - Write 2 to 3 bullet insights tied directly to chart evidence.
 - Flag one limitation or uncertainty in the data.
 
-### 🛠️ Split Deliverables by Role (`BA` + `JDS`)
+### 🛠️ Split Deliverables by Role (20 min) (`BA` + `JDS`)
 
 #### Description
-Publish two outputs from the same notebook/script to mirror real team collaboration.
+Produce BA and JDS outputs from the same analysis. Publish two outputs from the same notebook/script to mirror real team collaboration.
 
 #### Requirements
 Completed program should:
@@ -67,3 +110,11 @@ To mark this assignment complete, submit:
 - `Code Artifact`: Analysis script or notebook that loads, profiles, and visualizes the dataset.
 - `Interpretation Artifact`: BA/JDS written summaries with role-appropriate conclusions.
 - `Verification Artifact`: Saved chart files and printed quality/statistics checks.
+
+## 🔗 Quick Access
+
+Open assignment files directly in your browser:
+
+- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/data-analysis/starter-code.py)
+- [📊 Open data.csv in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/data-analysis/data.csv)
+- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/data-analysis)

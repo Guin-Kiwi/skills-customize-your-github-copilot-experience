@@ -1,7 +1,4 @@
-"""Starter code for KPI Design and Business Questions.
-
-Build at least one KPI calculator from tabular records.
-"""
+# Starter code for KPI Design and Business Questions
 
 
 def conversion_rate(total_visits, total_conversions):

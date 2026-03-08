@@ -12,16 +12,55 @@ Use AI assistance responsibly to speed up analysis tasks while validating output
 
 - `Level 13: Statistics and Hypothesis Testing`
 
-## ⏱️ 20-Minute Chunk Plan
+## 🔑 Key Concepts
 
-- `9.1` (20 min): Define analysis goal and prompt strategy.
-- `9.2` (20 min): Generate first draft code with AI and annotate assumptions.
-- `9.3` (20 min): Validate AI output with test cases and edge checks.
-- `9.4` (20 min): Produce review log of what AI got right/wrong.
+Before you start, explore these essential AI collaboration patterns:
+
+**1. Effective Prompting - Clear Instructions**
+```
+Weak prompt: "Write a function"
+
+Strong prompt: "Write a Python function that <!--exercise:answer=validates,hint=What should the function do first?--> email format using regex, returns True/False, and includes docstring with examples"
+```
+
+**2. Assumption Marking - Critical Review**
+```python
+# AI-generated code:
+def calculate_growth(current, previous):
+    return (current - previous) / previous * 100
+    
+# Human annotation:
+# ASSUMPTION: <!--exercise:answer=previous,hint=What value could cause division by zero?--> != 0
+# EDGE CASE: What if previous is 0?
+# FIX NEEDED: Add zero check
+```
+
+**3. Test-Driven Validation - Proving Correctness**
+```python
+import pytest
+
+def test_edge_case():
+    # Test what AI might miss
+    result = calculate_growth(100, <!--exercise:answer=0,hint=What edge case value should we test?-->)
+    # This will fail and reveal the bug!
+```
+
+**4. Trust Boundaries - When to Use AI**
+```
+Good use cases:
+- Boilerplate code generation
+- Test case <!--exercise:answer=scaffolding,hint=What AI task speeds up repetitive test structure?-->
+- Documentation templates
+
+Requires human judgment:
+- Business logic validation
+- Security-sensitive code
+- Performance-critical algorithms
+```
 
 ## 📝 Tasks
 
-### 🛠️ AI-Assisted Drafting (`Both`)
+### 🛠️ AI-Assisted Drafting (20 min) (`Both`)
 
 #### Description
 Generate an initial analysis helper script using a Copilot-style prompt and capture the prompt/response evidence.
@@ -34,7 +73,7 @@ Completed program should:
 - Mark at least 3 assumptions made by the generated code.
 - Keep generated code under 60 lines for easy review.
 
-### 🛠️ Critical Validation (`Both`)
+### 🛠️ Critical Validation (20 min) (`Both`)
 
 #### Description
 Verify generated code behavior using deterministic checks.
@@ -47,7 +86,7 @@ Completed program should:
 - Save findings to `artifacts/validation-notes.md`.
 - Include one test that demonstrates a previously hidden bug.
 
-### 🛠️ Analyst Review Memo (`BA` + `JDS`)
+### 🛠️ Analyst Review Memo (20 min) (`BA` + `JDS`)
 
 #### Description
 Summarize when AI helped and where human judgment was required.
@@ -66,3 +105,10 @@ To mark this assignment complete, submit:
 - `Code Artifact`: AI-generated + human-corrected analysis helper and tests.
 - `Interpretation Artifact`: Review memo describing trust boundaries.
 - `Verification Artifact`: Test run output proving fixes.
+
+## 🔗 Quick Access
+
+Open assignment files directly in your browser:
+
+- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/ai-analyst-workflow-lab/starter-code.py)
+- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/ai-analyst-workflow-lab)

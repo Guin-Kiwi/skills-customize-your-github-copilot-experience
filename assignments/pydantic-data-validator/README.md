@@ -12,6 +12,52 @@ Build a robust data intake script that reads CSV and JSON records, validates the
 
 - `Level 11: Database Programming with SQLAlchemy`
 
+## 🔑 Key Concepts
+
+Before you start, explore these essential Pydantic patterns:
+
+**1. BaseModel - Class Foundation**
+```python
+from pydantic import BaseModel
+
+class User(<!--exercise:answer=BaseModel,hint=What Pydantic class do models inherit from?-->):
+	name: str
+	age: int
+```
+
+**2. Field(...) - Adding Constraints**
+```python
+from pydantic import BaseModel, Field
+
+class Product(BaseModel):
+	name: str = Field(<!--exercise:answer=min_length=3,hint=What parameter sets minimum string length?-->)
+	price: float = Field(gt=0)  # greater than 0
+```
+
+**3. ValidationError - Handling Bad Data**
+```python
+from pydantic import ValidationError
+
+try:
+	user = User(name="Alice", age="not a number")
+except <!--exercise:answer=ValidationError,hint=What exception does Pydantic raise for invalid data?-->as e:
+	print(e.errors())  # Shows detailed error info
+```
+
+**4. Custom Validators - Domain-Specific Rules**
+```python
+from pydantic import BaseModel, field_validator
+
+class Email(BaseModel):
+	address: str
+    
+	@<!--exercise:answer=field_validator,hint=What decorator creates custom validation logic?-->('address')
+	def must_contain_at(cls, v):
+		if '@' not in v:
+			raise ValueError('must contain @')
+		return v
+```
+
 ## ⏱️ 20-Minute Chunk Plan
 
 - `10.1` (20 min): Define strict Pydantic schemas and constraints.
@@ -22,6 +68,7 @@ Build a robust data intake script that reads CSV and JSON records, validates the
 ## 📝 Tasks
 
 ### 🛠️ Define Validation Schemas (`Both`)
+### 🛠️ Define Validation Schemas (20 min) (`Both`)
 
 #### Description
 Create strict Pydantic models that represent incoming records and enforce quality rules.
@@ -37,6 +84,7 @@ Completed program should:
 - Hint: Keep schemas small and focused so they are easy to test.
 
 ### 🛠️ Build the Intake Pipeline (`Both`)
+### 🛠️ Build the Intake Pipeline (25 min) (`Both`)
 
 #### Description
 Read raw input files, validate each record, and separate valid data from invalid data.
@@ -53,6 +101,7 @@ Completed program should:
 - Hint: Include row number or record ID in each error log entry.
 
 ### 🛠️ Test and Report Data Quality (`Both`)
+### 🛠️ Test and Report Data Quality (25 min) (`Both`)
 
 #### Description
 Create tests and a summary report showing how well the pipeline performs.
@@ -74,3 +123,10 @@ To mark this assignment complete, submit:
 - `Code Artifact`: Pydantic schemas and validation pipeline scripts for CSV and JSON intake.
 - `Interpretation Artifact`: A short summary explaining top error patterns and schema decisions.
 - `Verification Artifact`: Test output and validation logs showing valid/invalid record handling.
+
+## 🔗 Quick Access
+
+Open assignment files directly in your browser:
+
+- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/pydantic-data-validator/starter-code.py)
+- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/pydantic-data-validator)
