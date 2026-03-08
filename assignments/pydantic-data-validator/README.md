@@ -4,6 +4,13 @@
 
 Build a robust data intake script that reads CSV and JSON records, validates them with Pydantic models, and produces both clean output and a clear error report.
 
+## ⏱️ 30-Minute Chunk Plan
+
+- `10.1` (20 min): Define strict Pydantic schemas and constraints.
+- `10.2` (25 min): Parse CSV/JSON inputs and validate each row.
+- `10.3` (20 min): Split clean output from error output.
+- `10.4` (20 min): Add tests for valid and invalid scenarios.
+
 ## 📝 Tasks
 
 ### 🛠️ Define Validation Schemas

@@ -84,6 +84,13 @@ ____:
     file.close()
 ```
 
+## ⏱️ 30-Minute Chunk Plan
+
+- `4.1` (20 min): Read files safely using context managers.
+- `4.2` (20 min): Write and append output files.
+- `4.3` (25 min): Handle conversion and file errors with try/except.
+- `4.4` (20 min): Add finally cleanup and user-friendly error messages.
+
 ## 📝 Tasks
 
 ### 🛠️ Reading Files

@@ -4,6 +4,12 @@
 
 [Brief description of what the student will build or accomplish in this assignment]
 
+## ⏱️ 30-Minute Chunk Plan
+
+- `[X.1]` (20-30 min): [Small, focused outcome]
+- `[X.2]` (20-30 min): [Small, focused outcome]
+- `[X.3]` (20-30 min): [Small, focused outcome]
+
 ## 📝 Tasks
 
 ### 🛠️	[Task 1 Title]

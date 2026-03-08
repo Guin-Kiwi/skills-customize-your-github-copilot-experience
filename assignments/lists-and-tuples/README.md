@@ -64,6 +64,13 @@ point = ____10, 20____
 print(point)  # Output: (10, 20)
 ```
 
+## ⏱️ 30-Minute Chunk Plan
+
+- `2.1` (20 min): Create lists and practice indexing.
+- `2.2` (20 min): Use append/remove and basic list methods.
+- `2.3` (25 min): Practice slicing, reversing, and combining lists.
+- `2.4` (20 min): Compare tuples vs lists and conversion between them.
+
 ## 📝 Tasks
 
 ### 🛠️ List Creation and Indexing

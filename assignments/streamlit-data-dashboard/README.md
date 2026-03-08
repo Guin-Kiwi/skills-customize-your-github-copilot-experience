@@ -4,6 +4,13 @@
 
 Build an interactive Streamlit dashboard that allows users to upload tabular data, explore it with filters, and visualize insights.
 
+## ⏱️ 30-Minute Chunk Plan
+
+- `12.1` (20 min): Build upload and dataset preview UI.
+- `12.2` (25 min): Add sidebar filters and filtered table view.
+- `12.3` (25 min): Add charts that react to filters.
+- `12.4` (20 min): Validate inputs and add run instructions/tests.
+
 ## 📝 Tasks
 
 ### 🛠️ Build the Dashboard Layout

@@ -7,7 +7,7 @@ Build the classic word-guessing game using Python strings, loops, and user input
 
 **Skills practiced:** String manipulation, loops, conditionals, random selection
 
-## � Key Concepts
+## 📚 Key Concepts
 
 ### Random Selection
 Python's `random` module lets you pick items randomly from a list.
@@ -49,7 +49,14 @@ result = ____(display)
 print(result)  # Output: _ p _ _ _ _
 ```
 
-## �📝 Tasks
+## ⏱️ 30-Minute Chunk Plan
+
+- `1.1` (20 min): Select a random word and initialize game state.
+- `1.2` (25 min): Build the main game loop and collect guesses.
+- `1.3` (20 min): Update progress display and track misses.
+- `1.4` (20 min): Add final win/lose messaging and cleanup.
+
+## 📝 Tasks
 
 ### 🛠️ Build the Hangman Game
 

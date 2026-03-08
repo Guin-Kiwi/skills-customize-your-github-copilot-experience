@@ -76,6 +76,13 @@ if "red" ____ colors:
     print("Red is a color!")
 ```
 
+## ⏱️ 30-Minute Chunk Plan
+
+- `3.1` (20 min): Create dictionaries and access/update values.
+- `3.2` (25 min): Iterate through key-value pairs and compute summaries.
+- `3.3` (20 min): Use sets to remove duplicates and test membership.
+- `3.4` (20 min): Perform set operations (union/intersection/difference).
+
 ## 📝 Tasks
 
 ### 🛠️ Dictionary Basics

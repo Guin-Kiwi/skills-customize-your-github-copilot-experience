@@ -5,6 +5,13 @@
 
 Practice fundamental Python programming skills including user input, string formatting, arithmetic operations, and conditional statements by implementing simple functions.
 
+## ⏱️ 30-Minute Chunk Plan
+
+- `0.1` (20 min): Capture input and store in variables.
+- `0.2` (20 min): Convert input types and perform arithmetic.
+- `0.3` (20 min): Use boolean expressions and conditionals.
+- `0.4` (20 min): Integrate input -> processing -> output in one flow.
+
 ## 📝 Tasks
 
 ### 🛠️ User Input and String Formatting

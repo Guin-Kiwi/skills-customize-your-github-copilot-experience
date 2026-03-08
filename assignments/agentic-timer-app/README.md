@@ -4,6 +4,15 @@
 
 Build a small timer application by co-engineering with custom prompts or custom agents. You will practice a full software process from requirements to architecture, implementation, and validation.
 
+## ⏱️ 30-Minute Chunk Plan
+
+- `9.1` (30 min): Draft measurable requirements with IDs.
+- `9.2` (30 min): Design architecture and trace components to requirements.
+- `9.3` (30 min): Implement countdown mode and verify behavior.
+- `9.4` (30 min): Implement pomodoro mode and configuration.
+- `9.5` (30 min): Add extra features from requirements.
+- `9.6` (30 min): Write tests and traceability validation artifacts.
+
 ## 📝 Tasks
 
 ### 🛠️ Specification of Requirements

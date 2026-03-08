@@ -4,6 +4,13 @@
 
 Learn how to build modern REST APIs using the FastAPI framework. You'll create a functional API with multiple endpoints, handle HTTP requests and responses, implement data validation, and test your API using interactive documentation.
 
+## ⏱️ 30-Minute Chunk Plan
+
+- `8.1` (20 min): Set up FastAPI app and health endpoints.
+- `8.2` (25 min): Implement create/read todo endpoints.
+- `8.3` (25 min): Implement update/delete with not-found handling.
+- `8.4` (20 min): Add validation and test endpoints in docs.
+
 ## 📝 Tasks
 
 ### 🛠️ Create a Basic FastAPI Application

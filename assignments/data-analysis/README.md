@@ -4,6 +4,13 @@
 
 Students will learn the basics of data analysis using Python. They will load, explore, and analyze a dataset to extract meaningful insights.
 
+## ⏱️ 30-Minute Chunk Plan
+
+- `6.1` (20 min): Load dataset and inspect column structure.
+- `6.2` (20 min): Compute descriptive statistics and sanity checks.
+- `6.3` (25 min): Build first visualization and interpret it.
+- `6.4` (25 min): Build second visualization and compare insights.
+
 ## 📝 Tasks
 
 ### 🛠️ Data Loading and Exploration

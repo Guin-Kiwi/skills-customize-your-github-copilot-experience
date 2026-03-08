@@ -4,6 +4,13 @@
 
 Learn how to write unit tests in Python using `pytest`. You will practice testing normal behavior, edge cases, and invalid input before moving to larger backend projects.
 
+## ⏱️ 30-Minute Chunk Plan
+
+- `7.1` (20 min): Write baseline tests for normal behavior.
+- `7.2` (20 min): Add edge-case tests for boundaries and empty input.
+- `7.3` (25 min): Add exception tests with `pytest.raises`.
+- `7.4` (20 min): Refactor test organization and rerun full suite.
+
 ## 📝 Tasks
 
 ### 🛠️ Write Basic Unit Tests

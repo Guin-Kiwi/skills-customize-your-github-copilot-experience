@@ -4,6 +4,13 @@
 
 Create an experiment tracking system that stores machine learning run metadata in SQLite using SQLAlchemy ORM, then query and summarize results.
 
+## ⏱️ 30-Minute Chunk Plan
+
+- `11.1` (20 min): Define ORM models and relationships.
+- `11.2` (25 min): Initialize DB and insert sample runs.
+- `11.3` (25 min): Implement CRUD operations and transactions.
+- `11.4` (20 min): Build summary queries and validate with tests.
+
 ## 📝 Tasks
 
 ### 🛠️ Design ORM Models
