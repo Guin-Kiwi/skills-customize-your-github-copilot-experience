@@ -48,12 +48,6 @@ fig = px.bar(df, x='month', y='revenue')
 st.<!--exercise:answer=plotly_chart,hint=What displays an interactive plotly chart?-->(fig)
 ```
 
-## ⏱️ 20-Minute Chunk Plan
-
-- `12.1` (20 min): Build upload and dataset preview UI.
-- `12.2` (25 min): Add sidebar filters and filtered table view.
-- `12.3` (25 min): Add charts that react to filters.
-- `12.4` (20 min): Validate inputs and add run instructions/tests.
 
 ## 📝 Tasks
 
@@ -115,10 +109,3 @@ To mark this assignment complete, submit:
 - `Code Artifact`: Working Streamlit app with upload, filters, and charts.
 - `Interpretation Artifact`: A short insight summary tied to one filtered dashboard state.
 - `Verification Artifact`: Test output plus a run log or screenshot-equivalent evidence of dashboard behavior.
-
-## 🔗 Quick Access
-
-Open assignment files directly in your browser:
-
-- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/streamlit-data-dashboard/starter-code.py)
-- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/streamlit-data-dashboard)

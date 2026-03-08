@@ -1,6 +1,6 @@
 # Project Description
 
-This project is an educational website for sharing homework assignments and coding exercises with students. Students can browse, view, and download assignments directly from the portal.
+This project is an educational website for sharing homework assignments and coding exercises with students. Students can browse, view, and work on assignments through an interactive portal with automatic progress tracking and dynamic Quick Access links to their forked repositories.
 
 ## Project Structure
 
@@ -35,6 +35,9 @@ When generating content for this project:
 - Include or preserve these sections in assignment markdown:
 : `Builds On`
 : `Unlocks Next`
-: `20-Minute Chunk Plan`
+: `Tasks` (with timing estimates in headers)
 : `Achievement Evidence`
+- Each task should have timing in the header: `### 🛠️ Task Name (20 min) (`Both`)`
+- Tasks are displayed one at a time with Previous/Next navigation
+- Quick Access section is automatically generated - **do not add it manually**
 - Ensure each assignment contributes toward portfolio-quality capstones.

@@ -397,8 +397,126 @@ class AssignmentPortal {
       return;
     }
 
+    // Get suggested assignment
+    const sortedAssignments = [...assignments].sort((a, b) => {
+      const byProgram = this.getProgramOrder(a.program) - this.getProgramOrder(b.program);
+      if (byProgram !== 0) {
+        return byProgram;
+      }
+      return this.getAssignmentSequence(a) - this.getAssignmentSequence(b);
+    });
+
+    const suggestedAssignment = sortedAssignments[0];
+
+    // Get in-progress assignments
+    const inProgressAssignments = assignments.filter((assignment) => {
+      const status = this.progressMap.get(assignment.id);
+      return status === 'in-progress';
+    });
+
+    // Get next 2 upcoming assignments (after suggested, excluding in-progress)
+    const suggestedIndex = sortedAssignments.indexOf(suggestedAssignment);
+    const upcomingAssignments = sortedAssignments
+      .slice(suggestedIndex + 1)
+      .filter((assignment) => {
+        const status = this.progressMap.get(assignment.id);
+        return status !== 'in-progress';
+      })
+      .slice(0, 2);
+
+    // Combine: suggested + in-progress + next 2
+    const focusedAssignments = [
+      suggestedAssignment,
+      ...inProgressAssignments,
+      ...upcomingAssignments
+    ];
+
+    // Remove duplicates (in case suggested is also in-progress)
+    const uniqueFocused = Array.from(new Set(focusedAssignments));
+
+    // Group focused assignments by program
+    const focusedGroups = this.groupAssignmentsByProgram(uniqueFocused);
+
+    assignmentsList.innerHTML = `
+      <div class="focused-assignments-header">
+        <h3>📌 Your Focus</h3>
+        <p>Suggested next assignment + active work + upcoming modules (${uniqueFocused.length} total)</p>
+      </div>
+      ${focusedGroups.map((group) => this.createCompactProgramSection(group)).join("")}
+    `;
+
+    // Render sidebar with all assignments
+    this.renderAssignmentsSidebar(assignments);
+  }
+
+  createCompactProgramSection(group) {
+    const title = group.meta ? group.meta.title : "Additional Modules";
+    const rows = group.assignments.map((assignment) => this.createAssignmentRow(assignment)).join("");
+
+    return `
+      <div class="compact-program-section">
+        <h4 class="compact-program-title">${title}</h4>
+        ${rows}
+      </div>
+    `;
+  }
+
+  renderAssignmentsSidebar(assignments) {
+    const sidebarContainer = document.getElementById("assignments-sidebar");
+    if (!sidebarContainer) {
+      console.warn("Sidebar container not found");
+      return;
+    }
+
     const groups = this.groupAssignmentsByProgram(assignments);
-    assignmentsList.innerHTML = groups.map((group) => this.createProgramSection(group)).join("");
+
+    const sidebarHtml = `
+      <div class="sidebar-header">
+        <h3>All Assignments</h3>
+        <button class="sidebar-toggle" onclick="window.portalInstance.toggleSidebar()" aria-label="Toggle sidebar">
+          ✕
+        </button>
+      </div>
+      <div class="sidebar-content">
+        ${groups.map((group) => this.createSidebarProgramGroup(group)).join("")}
+      </div>
+    `;
+
+    sidebarContainer.innerHTML = sidebarHtml;
+  }
+
+  createSidebarProgramGroup(group) {
+    const title = group.meta ? group.meta.title : "Additional Modules";
+    const items = group.assignments
+      .map((assignment) => {
+        const progressStatus = this.progressMap.get(assignment.id) || 'unknown';
+        const progressIcon = this.progressTracker.getStatusIcon(progressStatus);
+        
+        return `
+          <a href="assets/pages/assignment.html?id=${assignment.id}" class="sidebar-assignment-link">
+            <span class="sidebar-progress-icon">${progressIcon}</span>
+            <span class="sidebar-assignment-title">${assignment.title}</span>
+            <span class="sidebar-module-number">M${this.getAssignmentSequence(assignment)}</span>
+          </a>
+        `;
+      })
+      .join("");
+
+    return `
+      <div class="sidebar-program-group">
+        <h4 class="sidebar-program-title">${title}</h4>
+        <div class="sidebar-assignments">
+          ${items}
+        </div>
+      </div>
+    `;
+  }
+
+  toggleSidebar() {
+    const sidebar = document.getElementById("assignments-sidebar");
+    if (!sidebar) return;
+    
+    sidebar.classList.toggle("sidebar-open");
   }
 
   groupAssignmentsByProgram(assignments) {

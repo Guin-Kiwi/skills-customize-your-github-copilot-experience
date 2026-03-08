@@ -54,12 +54,6 @@ def create_kpi(kpi: KPI):
 	return kpi
 ```
 
-## ⏱️ 20-Minute Chunk Plan
-
-- `8.1` (20 min): Create FastAPI app and health endpoint.
-- `8.2` (20 min): Add metrics list and detail endpoints.
-- `8.3` (20 min): Add validation and error responses.
-- `8.4` (20 min): Test API behavior and document examples.
 
 ## 📝 Tasks
 
@@ -112,10 +106,3 @@ To mark this assignment complete, submit:
 - `Code Artifact`: FastAPI app with validated KPI CRUD endpoints.
 - `Interpretation Artifact`: Short API contract notes explaining design decisions.
 - `Verification Artifact`: Test/check output plus sample API responses from `/docs` or curl.
-
-## 🔗 Quick Access
-
-Open assignment files directly in your browser:
-
-- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/fastapi-rest-apis/starter-code.py)
-- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/fastapi-rest-apis)

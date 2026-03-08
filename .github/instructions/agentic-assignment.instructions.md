@@ -52,7 +52,10 @@ For each step, prefer requiring all of the following deliverables:
 ## Writing Constraints
 
 - Follow the project assignment template structure in `templates/assignment-template.md`.
-- Preserve shared flow sections used by this curriculum (`Builds On`, `Unlocks Next`, `20-Minute Chunk Plan`, `Achievement Evidence`).
+- Preserve shared flow sections used by this curriculum (`Builds On`, `Unlocks Next`, `Tasks` with timing, `Achievement Evidence`).
+- Each task section should include timing estimate in the header: `### 🛠️ Task Name (20 min) (`Both`)`
+- Tasks are displayed one at a time with Previous/Next navigation on the portal
+- Quick Access section is automatically generated - do not add it to markdown
 - Keep language student-friendly, clear, and action-oriented.
 - Keep requirements specific and measurable.
 - Do not remove required template sections.

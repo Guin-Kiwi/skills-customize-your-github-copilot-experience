@@ -24,22 +24,38 @@
 
     <main class="main">
       <div class="container">
-        <!-- Suggested Assignment Section -->
-        <section class="next-due-section">
-          <h2><span class="highlight-text">⏱️</span> Suggested Next Assignment</h2>
-          <div id="next-due-assignment" class="next-due-card">
-            <div class="loading">Loading suggested assignment...</div>
-          </div>
-        </section>
+        <div class="portal-layout">
+          <!-- Main Content Area -->
+          <div class="portal-main">
+            <!-- Suggested Assignment Section -->
+            <section class="next-due-section">
+              <h2><span class="highlight-text">⏱️</span> Suggested Next Assignment</h2>
+              <div id="next-due-assignment" class="next-due-card">
+                <div class="loading">Loading suggested assignment...</div>
+              </div>
+            </section>
 
-        <!-- All Assignments Section -->
-        <section class="assignments">
-          <h2>All Assignments</h2>
-          <div id="assignments-list" class="assignments-list">
-            <!-- Assignments will be loaded dynamically -->
-            <div class="loading">Loading assignments...</div>
+            <!-- Focused Assignments Section -->
+            <section class="assignments">
+              <div class="assignments-header-with-toggle">
+                <h2>Your Assignments</h2>
+                <button class="btn btn-sidebar-toggle" onclick="window.portalInstance.toggleSidebar()" aria-label="Show all assignments">
+                  📚 View All (18)
+                </button>
+              </div>
+              <div id="assignments-list" class="assignments-list">
+                <!-- Assignments will be loaded dynamically -->
+                <div class="loading">Loading assignments...</div>
+              </div>
+            </section>
           </div>
-        </section>
+
+          <!-- Sidebar with All Assignments -->
+          <aside id="assignments-sidebar" class="assignments-sidebar">
+            <!-- Sidebar content will be loaded dynamically -->
+            <div class="loading">Loading sidebar...</div>
+          </aside>
+        </div>
       </div>
     </main>
 

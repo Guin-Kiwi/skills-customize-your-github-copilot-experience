@@ -58,11 +58,11 @@ class AssignmentPage {
     document.getElementById("assignment-title").textContent = this.assignment.title;
     document.title = `${this.assignment.title} - ${this.config.course.school}`;
 
-    // Render download links
-    this.renderDownloadLinks();
-
     // Load and render README content
     await this.loadReadmeContent();
+
+    // Render Quick Access section (after content is loaded)
+    this.renderQuickAccessSection();
 
     // Add pathway guidance banner based on config metadata
     this.renderProgressBanner();
@@ -189,31 +189,84 @@ class AssignmentPage {
     );
   }
 
-  renderDownloadLinks() {
-    const { attachments = [] } = this.assignment;
+  renderQuickAccessSection() {
+    const content = document.getElementById("assignment-content");
+    if (!content) return;
 
-    if (attachments.length === 0) {
-      return;
+    // Get repo context from localStorage (populated by Progress Tracker)
+    const repoContext = this.getRepoContext();
+    
+    const quickAccessHtml = this.createQuickAccessHtml(repoContext);
+    
+    // Insert Quick Access at the top of assignment content
+    const quickAccessDiv = document.createElement('div');
+    quickAccessDiv.className = 'quick-access-section';
+    quickAccessDiv.innerHTML = quickAccessHtml;
+    content.insertBefore(quickAccessDiv, content.firstChild);
+  }
+
+  getRepoContext() {
+    // Try to detect from GitHub Pages URL
+    const hostname = window.location.hostname;
+    const path = window.location.pathname;
+
+    if (hostname.endsWith('.github.io')) {
+      const username = hostname.split('.')[0];
+      const pathParts = path.split('/').filter(Boolean);
+      const repo = pathParts[0] || 'skills-customize-your-github-copilot-experience';
+      return { owner: username, repo: repo };
     }
 
-    const downloadsSection = document.getElementById("downloads-section");
-    const downloadLinks = document.getElementById("download-links");
+    // Check localStorage for manual configuration
+    const stored = localStorage.getItem('repo-context');
+    if (stored) {
+      try {
+        return JSON.parse(stored);
+      } catch (e) {
+        console.warn('Invalid stored repo context:', e);
+      }
+    }
 
-    const links = attachments
-      .map((attachment) => {
-        const icon = this.getFileIcon(attachment.type);
-        return `
-                <a href="../../${this.assignment.path}/${attachment.file}" 
-                   download 
-                   class="btn btn-download">
-                   ${icon} Download ${attachment.name}
-                </a>
-            `;
-      })
-      .join(" ");
+    return null;
+  }
 
-    downloadLinks.innerHTML = links;
-    downloadsSection.style.display = "block";
+  createQuickAccessHtml(repoContext) {
+    if (!repoContext) {
+      return `
+        <div class="quick-access-card">
+          <h3>🚀 Quick Access</h3>
+          <p class="quick-access-notice">⚠️ Configure the Progress button to enable Quick Access to your fork.</p>
+          <a href="https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/${this.assignment.id}/starter-code.py" 
+             class="btn btn-quick-access" 
+             target="_blank">
+            📝 View Template Starter Code
+          </a>
+        </div>
+      `;
+    }
+
+    const { owner, repo } = repoContext;
+    const starterCodeUrl = `https://github.dev/${owner}/${repo}/blob/main/assignments/${this.assignment.id}/starter-code.py`;
+    const assignmentFolderUrl = `https://github.com/${owner}/${repo}/tree/main/assignments/${this.assignment.id}`;
+
+    return `
+      <div class="quick-access-card">
+        <h3>🚀 Quick Access</h3>
+        <p class="quick-access-subtitle">Open your work in GitHub (${owner}/${repo})</p>
+        <div class="quick-access-buttons">
+          <a href="${starterCodeUrl}" 
+             class="btn btn-quick-access btn-primary" 
+             target="_blank">
+            📝 Open starter-code.py in GitHub
+          </a>
+          <a href="${assignmentFolderUrl}" 
+             class="btn btn-quick-access btn-secondary" 
+             target="_blank">
+            📁 View Assignment Folder
+          </a>
+        </div>
+      </div>
+    `;
   }
 
   getFileIcon(type) {
@@ -257,117 +310,177 @@ class AssignmentPage {
 
   setupChunkPages() {
     const content = document.getElementById("assignment-content");
-    const headings = Array.from(content.querySelectorAll("h2"));
-    const chunkHeading = headings.find((h) => /chunk\s*plan/i.test(h.textContent));
-    const tasksHeading = headings.find((h) => /tasks/i.test(h.textContent));
+    if (!content) return;
 
-    if (!chunkHeading || !tasksHeading) {
-      return;
+    // Find all task headings (### 🛠️ Task Name)
+    const allHeadings = Array.from(content.querySelectorAll("h3"));
+    const taskHeadings = allHeadings.filter((h) => h.textContent.includes('🛠️'));
+
+    if (taskHeadings.length === 0) {
+      return; // No tasks to paginate
     }
 
-    const chunkList = this.findNextElementByTag(chunkHeading, "UL");
-    if (!chunkList) {
-      return;
+    // Find the sections that should always be visible (Key Concepts, Objective, etc.)
+    const h2Headings = Array.from(content.querySelectorAll("h2"));
+    const tasksHeadingIndex = h2Headings.findIndex((h) => /tasks/i.test(h.textContent));
+    
+    if (tasksHeadingIndex === -1) {
+      return; // No Tasks section found
     }
 
-    const chunkItems = Array.from(chunkList.querySelectorAll("li"));
-    const taskSections = this.collectTaskSections(tasksHeading);
-
-    if (chunkItems.length === 0 || taskSections.length === 0) {
-      return;
+    // Get all elements before the Tasks section (these stay visible)
+    const tasksHeading = h2Headings[tasksHeadingIndex];
+    const persistentElements = [];
+    let currentNode = content.firstChild;
+    
+    while (currentNode && currentNode !== tasksHeading) {
+      persistentElements.push(currentNode);
+      currentNode = currentNode.nextSibling;
     }
 
-    // Normalize heading to the requested cadence.
-    chunkHeading.textContent = chunkHeading.textContent.replace("30-Minute", "20-Minute");
+    // Collect task sections
+    const taskSections = [];
+    taskHeadings.forEach((taskHeading, index) => {
+      const section = {
+        heading: taskHeading,
+        nodes: [taskHeading],
+        title: taskHeading.textContent.replace('🛠️', '').trim()
+      };
 
-    const pageCount = Math.min(chunkItems.length, taskSections.length);
-    const nav = document.createElement("div");
-    nav.className = "chunk-nav";
+      let node = taskHeading.nextSibling;
+      const nextTaskHeading = taskHeadings[index + 1];
+      const nextH2 = h2Headings[tasksHeadingIndex + 1];
 
-    const pagesContainer = document.createElement("div");
-    pagesContainer.className = "chunk-pages";
-
-    const pageElements = [];
-
-    let initialIndex = 0;
-
-    for (let i = 0; i < pageCount; i++) {
-      const label = this.extractChunkLabel(chunkItems[i].textContent, i);
-
-      if (this.chunkId && this.chunkId === label) {
-        initialIndex = i;
+      while (node) {
+        if (node === nextTaskHeading || node === nextH2) {
+          break;
+        }
+        if (node.nodeType === 1 || (node.nodeType === 3 && node.textContent.trim())) {
+          section.nodes.push(node);
+        }
+        node = node.nextSibling;
       }
 
-      const btn = document.createElement("button");
-      btn.className = "chunk-btn";
-      btn.type = "button";
-      btn.dataset.chunkIndex = String(i);
-      btn.textContent = `${label} (20 min)`;
-      nav.appendChild(btn);
+      taskSections.push(section);
+    });
 
-      const page = document.createElement("section");
-      page.className = "chunk-page";
-      page.dataset.chunkIndex = String(i);
-
-      taskSections[i].nodes.forEach((node) => page.appendChild(node));
-      pagesContainer.appendChild(page);
-      pageElements.push(page);
+    if (taskSections.length === 0) {
+      return;
     }
 
+    // Get task index from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const taskParam = urlParams.get('task');
+    let initialIndex = taskParam ? parseInt(taskParam, 10) - 1 : 0;
+    
+    if (initialIndex < 0 || initialIndex >= taskSections.length) {
+      initialIndex = 0;
+    }
+
+    // Create navigation
+    const nav = document.createElement("div");
+    nav.className = "task-nav";
+
+    const navTitle = document.createElement("div");
+    navTitle.className = "task-nav-title";
+    navTitle.textContent = "📋 Tasks";
+    nav.appendChild(navTitle);
+
+    const navButtons = document.createElement("div");
+    navButtons.className = "task-nav-buttons";
+
+    taskSections.forEach((section, index) => {
+      const btn = document.createElement("button");
+      btn.className = "task-btn";
+      btn.type = "button";
+      btn.dataset.taskIndex = String(index);
+      btn.textContent = `Task ${index + 1}`;
+      btn.title = section.title;
+      navButtons.appendChild(btn);
+    });
+
+    nav.appendChild(navButtons);
+
+    // Create task pages container
+    const pagesContainer = document.createElement("div");
+    pagesContainer.className = "task-pages";
+
+    taskSections.forEach((section, index) => {
+      const page = document.createElement("div");
+      page.className = "task-page";
+      page.dataset.taskIndex = String(index);
+      
+      section.nodes.forEach((node) => {
+        page.appendChild(node.cloneNode(true));
+      });
+      
+      pagesContainer.appendChild(page);
+    });
+
+    // Create prev/next controls
     const controls = document.createElement("div");
-    controls.className = "chunk-controls";
+    controls.className = "task-controls";
 
     const prevBtn = document.createElement("button");
     prevBtn.type = "button";
-    prevBtn.className = "btn chunk-control-btn";
-    prevBtn.textContent = "Previous";
+    prevBtn.className = "btn task-control-btn";
+    prevBtn.textContent = "← Previous Task";
 
     const nextBtn = document.createElement("button");
     nextBtn.type = "button";
-    nextBtn.className = "btn chunk-control-btn";
-    nextBtn.textContent = "Next";
+    nextBtn.className = "btn task-control-btn";
+    nextBtn.textContent = "Next Task →";
 
     controls.appendChild(prevBtn);
     controls.appendChild(nextBtn);
 
+    // Insert navigation and pages after Tasks heading
     tasksHeading.insertAdjacentElement("afterend", nav);
     nav.insertAdjacentElement("afterend", pagesContainer);
     pagesContainer.insertAdjacentElement("afterend", controls);
 
-    let currentPage = 0;
-    const navButtons = Array.from(nav.querySelectorAll(".chunk-btn"));
+    // Remove original task nodes from content (they're now in pages)
+    taskSections.forEach((section) => {
+      section.nodes.forEach((node) => {
+        if (node.parentNode === content) {
+          content.removeChild(node);
+        }
+      });
+    });
+
+    // Setup page navigation
+    let currentPage = initialIndex;
+    const taskButtons = Array.from(navButtons.querySelectorAll(".task-btn"));
+    const taskPages = Array.from(pagesContainer.querySelectorAll(".task-page"));
 
     const showPage = (index) => {
-      currentPage = Math.max(0, Math.min(index, pageElements.length - 1));
+      currentPage = Math.max(0, Math.min(index, taskPages.length - 1));
 
-      pageElements.forEach((pageEl, pageIndex) => {
-        pageEl.classList.toggle("active", pageIndex === currentPage);
+      taskPages.forEach((page, pageIndex) => {
+        page.style.display = pageIndex === currentPage ? "block" : "none";
       });
 
-      navButtons.forEach((btn, btnIndex) => {
+      taskButtons.forEach((btn, btnIndex) => {
         btn.classList.toggle("active", btnIndex === currentPage);
       });
 
       prevBtn.disabled = currentPage === 0;
-      nextBtn.disabled = currentPage === pageElements.length - 1;
+      nextBtn.disabled = currentPage === taskPages.length - 1;
 
-      const activeBtn = navButtons[currentPage];
-      if (activeBtn) {
-        const activeChunk = activeBtn.textContent.split(" ")[0];
-        const url = new URL(window.location.href);
-        url.searchParams.set("chunk", activeChunk);
-        window.history.replaceState({}, "", url.toString());
-      }
+      // Update URL with task parameter
+      const url = new URL(window.location.href);
+      url.searchParams.set("task", String(currentPage + 1));
+      window.history.replaceState({}, "", url.toString());
     };
 
-    navButtons.forEach((btn, index) => {
+    taskButtons.forEach((btn, index) => {
       btn.addEventListener("click", () => showPage(index));
     });
 
     prevBtn.addEventListener("click", () => showPage(currentPage - 1));
     nextBtn.addEventListener("click", () => showPage(currentPage + 1));
 
-    showPage(initialIndex);
+    showPage(currentPage);
   }
 
   findNextElementByTag(startEl, tagName) {

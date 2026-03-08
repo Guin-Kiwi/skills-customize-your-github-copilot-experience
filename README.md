@@ -20,7 +20,20 @@ This portal is designed to be **forked and personalized**. Each student gets the
 3. **Start learning!**
    - Visit your portal site (URL above)
    - Progress tracking works automatically once you commit code to assignment folders
+   - **Quick Access buttons** on each assignment will automatically link to your fork
    - Progress badges update based on your commits
+
+### Working on Assignments
+
+Each assignment page includes:
+
+- **🚀 Quick Access section**: Direct links to open starter code in GitHub or view your assignment folder
+  - Links automatically point to your forked repository (detected from GitHub Pages URL)
+  - If Quick Access links point to the template repo, click the Progress button to configure
+- **📋 Task Navigation**: Work through one 20-minute task at a time
+  - Use Previous/Next buttons to navigate between tasks
+  - Key Concepts and Objectives stay visible while you work
+- **📊 Progress Tracking**: Your progress updates automatically based on commits
 
 ### Local Development
 
@@ -35,11 +48,29 @@ For local progress tracking, click the ⚙️ button in the header to configure 
 
 ### How Progress Tracking Works
 
+The portal automatically tracks your progress by detecting commits to assignment folders:
+
 - ✅ **Complete**: Assignment folder has multiple commits and evidence files
 - 🔄 **In Progress**: You've started committing work to the assignment folder
 - ⭕ **Not Started**: No commits in the assignment folder yet
 
+**Automatic Configuration**: When you visit your GitHub Pages site, the portal automatically detects your username from the URL and configures Quick Access links to point to your fork.
+
+**Manual Configuration**: If needed, click the **⚙️ Setup Progress** or **📊 Progress** button in the header to manually configure your GitHub username.
+
 Progress updates automatically every 5 minutes or when you refresh the page.
+
+### Troubleshooting
+
+**Quick Access links point to wrong repository:**
+- Click the Progress button in the portal header to reconfigure
+- Make sure you're visiting your GitHub Pages URL, not the local server
+- Your Pages URL should be: `https://YOUR-USERNAME.github.io/skills-customize-your-github-copilot-experience/`
+
+**Progress not updating:**
+- Make sure you've committed and pushed changes to the assignment folders
+- Wait 5 minutes for cache to refresh, or reload the page
+- Verify repository access is public or you're logged into GitHub
 
 ## 🚀 Learning Standards: The "Agentic" Approach
 

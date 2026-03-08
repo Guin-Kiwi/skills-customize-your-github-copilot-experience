@@ -60,12 +60,6 @@ session.<!--exercise:answer=add,hint=What method adds objects to the session?-->
 session.commit()
 ```
 
-## ⏱️ 20-Minute Chunk Plan
-
-- `11.1` (20 min): Define ORM models and relationships.
-- `11.2` (25 min): Initialize DB and insert sample runs.
-- `11.3` (25 min): Implement CRUD operations and transactions.
-- `11.4` (20 min): Build summary queries and validate with tests.
 
 ## 📝 Tasks
 
@@ -126,10 +120,3 @@ To mark this assignment complete, submit:
 - `Code Artifact`: SQLAlchemy models plus CRUD/query implementation.
 - `Interpretation Artifact`: A short explanation of schema design choices and one query insight.
 - `Verification Artifact`: Test output and generated `reports/experiment-summary.txt`.
-
-## 🔗 Quick Access
-
-Open assignment files directly in your browser:
-
-- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/sqlalchemy-experiment-tracker/starter-code.py)
-- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/sqlalchemy-experiment-tracker)

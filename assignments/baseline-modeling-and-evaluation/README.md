@@ -54,12 +54,6 @@ print(f"Baseline: {baseline_accuracy:.2f}")
 print(f"Our Model: {accuracy:.2f}")
 ```
 
-## ⏱️ 20-Minute Chunk Plan
-
-- `15.1` (20 min): Prepare features and target split.
-- `15.2` (20 min): Train one baseline model.
-- `15.3` (20 min): Evaluate with task-appropriate metrics.
-- `15.4` (20 min): Analyze errors and propose next iteration.
 
 ## 📝 Tasks
 
@@ -97,10 +91,3 @@ To mark this assignment complete, submit:
 - `Code Artifact`: Baseline model training and evaluation script.
 - `Interpretation Artifact`: Error analysis summary with next-step proposal.
 - `Verification Artifact`: Metric output table and benchmark comparison.
-
-## 🔗 Quick Access
-
-Open assignment files directly in your browser:
-
-- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/baseline-modeling-and-evaluation/starter-code.py)
-- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/baseline-modeling-and-evaluation)

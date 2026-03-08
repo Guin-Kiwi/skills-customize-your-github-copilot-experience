@@ -58,12 +58,6 @@ class Email(BaseModel):
 		return v
 ```
 
-## ⏱️ 20-Minute Chunk Plan
-
-- `10.1` (20 min): Define strict Pydantic schemas and constraints.
-- `10.2` (25 min): Parse CSV/JSON inputs and validate each row.
-- `10.3` (20 min): Split clean output from error output.
-- `10.4` (20 min): Add tests for valid and invalid scenarios.
 
 ## 📝 Tasks
 
@@ -123,10 +117,3 @@ To mark this assignment complete, submit:
 - `Code Artifact`: Pydantic schemas and validation pipeline scripts for CSV and JSON intake.
 - `Interpretation Artifact`: A short summary explaining top error patterns and schema decisions.
 - `Verification Artifact`: Test output and validation logs showing valid/invalid record handling.
-
-## 🔗 Quick Access
-
-Open assignment files directly in your browser:
-
-- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/pydantic-data-validator/starter-code.py)
-- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/pydantic-data-validator)

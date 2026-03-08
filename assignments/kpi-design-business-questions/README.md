@@ -54,12 +54,6 @@ Predictive: What will happen? (e.g., "Which users are at risk?")
 <!--exercise:answer=Prescriptive,hint=What type of question recommends actions?-->: What should we do? (e.g., "Which retention offer works best?")
 ```
 
-## ⏱️ 20-Minute Chunk Plan
-
-- `13.1` (20 min): Define business objective and stakeholder context.
-- `13.2` (20 min): Draft KPI formulas and guardrail metrics.
-- `13.3` (20 min): Build question tree for decisions.
-- `13.4` (20 min): Validate KPI feasibility with sample data.
 
 ## 📝 Tasks
 
@@ -96,10 +90,3 @@ To mark this assignment complete, submit:
 - `Code Artifact`: A script or notebook that computes at least one KPI from sample data.
 - `Interpretation Artifact`: KPI design sheet with rationale.
 - `Verification Artifact`: Output table showing KPI calculations and validation checks.
-
-## 🔗 Quick Access
-
-Open assignment files directly in your browser:
-
-- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/kpi-design-business-questions/starter-code.py)
-- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/kpi-design-business-questions)

@@ -70,7 +70,7 @@ Now that you've explored the project, let's create custom instructions to help C
    ```markdown
    # Project Description
 
-   This project is an educational website for sharing homework assignments and coding exercises with students. Students can browse, view, and download assignments directly from the portal.
+   This project is an educational website for sharing homework assignments and coding exercises with students. Students can browse, view, and work on assignments through an interactive portal with automatic progress tracking and dynamic Quick Access links to their forked repositories.
 
    ## Project Structure
 

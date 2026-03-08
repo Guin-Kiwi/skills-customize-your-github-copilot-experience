@@ -58,12 +58,6 @@ interval = stats.t.interval(confidence, len(data)-1,
 # Result: We are <!--exercise:answer=95,hint=What percentage confident is our interval?-->% confident the true mean is in this range
 ```
 
-## ⏱️ 20-Minute Chunk Plan
-
-- `14.1` (20 min): Define null and alternative hypotheses.
-- `14.2` (20 min): Compute summary statistics by group.
-- `14.3` (20 min): Run a significance test and interpret p-value.
-- `14.4` (20 min): Write decision statement with limitations.
 
 ## 📝 Tasks
 
@@ -114,10 +108,3 @@ To mark this assignment complete, submit:
 - `Code Artifact`: Script/notebook with test setup and output.
 - `Interpretation Artifact`: Decision readout with uncertainty language.
 - `Verification Artifact`: Printed test statistic and p-value output.
-
-## 🔗 Quick Access
-
-Open assignment files directly in your browser:
-
-- [📝 Open starter-code.py in GitHub](https://github.dev/Guin-Kiwi/skills-customize-your-github-copilot-experience/blob/main/assignments/statistics-and-hypothesis-testing/starter-code.py)
-- [📂 View assignment folder](https://github.com/Guin-Kiwi/skills-customize-your-github-copilot-experience/tree/main/assignments/statistics-and-hypothesis-testing)
