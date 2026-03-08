@@ -472,3 +472,234 @@ body {
     flex-direction: column;
   }
 }
+
+/* Interactive Exercise Styles */
+.exercise-container {
+  background: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.exercise-container::before {
+  content: "✏️ Interactive Exercise";
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: var(--secondary-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.exercise-code {
+  background: #2d2d2d;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: auto;
+}
+
+.exercise-code code {
+  color: #f8f8f2;
+  background: transparent;
+  padding: 0;
+}
+
+.code-blank {
+  display: inline-block;
+  background: #3e3e3e;
+  border: 2px solid #4a9eff;
+  border-radius: 4px;
+  padding: 0.1rem 0.3rem;
+  min-width: 60px;
+  text-align: center;
+  position: relative;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { border-color: #4a9eff; }
+  50% { border-color: #7cb9ff; }
+}
+
+.code-blank input {
+  background: transparent;
+  border: none;
+  color: #f8f8f2;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.95rem;
+  width: 100%;
+  min-width: 60px;
+  max-width: 200px;
+  padding: 0.2rem;
+  outline: none;
+  text-align: center;
+}
+
+.code-blank input::placeholder {
+  color: #666;
+}
+
+.code-blank input:focus {
+  background: rgba(74, 158, 255, 0.1);
+}
+
+.exercise-controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.btn-check {
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.btn-check:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-check:active {
+  transform: translateY(0);
+}
+
+.btn-hint {
+  background: #95a5a6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.btn-hint:hover {
+  background: #7f8c8d;
+}
+
+.btn-reset {
+  background: transparent;
+  color: #95a5a6;
+  border: 1px solid #95a5a6;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.btn-reset:hover {
+  background: #95a5a6;
+  color: white;
+}
+
+.exercise-feedback {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  display: none;
+}
+
+.exercise-feedback.show {
+  display: block;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.exercise-feedback.correct {
+  background: #d4edda;
+  color: #155724;
+  border: 2px solid #c3e6cb;
+}
+
+.exercise-feedback.incorrect {
+  background: #f8d7da;
+  color: #721c24;
+  border: 2px solid #f5c6cb;
+}
+
+.exercise-feedback strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.exercise-hint {
+  background: #fff3cd;
+  border: 2px solid #ffeaa7;
+  color: #856404;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  display: none;
+}
+
+.exercise-hint.show {
+  display: block;
+  animation: slideDown 0.3s ease-out;
+}
+
+.exercise-hint::before {
+  content: "💡 Hint: ";
+  font-weight: 600;
+}
+
+/* Code Syntax Adjustments for Prism */
+.assignment-content pre[class*="language-"] {
+  background: #2d2d2d;
+  border-radius: 6px;
+  border: none;
+  margin: 1rem 0;
+}
+
+.assignment-content code[class*="language-"] {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.95rem;
+}
+
+/* Progress Indicator */
+.exercise-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  margin-left: auto;
+}
+
+.exercise-progress .progress-icon {
+  font-size: 1.2rem;
+}

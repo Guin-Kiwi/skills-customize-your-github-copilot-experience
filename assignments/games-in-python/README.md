@@ -7,7 +7,49 @@ Build the classic word-guessing game using Python strings, loops, and user input
 
 **Skills practiced:** String manipulation, loops, conditionals, random selection
 
-## 📝 Tasks
+## � Key Concepts
+
+### Random Selection
+Python's `random` module lets you pick items randomly from a list.
+
+**Try it yourself:**
+<!--exercise:answer=random.choice,hint=Use random.choice() to pick a random item from a list-->
+
+```python
+import random
+
+words = ["python", "java", "ruby"]
+word = ____(words)
+print(word)  # Prints a random word
+```
+
+### String Methods
+Check if a letter is in a string using the `in` operator.
+
+**Try it yourself:**
+<!--exercise:answer=in,hint=Use the 'in' keyword to check membership-->
+
+```python
+word = "python"
+letter = "p"
+
+if letter ____ word:
+    print("Found it!")
+```
+
+### String Joining
+Join list items into a single string using `.join()`.
+
+**Try it yourself:**
+<!--exercise:answer=" ".join,hint=Use " ".join() to join with spaces-->
+
+```python
+display = ["_", "p", "_", "_", "_", "_"]
+result = ____(display)
+print(result)  # Output: _ p _ _ _ _
+```
+
+## �📝 Tasks
 
 ### 🛠️ Build the Hangman Game
 
