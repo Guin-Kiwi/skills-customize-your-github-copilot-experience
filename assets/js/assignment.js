@@ -63,6 +63,130 @@ class AssignmentPage {
 
     // Load and render README content
     await this.loadReadmeContent();
+
+    // Add pathway guidance banner based on config metadata
+    this.renderProgressBanner();
+
+    // Add narrative context and milestone gate hints
+    this.renderNarrativeFlowCard();
+  }
+
+  renderNarrativeFlowCard() {
+    const content = document.getElementById("assignment-content");
+    if (!content || !this.assignment) {
+      return;
+    }
+
+    const program = this.findProgramMeta(this.assignment.program);
+    const nextModule = this.findNextModule();
+    const milestone = this.isMilestoneGate(this.assignment);
+
+    const whyText =
+      this.assignment.narrative ||
+      `This module strengthens ${program ? program.title : "your learning pathway"} through applied practice.`;
+    const capstoneHook =
+      this.assignment.capstoneHook ||
+      "Keep your outputs: they become reusable artifacts in your final portfolio capstone.";
+
+    const card = document.createElement("section");
+    card.className = "narrative-flow-card";
+    card.innerHTML = `
+      <h3>Narrative Flow</h3>
+      <p>${whyText}</p>
+      <p class="narrative-hook">${capstoneHook}</p>
+      <div class="narrative-meta">
+        <span class="narrative-pill">Program: ${program ? program.title : "General"}</span>
+        <span class="narrative-pill">Module ${this.assignment.moduleOrder || "-"}</span>
+        ${nextModule ? `<span class="narrative-pill">Next: ${nextModule.title}</span>` : ""}
+      </div>
+    `;
+
+    const firstHeading = content.querySelector("h1, h2");
+    if (firstHeading) {
+      firstHeading.insertAdjacentElement("beforebegin", card);
+    } else {
+      content.prepend(card);
+    }
+
+    if (milestone) {
+      const gate = document.createElement("section");
+      gate.className = "milestone-gate-card";
+      gate.innerHTML = `
+        <strong>Milestone Gate</strong>
+        <p>Submit your code, interpretation note, and verification evidence for this module before unlocking the next milestone checkpoint.</p>
+      `;
+      card.insertAdjacentElement("afterend", gate);
+    }
+  }
+
+  findProgramMeta(programId) {
+    const programs = this.config.programs || [];
+    return programs.find((program) => program.id === programId) || null;
+  }
+
+  isMilestoneGate(assignment) {
+    if (typeof assignment.milestoneGate === "boolean") {
+      return assignment.milestoneGate;
+    }
+    return Number.isInteger(assignment.moduleOrder) && assignment.moduleOrder % 2 === 0;
+  }
+
+  renderProgressBanner() {
+    const content = document.getElementById("assignment-content");
+    if (!content || !this.assignment) {
+      return;
+    }
+
+    const prerequisites = (this.assignment.prerequisites || [])
+      .map((id) => this.findAssignment(id))
+      .filter(Boolean);
+
+    const nextModule = this.findNextModule();
+
+    const prereqHtml = prerequisites.length
+      ? prerequisites
+          .map(
+            (item) =>
+              `<a class="progress-link" href="assignment.html?id=${item.id}">${item.title}</a>`
+          )
+          .join("<span class=\"progress-sep\">, </span>")
+      : "<span class=\"progress-empty\">No prerequisites (entry module)</span>";
+
+    const nextHtml = nextModule
+      ? `<a class="progress-link" href="assignment.html?id=${nextModule.id}">${nextModule.title}</a>`
+      : "<span class=\"progress-empty\">Program capstone or independent extension work</span>";
+
+    const banner = document.createElement("section");
+    banner.className = "progress-banner";
+    banner.innerHTML = `
+      <div class="progress-grid">
+        <div class="progress-card">
+          <h3>Prerequisites</h3>
+          <div>${prereqHtml}</div>
+        </div>
+        <div class="progress-card">
+          <h3>Next Module</h3>
+          <div>${nextHtml}</div>
+        </div>
+      </div>
+    `;
+
+    content.prepend(banner);
+  }
+
+  findNextModule() {
+    const currentProgram = this.assignment.program;
+    const currentOrder = this.assignment.moduleOrder;
+    if (!currentProgram || !Number.isInteger(currentOrder)) {
+      return null;
+    }
+
+    return (
+      this.config.assignments.find(
+        (assignment) =>
+          assignment.program === currentProgram && assignment.moduleOrder === currentOrder + 1
+      ) || null
+    );
   }
 
   renderDownloadLinks() {

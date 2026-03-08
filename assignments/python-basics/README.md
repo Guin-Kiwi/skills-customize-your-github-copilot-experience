@@ -5,6 +5,14 @@
 
 Practice fundamental Python programming skills including user input, string formatting, arithmetic operations, and conditional statements by implementing simple functions.
 
+## 🔗 Builds On
+
+- `No prerequisites. This is an entry module.`
+
+## 🚀 Unlocks Next
+
+- `Level 1: Games in Python`
+
 ## ⏱️ 30-Minute Chunk Plan
 
 - `0.1` (20 min): Capture input and store in variables.
@@ -102,4 +110,12 @@ Completed program should:
   ```
 - Hint: Use the modulo operator `%` and check whether `number % 2 == 0`.
 - Hint: Start by testing easy values like `0`, `1`, `2`, and `-2`.
+
+## 🏆 Achievement Evidence
+
+To mark this assignment complete, submit:
+
+- `Code Artifact`: Completed implementations of `welcome_message`, `add_two_numbers`, and `is_even`.
+- `Interpretation Artifact`: A short note explaining how input and output flow through one function.
+- `Verification Artifact`: Console output screenshots or test print results for all three tasks.
 

@@ -1,7 +1,7 @@
 ---
 description: "Use when creating or updating an agentic assignment that uses custom prompts or agents across requirements, architecture, implementation, and validation."
 name: "Agentic Assignment Rules"
-applyTo: "assignments/**/README.md"
+applyTo: "assignments/agentic-*/README.md"
 ---
 # Agentic Assignment Rules
 
@@ -52,6 +52,7 @@ For each step, prefer requiring all of the following deliverables:
 ## Writing Constraints
 
 - Follow the project assignment template structure in `templates/assignment-template.md`.
+- Preserve shared flow sections used by this curriculum (`Builds On`, `Unlocks Next`, `20-Minute Chunk Plan`, `Achievement Evidence`).
 - Keep language student-friendly, clear, and action-oriented.
 - Keep requirements specific and measurable.
 - Do not remove required template sections.

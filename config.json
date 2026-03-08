@@ -4,12 +4,47 @@
     "school": "Mergington High School",
     "description": "Introduction to programming and computer science"
   },
+  "programs": [
+    {
+      "id": "foundations",
+      "title": "Program A: Python Foundations",
+      "description": "Build confidence with core Python logic, data structures, files, and classes.",
+      "starterPack": {
+        "outcome": "You will build reliable core coding habits and complete your first reusable analysis-ready scripts.",
+        "tools": ["Python 3", "VS Code", "Basic terminal commands", "Unit test basics"],
+        "badgeGoal": "Foundation Badge: Complete modules 1-6 + milestone evidence"
+      }
+    },
+    {
+      "id": "app-builder",
+      "title": "Program B: Application Engineering",
+      "description": "Build production-style applications with validation, databases, APIs, and UI.",
+      "starterPack": {
+        "outcome": "You will ship integrated apps that validate, persist, serve, and visualize data end-to-end.",
+        "tools": ["Pydantic", "SQLAlchemy", "FastAPI", "Streamlit"],
+        "badgeGoal": "App Builder Badge: Complete modules 1-4 + integrated demo"
+      }
+    },
+    {
+      "id": "data-ai",
+      "title": "Program C: Data and AI Builder",
+      "description": "Apply analysis, testing, and AI-assisted engineering in cohesive projects.",
+      "starterPack": {
+        "outcome": "You will produce analyst-grade insights and AI-assisted engineering artifacts with evidence.",
+        "tools": ["Pandas", "Visualization", "Pytest", "AI Copilot workflow"],
+        "badgeGoal": "Data/AI Badge: Complete modules 1-3 + capstone evidence"
+      }
+    }
+  ],
   "assignments": [
     {
       "id": "python-basics",
       "title": "Level 0: Python Basics",
       "description": "Variables, data types, conditionals, and loops",
       "path": "assignments/python-basics",
+      "program": "foundations",
+      "moduleOrder": 1,
+      "prerequisites": [],
       "timeToComplete": "45-60 minutes",
       "attachments": [
         {
@@ -24,6 +59,9 @@
       "title": "Level 1: Games in Python",
       "description": "Creating games using Python with strings, loops, and random selection",
       "path": "assignments/games-in-python",
+      "program": "foundations",
+      "moduleOrder": 2,
+      "prerequisites": ["python-basics"],
       "timeToComplete": "1.5-2.5 hours"
     },
     {
@@ -31,6 +69,9 @@
       "title": "Level 2: Lists and Tuples",
       "description": "Master lists, tuples, indexing, slicing, and list methods for data collections",
       "path": "assignments/lists-and-tuples",
+      "program": "foundations",
+      "moduleOrder": 3,
+      "prerequisites": ["games-in-python"],
       "timeToComplete": "60-90 minutes",
       "attachments": [
         {
@@ -45,6 +86,9 @@
       "title": "Level 3: Dictionaries and Sets",
       "description": "Learn key-value data storage with dictionaries and unique collections with sets",
       "path": "assignments/dictionaries-and-sets",
+      "program": "foundations",
+      "moduleOrder": 4,
+      "prerequisites": ["lists-and-tuples"],
       "timeToComplete": "60-90 minutes",
       "attachments": [
         {
@@ -59,6 +103,9 @@
       "title": "Level 4: Files and Exceptions",
       "description": "Read and write files, handle errors with try-except blocks for robust programs",
       "path": "assignments/files-and-exceptions",
+      "program": "foundations",
+      "moduleOrder": 5,
+      "prerequisites": ["dictionaries-and-sets"],
       "timeToComplete": "75-100 minutes",
       "attachments": [
         {
@@ -73,6 +120,9 @@
       "title": "Level 5: Python Classes",
       "description": "Defining and using classes in Python for object-oriented programming",
       "path": "assignments/python-classes",
+      "program": "foundations",
+      "moduleOrder": 6,
+      "prerequisites": ["files-and-exceptions"],
       "timeToComplete": "1-1.5 hours",
       "attachments": [
         {
@@ -87,6 +137,9 @@
       "title": "Level 6: Data Analysis",
       "description": "Basics of data analysis: loading, exploring, and visualizing data in Python with pandas",
       "path": "assignments/data-analysis",
+      "program": "data-ai",
+      "moduleOrder": 1,
+      "prerequisites": ["python-classes"],
       "timeToComplete": "2-3 hours",
       "attachments": [
         {
@@ -106,6 +159,9 @@
       "title": "Level 7: Testing with Pytest",
       "description": "Learn unit testing with pytest by covering normal behavior, edge cases, and invalid inputs",
       "path": "assignments/testing-with-pytest",
+      "program": "data-ai",
+      "moduleOrder": 2,
+      "prerequisites": ["data-analysis"],
       "timeToComplete": "2-3 hours",
       "attachments": [
         {
@@ -120,6 +176,9 @@
       "title": "Level 8: Building REST APIs with FastAPI",
       "description": "Learn to build modern REST APIs with FastAPI framework, including CRUD operations and data validation",
       "path": "assignments/fastapi-rest-apis",
+      "program": "app-builder",
+      "moduleOrder": 3,
+      "prerequisites": ["sqlalchemy-experiment-tracker"],
       "timeToComplete": "3-4 hours",
       "attachments": [
         {
@@ -134,6 +193,9 @@
       "title": "Level 9: Agentic Timer App",
       "description": "Co-engineer a small software project using custom prompts or agents across requirements, architecture, implementation, and validation",
       "path": "assignments/agentic-timer-app",
+      "program": "data-ai",
+      "moduleOrder": 3,
+      "prerequisites": ["testing-with-pytest"],
       "timeToComplete": "4-6 hours",
       "attachments": [
         {
@@ -148,6 +210,9 @@
       "title": "Level 10: Data Parsing and Validation with Pydantic",
       "description": "Validate messy CSV and JSON data using strict Pydantic schemas and error reporting",
       "path": "assignments/pydantic-data-validator",
+      "program": "app-builder",
+      "moduleOrder": 1,
+      "prerequisites": ["python-classes"],
       "timeToComplete": "2-3 hours",
       "attachments": [
         {
@@ -162,6 +227,9 @@
       "title": "Level 11: Database Programming with SQLAlchemy",
       "description": "Build an experiment tracker with SQLAlchemy ORM, SQLite, CRUD operations, and query summaries",
       "path": "assignments/sqlalchemy-experiment-tracker",
+      "program": "app-builder",
+      "moduleOrder": 2,
+      "prerequisites": ["pydantic-data-validator"],
       "timeToComplete": "2.5-3.5 hours",
       "attachments": [
         {
@@ -176,6 +244,9 @@
       "title": "Level 12: Web GUI with Streamlit",
       "description": "Create an interactive data dashboard with file upload, filters, charts, and summary insights",
       "path": "assignments/streamlit-data-dashboard",
+      "program": "app-builder",
+      "moduleOrder": 4,
+      "prerequisites": ["fastapi-rest-apis"],
       "timeToComplete": "2-3 hours",
       "attachments": [
         {

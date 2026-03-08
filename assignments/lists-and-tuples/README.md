@@ -4,6 +4,14 @@
 
 Master fundamental data structures in Python: lists and tuples. Learn how to create, manipulate, and iterate through collections of data using indexing, slicing, and common list methods.
 
+## 🔗 Builds On
+
+- `Level 1: Games in Python`
+
+## 🚀 Unlocks Next
+
+- `Level 3: Dictionaries and Sets`
+
 ## 📚 Key Concepts
 
 ### Creating Lists
@@ -127,3 +135,11 @@ Completed program should:
 - Common list methods: `.append()`, `.insert()`, `.remove()`, `.pop()`, `.sort()`, `.reverse()`
 - Tuples: Can contain mixed types and are efficient for fixed collections
 - Lists are mutable (changeable), tuples are immutable (fixed)
+
+## 🏆 Achievement Evidence
+
+To mark this assignment complete, submit:
+
+- `Code Artifact`: Completed list and tuple operations covering indexing, slicing, and conversion.
+- `Interpretation Artifact`: A brief comparison of when to use a list versus a tuple.
+- `Verification Artifact`: Printed outputs that demonstrate each required operation works.

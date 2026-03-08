@@ -5,6 +5,14 @@
 
 Build the classic word-guessing game using Python strings, loops, and user input. Create a Hangman game where players guess letters to reveal a hidden word before running out of attempts.
 
+## 🔗 Builds On
+
+- `Level 0: Python Basics`
+
+## 🚀 Unlocks Next
+
+- `Level 2: Lists and Tuples`
+
 **Skills practiced:** String manipulation, loops, conditionals, random selection
 
 ## 📚 Key Concepts
@@ -71,3 +79,11 @@ Completed program should:
 - Track incorrect guesses remaining
 - End when word is guessed or attempts exhausted
 - Display win/lose messages
+
+## 🏆 Achievement Evidence
+
+To mark this assignment complete, submit:
+
+- `Code Artifact`: A working Hangman script with loop, guess checks, and win/lose logic.
+- `Interpretation Artifact`: A short explanation of how your game state updates each turn.
+- `Verification Artifact`: A sample game run transcript showing both a win or a loss path.

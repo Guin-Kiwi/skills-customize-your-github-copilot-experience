@@ -4,6 +4,14 @@
 
 Learn to read from and write to files, handle errors with exceptions, and build robust programs that manage unexpected situations gracefully.
 
+## 🔗 Builds On
+
+- `Level 3: Dictionaries and Sets`
+
+## 🚀 Unlocks Next
+
+- `Level 5: Python Classes`
+
 ## 📚 Key Concepts
 
 ### Opening Files
@@ -150,3 +158,11 @@ Completed program should:
 - Always use `with` statement for automatic file closing
 - Try-except-finally structure ensures cleanup code runs
 - Multiple except clauses allow different handling for different errors
+
+## 🏆 Achievement Evidence
+
+To mark this assignment complete, submit:
+
+- `Code Artifact`: A script that reads, writes, appends, and handles errors as required.
+- `Interpretation Artifact`: A brief note describing one error path and how your code recovers.
+- `Verification Artifact`: Output evidence for a successful run and at least one handled exception.

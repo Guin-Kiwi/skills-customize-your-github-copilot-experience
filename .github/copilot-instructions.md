@@ -20,3 +20,21 @@ When generating content for this project:
 
 - **Learning-focused**: All content should be designed with clear learning objectives and appropriate difficulty levels
 - **Student-friendly**: Use clear, encouraging language that motivates students
+
+## Program Flow Standards
+
+- Treat assignments as part of a cohesive pathway, not isolated exercises.
+- Maintain shared-core progression for all learners, then role-relevant depth for:
+: `BA` (Business/Data Analyst)
+: `JDS` (Junior Data Scientist)
+- Preserve and use progression metadata from `config.json` (`program`, `moduleOrder`, `prerequisites`).
+- Keep chunk pacing centered on 20-minute learning blocks.
+
+## Assignment Authoring Expectations
+
+- Include or preserve these sections in assignment markdown:
+: `Builds On`
+: `Unlocks Next`
+: `20-Minute Chunk Plan`
+: `Achievement Evidence`
+- Ensure each assignment contributes toward portfolio-quality capstones.

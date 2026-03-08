@@ -4,6 +4,14 @@
 
 Learn to use dictionaries for key-value data storage and sets for unique collections. Master dictionary operations, accessing values by keys, and using sets for membership testing and eliminating duplicates.
 
+## 🔗 Builds On
+
+- `Level 2: Lists and Tuples`
+
+## 🚀 Unlocks Next
+
+- `Level 4: Files and Exceptions`
+
 ## 📚 Key Concepts
 
 ### Creating Dictionaries
@@ -142,3 +150,11 @@ Completed program should:
 - Set syntax: `{item1, item2, item3}` (note: no colons!)
 - Set operations: `.add()`, `.remove()`, `.union()`, `.intersection()`, `.difference()`
 - Common use case: Count unique items using `set()`
+
+## 🏆 Achievement Evidence
+
+To mark this assignment complete, submit:
+
+- `Code Artifact`: Completed dictionary and set task implementations with iteration and set operations.
+- `Interpretation Artifact`: A short explanation of one scenario where sets are better than lists.
+- `Verification Artifact`: Output logs showing dictionary summaries and set operation results.

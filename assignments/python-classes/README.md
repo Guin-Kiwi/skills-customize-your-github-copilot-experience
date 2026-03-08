@@ -4,6 +4,14 @@
 
 Learn how to define and use classes in Python to model real-world objects and behaviors.
 
+## 🔗 Builds On
+
+- `Level 4: Files and Exceptions`
+
+## 🚀 Unlocks Next
+
+- `Level 6: Data Analysis`
+
 ## 📚 Key Concepts
 
 ### Defining a Class
@@ -63,6 +71,12 @@ Create a class named `Car` that represents a car with attributes for make, model
 #### Requirements
 Completed program should:
 
+- Define a class `Car` with `make`, `model`, and `year` attributes
+- Include a method `display_info()` that prints the car's details
+- Create an instance of `Car` and call `display_info()`
+- Hint: In `__init__`, assign values using `self.make = make`, `self.model = model`, and `self.year = year`.
+- Hint: In `display_info()`, print a single formatted sentence so output is easy to read.
+
 
 
 ### 🛠️ Add Methods and Interactions
@@ -72,4 +86,19 @@ Expand the `Car` class to include a method to update the car's mileage and anoth
 
 #### Requirements
 Completed program should:
+
+- Add a `mileage` attribute to the `Car` class (default 0)
+- Add a method `update_mileage(new_mileage)` to update the mileage
+- Add a method `display_mileage()` to print the current mileage
+- Demonstrate updating and displaying mileage for a `Car` instance
+- Hint: Add `self.mileage = 0` in `__init__` before testing update methods.
+- Hint: In `update_mileage`, consider preventing mileage from decreasing.
+
+## 🏆 Achievement Evidence
+
+To mark this assignment complete, submit:
+
+- `Code Artifact`: A working `Car` class with constructor, display methods, and mileage update logic.
+- `Interpretation Artifact`: A short explanation of how object state changes through method calls.
+- `Verification Artifact`: Console output showing object creation and mileage updates.
 
