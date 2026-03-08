@@ -1,45 +1,69 @@
-# 📘 Assignment: Level 4 - Testing with Pytest
+# 📘 Assignment: Level 7 - Testing with Pytest
 
 ## 🎯 Objective
 
-Learn how to write unit tests in Python using `pytest`. You will practice testing normal behavior, edge cases, and invalid input before moving to larger backend projects.
+Use tests to protect analytics logic and metric calculations before they are shipped to APIs, dashboards, or stakeholder reports.
 
-## ⏱️ 30-Minute Chunk Plan
+## 🔗 Builds On
 
-- `7.1` (20 min): Write baseline tests for normal behavior.
-- `7.2` (20 min): Add edge-case tests for boundaries and empty input.
-- `7.3` (25 min): Add exception tests with `pytest.raises`.
-- `7.4` (20 min): Refactor test organization and rerun full suite.
+- `Level 6: Data Analysis`
+
+## 🚀 Unlocks Next
+
+- `Level 9: AI Analyst Workflow Lab`
+
+## ⏱️ 20-Minute Chunk Plan
+
+- `7.1` (20 min): Write baseline tests for core functions.
+- `7.2` (20 min): Add edge and boundary tests.
+- `7.3` (20 min): Add exception and invalid-input tests.
+- `7.4` (20 min): Produce a readable test report for mixed audiences.
 
 ## 📝 Tasks
 
-### 🛠️ Write Basic Unit Tests
+### 🛠️ Test Core Analysis Functions (`Both`)
 
 #### Description
-Write tests for simple utility functions so you can practice arranging test inputs, calling functions, and checking expected outputs.
+Write tests for utility functions that compute totals, rates, or derived fields.
 
 #### Requirements
 Completed program should:
 
-- Create a `tests/` folder and at least one test file.
-- Write tests for a basic math utility function.
-- Use clear test names such as `test_add_positive_numbers`.
-- Run tests with `pytest` and confirm passing results.
-- Hint: Use the pattern `arrange -> act -> assert` in each test.
-- Hint: Start with easy cases first, then add harder cases.
+- Create a `tests/` folder and at least one test module.
+- Add tests for normal behavior of at least 2 functions.
+- Use descriptive test names.
+- Run `pytest` successfully and fix failing cases.
 
-### 🛠️ Test Edge Cases and Errors
+### 🛠️ Cover Edge and Failure Paths (`Both`)
 
 #### Description
-Expand your tests to include unusual inputs and error handling behavior.
+Expand coverage so your code handles difficult inputs safely.
 
 #### Requirements
 Completed program should:
 
-- Add tests for edge cases such as zero values, empty strings, or boundary numbers.
-- Add tests that confirm errors are raised for invalid input.
-- Use `pytest.raises(...)` for exception checks.
+- Add tests for zero values, empty inputs, and boundary values.
+- Add `pytest.raises(...)` tests for invalid types or invalid ranges.
 - Reach at least 10 total tests.
-- Record your test run result in `test-results.md`.
-- Hint: For each function, ask: "What could go wrong?" and write a test for that case.
-- Hint: Keep one idea per test so failures are easy to understand.
+- Log a short summary of discovered bugs and fixes in `artifacts/test-results.md`.
+
+### 🛠️ Communicate Test Outcomes (`BA` + `JDS`)
+
+#### Description
+Translate test evidence for different stakeholders.
+
+#### Requirements
+Completed program should:
+
+- Add a section in `artifacts/test-results.md` explaining business risk of one failing case (`BA`).
+- Add a section listing technical root cause and fix strategy (`JDS`).
+- Include final pass/fail counts and runtime from a real `pytest` run.
+- State one testing habit you will carry into later modules.
+
+## 🏆 Achievement Evidence
+
+To mark this assignment complete, submit:
+
+- `Code Artifact`: Test suite with at least 10 tests across normal, edge, and failure paths.
+- `Interpretation Artifact`: Written summary explaining risk and root-cause findings.
+- `Verification Artifact`: Actual `pytest` output showing final passing status.

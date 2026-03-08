@@ -4,7 +4,15 @@
 
 Create an experiment tracking system that stores machine learning run metadata in SQLite using SQLAlchemy ORM, then query and summarize results.
 
-## ⏱️ 30-Minute Chunk Plan
+## 🔗 Builds On
+
+- `Level 10: Data Parsing and Validation with Pydantic`
+
+## 🚀 Unlocks Next
+
+- `Level 8: Building REST APIs with FastAPI`
+
+## ⏱️ 20-Minute Chunk Plan
 
 - `11.1` (20 min): Define ORM models and relationships.
 - `11.2` (25 min): Initialize DB and insert sample runs.
@@ -13,7 +21,7 @@ Create an experiment tracking system that stores machine learning run metadata i
 
 ## 📝 Tasks
 
-### 🛠️ Design ORM Models
+### 🛠️ Design ORM Models (`Both`)
 
 #### Description
 Model experiments and runs with clear relationships and constraints.
@@ -28,7 +36,7 @@ Completed program should:
 - Hint: Start with simple models, then add relationships after basic inserts work.
 - Hint: Include `__repr__` methods for easier debugging.
 
-### 🛠️ Implement CRUD Operations
+### 🛠️ Implement CRUD Operations (`Both`)
 
 #### Description
 Build scripts that create, read, update, and delete experiment records.
@@ -44,7 +52,7 @@ Completed program should:
 - Hint: Use one session scope per operation block.
 - Hint: Commit only after validation checks pass.
 
-### 🛠️ Query Insights and Validate Behavior
+### 🛠️ Query Insights and Validate Behavior (`Both`)
 
 #### Description
 Produce useful analytics queries and verify behavior with tests.
@@ -59,3 +67,11 @@ Completed program should:
 - Include at least 8 tests including one transaction rollback case.
 - Hint: Use fixtures for temporary test databases to avoid polluting production data.
 - Hint: Keep query helpers separate from CLI/display logic.
+
+## 🏆 Achievement Evidence
+
+To mark this assignment complete, submit:
+
+- `Code Artifact`: SQLAlchemy models plus CRUD/query implementation.
+- `Interpretation Artifact`: A short explanation of schema design choices and one query insight.
+- `Verification Artifact`: Test output and generated `reports/experiment-summary.txt`.

@@ -1,58 +1,69 @@
-# 📘 Assignment: Level 5 - Building REST APIs with FastAPI
+# 📘 Assignment: Level 8 - Building REST APIs with FastAPI
 
 ## 🎯 Objective
 
-Learn how to build modern REST APIs using the FastAPI framework. You'll create a functional API with multiple endpoints, handle HTTP requests and responses, implement data validation, and test your API using interactive documentation.
+Expose analysis-ready metrics through a validated API so data products can serve both business users and technical pipelines.
 
-## ⏱️ 30-Minute Chunk Plan
+## 🔗 Builds On
 
-- `8.1` (20 min): Set up FastAPI app and health endpoints.
-- `8.2` (25 min): Implement create/read todo endpoints.
-- `8.3` (25 min): Implement update/delete with not-found handling.
-- `8.4` (20 min): Add validation and test endpoints in docs.
+- `Level 11: Database Programming with SQLAlchemy`
+
+## 🚀 Unlocks Next
+
+- `Level 12: Web GUI with Streamlit`
+
+## ⏱️ 20-Minute Chunk Plan
+
+- `8.1` (20 min): Create FastAPI app and health endpoint.
+- `8.2` (20 min): Add metrics list and detail endpoints.
+- `8.3` (20 min): Add validation and error responses.
+- `8.4` (20 min): Test API behavior and document examples.
 
 ## 📝 Tasks
 
-### 🛠️ Create a Basic FastAPI Application
+### 🛠️ Bootstrap the Metrics API (`Both`)
 
 #### Description
-Set up a FastAPI application with a simple health check endpoint and learn the fundamentals of route creation and response handling.
+Set up a FastAPI app with baseline endpoints and consistent response structure.
 
 #### Requirements
 Completed program should:
 
-- Install FastAPI and uvicorn using pip
-- Create a basic FastAPI app instance
-- Implement a GET endpoint at `/` that returns a welcome message
-- Implement a GET endpoint at `/health` that returns the API status
-- Run the application using uvicorn and verify it works
+- Initialize FastAPI app and run with `uvicorn`.
+- Implement `GET /` and `GET /health` endpoints.
+- Return JSON responses with clear keys.
+- Add one in-memory sample metric payload for testing.
 
-### 🛠️ Build CRUD Endpoints for a Todo List
+### 🛠️ Implement CRUD for KPI Records (`BA` + `JDS`)
 
 #### Description
-Create a complete set of CRUD (Create, Read, Update, Delete) endpoints to manage a simple todo list using in-memory storage.
+Create endpoints to manage KPI definitions and current values.
 
 #### Requirements
 Completed program should:
 
-- Define a Todo model with fields: `id`, `title`, `description`, and `completed`
-- Implement POST `/todos` to create a new todo item
-- Implement GET `/todos` to retrieve all todo items
-- Implement GET `/todos/{id}` to retrieve a specific todo by ID
-- Implement PUT `/todos/{id}` to update an existing todo
-- Implement DELETE `/todos/{id}` to delete a todo
-- Use appropriate HTTP status codes (200, 201, 404, etc.)
+- Implement POST, GET (all), GET by ID, PUT, and DELETE endpoints for `/kpis`.
+- Use Pydantic models for request and response validation.
+- Return correct status codes (`201`, `200`, `404`, `422`).
+- Include at least one BA-focused field (`business_owner`) and one JDS-focused field (`calculation_version`).
 
-### 🛠️ Add Data Validation and Documentation
+### 🛠️ Validate and Document API Quality (`Both`)
 
 #### Description
-Enhance your API with Pydantic models for automatic data validation and explore FastAPI's built-in interactive documentation.
+Prove endpoint behavior with manual checks and lightweight automated tests.
 
 #### Requirements
 Completed program should:
 
-- Use Pydantic BaseModel for request and response schemas
-- Add field validation (e.g., title must not be empty, completed must be boolean)
-- Include example values in the models for documentation
-- Test all endpoints using the automatic Swagger UI at `/docs`
-- Verify error handling for invalid requests (e.g., wrong data types, missing fields)
+- Verify endpoints in `/docs` and collect example request/response pairs.
+- Add at least 3 tests (or scripted checks) for success and failure cases.
+- Document one data contract decision in `artifacts/api-contract-notes.md`.
+- Record one known limitation and a next-step improvement.
+
+## 🏆 Achievement Evidence
+
+To mark this assignment complete, submit:
+
+- `Code Artifact`: FastAPI app with validated KPI CRUD endpoints.
+- `Interpretation Artifact`: Short API contract notes explaining design decisions.
+- `Verification Artifact`: Test/check output plus sample API responses from `/docs` or curl.

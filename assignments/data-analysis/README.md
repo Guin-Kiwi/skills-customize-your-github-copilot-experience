@@ -1,43 +1,69 @@
-# 📘 Assignment: Level 3 - Data Analysis
+# 📘 Assignment: Level 6 - Data Analysis
 
 ## 🎯 Objective
 
-Students will learn the basics of data analysis using Python. They will load, explore, and analyze a dataset to extract meaningful insights.
+Analyze a real dataset end-to-end and produce both decision-ready insight (`BA`) and technical data-quality evidence (`JDS`).
 
-## ⏱️ 30-Minute Chunk Plan
+## 🔗 Builds On
 
-- `6.1` (20 min): Load dataset and inspect column structure.
-- `6.2` (20 min): Compute descriptive statistics and sanity checks.
-- `6.3` (25 min): Build first visualization and interpret it.
-- `6.4` (25 min): Build second visualization and compare insights.
+- `Level 5: Python Classes`
+
+## 🚀 Unlocks Next
+
+- `Level 7: Testing with Pytest`
+
+## ⏱️ 20-Minute Chunk Plan
+
+- `6.1` (20 min): Load dataset and inspect schema.
+- `6.2` (20 min): Compute descriptive statistics and missing-value checks.
+- `6.3` (20 min): Create one chart and extract one actionable insight.
+- `6.4` (20 min): Produce BA and JDS outputs from the same analysis.
 
 ## 📝 Tasks
 
-### 🛠️ Data Loading and Exploration
+### 🛠️ Profile the Dataset (`Both`)
 
 #### Description
-Load a provided CSV dataset and perform basic exploration to understand its structure and contents.
+Load the dataset and document structure, quality, and numeric patterns.
 
 #### Requirements
 Completed program should:
 
-- Load a CSV file using Python (e.g., with pandas)
-- Display the first 5 rows of the dataset
-- Show summary statistics (mean, median, etc.) for numeric columns
-- Hint: Use `pd.read_csv('data.csv')`, then store the result in a variable like `df`.
-- Hint: If output feels confusing, print one step at a time: `df.head()` first, then `df.describe()`.
+- Load `data.csv` with pandas.
+- Print row count, column names, and data types.
+- Report missing values per column.
+- Generate summary stats for numeric columns.
 
-
-### 🛠️ Data Visualization and Insights
+### 🛠️ Build Insight Views (`Both`)
 
 #### Description
-Create visualizations to help understand the data and summarize key findings.
+Create visuals that reveal trends and support analysis decisions.
 
 #### Requirements
 Completed program should:
 
-- Generate at least two different types of plots (e.g., histogram, scatter plot)
-- Identify and describe at least two insights or trends from the data
-- Save the plots as image files
-- Hint: Start with one column histogram before trying more complex plots.
-- Hint: Save each chart with `plt.savefig('name.png')` before calling `plt.show()`.
+- Create at least two plots (for example histogram + scatter).
+- Save charts as image files.
+- Write 2 to 3 bullet insights tied directly to chart evidence.
+- Flag one limitation or uncertainty in the data.
+
+### 🛠️ Split Deliverables by Role (`BA` + `JDS`)
+
+#### Description
+Publish two outputs from the same notebook/script to mirror real team collaboration.
+
+#### Requirements
+Completed program should:
+
+- Create `artifacts/ba-summary.md` with KPI-focused recommendations (`BA`).
+- Create `artifacts/jds-quality-notes.md` with assumptions and data-quality checks (`JDS`).
+- Ensure both outputs reference at least one shared metric value.
+- Add one sentence linking this work to downstream API or dashboard modules.
+
+## 🏆 Achievement Evidence
+
+To mark this assignment complete, submit:
+
+- `Code Artifact`: Analysis script or notebook that loads, profiles, and visualizes the dataset.
+- `Interpretation Artifact`: BA/JDS written summaries with role-appropriate conclusions.
+- `Verification Artifact`: Saved chart files and printed quality/statistics checks.

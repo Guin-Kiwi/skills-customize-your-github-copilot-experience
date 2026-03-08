@@ -43,7 +43,7 @@ Now let's create a reusable prompt that automates the entire assignment creation
 
    # Create New Programming Assignment
 
-   Your goal is to generate a new homework assignment for the Mergington High School students.
+   Your goal is to generate a new homework assignment for students.
 
    ## Step 1: Gather Assignment Information
 

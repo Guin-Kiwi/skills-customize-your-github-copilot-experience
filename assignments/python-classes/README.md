@@ -1,8 +1,8 @@
-# 📘 Assignment: Level 2 - Python Classes
+# 📘 Assignment: Level 5 - Python Classes
 
 ## 🎯 Objective
 
-Learn how to define and use classes in Python to model real-world objects and behaviors.
+Model a real analytics object with class design so you can manage state, methods, and validation in a reusable way.
 
 ## 🔗 Builds On
 
@@ -12,93 +12,58 @@ Learn how to define and use classes in Python to model real-world objects and be
 
 - `Level 6: Data Analysis`
 
-## 📚 Key Concepts
+## ⏱️ 20-Minute Chunk Plan
 
-### Defining a Class
-Use the `class` keyword to create a new class.
-
-**Try it yourself:**
-<!--exercise:answer=class,hint=Use the 'class' keyword to define a class-->
-
-```python
-____ Car:
-    def __init__(self, make):
-        self.make = make
-```
-
-### The __init__ Method
-The `__init__` method initializes object attributes when creating an instance.
-
-**Try it yourself:**
-<!--exercise:answer=__init__|def __init__,hint=The constructor method is __init__-->
-
-```python
-class Car:
-    ____ (self, make, model):
-        self.make = make
-        self.model = model
-```
-
-### Using self
-Use `self` to refer to the current object's attributes and methods.
-
-**Try it yourself:**
-<!--exercise:answer=self,hint=Use 'self' to access instance attributes-->
-
-```python
-class Car:
-    def __init__(self, make):
-        self.make = make
-    
-    def display_info(self):
-        print(f"Make: {____.make}")
-```
-
-## ⏱️ 30-Minute Chunk Plan
-
-- `5.1` (20 min): Define class and constructor attributes.
-- `5.2` (20 min): Implement display methods and formatted output.
-- `5.3` (25 min): Add update methods and state checks.
-- `5.4` (20 min): Instantiate objects and verify behavior.
+- `5.1` (20 min): Define class structure and constructor fields.
+- `5.2` (20 min): Add behavior methods that transform object state.
+- `5.3` (20 min): Add guardrails that prevent invalid updates.
+- `5.4` (20 min): Instantiate objects and verify usage flow.
 
 ## 📝 Tasks
 
-### 🛠️ Define a Simple Class
+### 🛠️ Build a Domain Class (`Both`)
 
 #### Description
-Create a class named `Car` that represents a car with attributes for make, model, and year. Add a method to display information about the car.
+Create a class to represent an analysis run with metadata and status.
 
 #### Requirements
 Completed program should:
 
-- Define a class `Car` with `make`, `model`, and `year` attributes
-- Include a method `display_info()` that prints the car's details
-- Create an instance of `Car` and call `display_info()`
-- Hint: In `__init__`, assign values using `self.make = make`, `self.model = model`, and `self.year = year`.
-- Hint: In `display_info()`, print a single formatted sentence so output is easy to read.
+- Define `AnalysisRun` with `run_id`, `owner`, `dataset_name`, and `status` attributes.
+- Initialize defaults in `__init__`.
+- Implement `display_info()` that prints a compact summary line.
+- Create at least one object instance and call `display_info()`.
 
-
-
-### 🛠️ Add Methods and Interactions
+### 🛠️ Add Controlled State Updates (`Both`)
 
 #### Description
-Expand the `Car` class to include a method to update the car's mileage and another to display the current mileage.
+Add methods that update run metrics while preserving data integrity.
 
 #### Requirements
 Completed program should:
 
-- Add a `mileage` attribute to the `Car` class (default 0)
-- Add a method `update_mileage(new_mileage)` to update the mileage
-- Add a method `display_mileage()` to print the current mileage
-- Demonstrate updating and displaying mileage for a `Car` instance
-- Hint: Add `self.mileage = 0` in `__init__` before testing update methods.
-- Hint: In `update_mileage`, consider preventing mileage from decreasing.
+- Add `records_processed` attribute with default `0`.
+- Implement `update_records(new_value)` with validation that value cannot decrease.
+- Implement `mark_complete()` that sets status to `"complete"`.
+- Show method calls that move the object through a realistic lifecycle.
+
+### 🛠️ Role-Specific Output Methods (`BA` + `JDS`)
+
+#### Description
+Generate outputs tailored for decision communication (`BA`) and technical monitoring (`JDS`).
+
+#### Requirements
+Completed program should:
+
+- Add method `business_summary()` returning a short plain-language status statement (`BA`).
+- Add method `technical_summary()` returning fields useful for logs/metrics (`JDS`).
+- Demonstrate both methods on the same object.
+- Include one sentence on how this class could be reused in a capstone project.
 
 ## 🏆 Achievement Evidence
 
 To mark this assignment complete, submit:
 
-- `Code Artifact`: A working `Car` class with constructor, display methods, and mileage update logic.
-- `Interpretation Artifact`: A short explanation of how object state changes through method calls.
-- `Verification Artifact`: Console output showing object creation and mileage updates.
-
+- `Code Artifact`: `AnalysisRun` class with constructor, validation, and role-specific methods.
+- `Interpretation Artifact`: A short explanation of class state transitions and why guardrails matter.
+- `Verification Artifact`: Console output showing object creation, updates, and both summary methods.

@@ -84,7 +84,7 @@ if "red" ____ colors:
     print("Red is a color!")
 ```
 
-## ⏱️ 30-Minute Chunk Plan
+## ⏱️ 20-Minute Chunk Plan
 
 - `3.1` (20 min): Create dictionaries and access/update values.
 - `3.2` (25 min): Iterate through key-value pairs and compute summaries.
@@ -93,7 +93,7 @@ if "red" ____ colors:
 
 ## 📝 Tasks
 
-### 🛠️ Dictionary Basics
+### 🛠️ Dictionary Basics (`Both`)
 
 #### Description
 Create dictionaries to store structured data and access values using keys.
@@ -110,7 +110,7 @@ Completed program should:
 - Hint: Think of dictionaries like a phonebook where names are keys and phone numbers are values
 - Hint: Use `.get(key, default_value)` to safely access keys that might not exist
 
-### 🛠️ Dictionary Iteration
+### 🛠️ Dictionary Iteration (`Both`)
 
 #### Description
 Iterate through dictionaries to process all key-value pairs.
@@ -126,7 +126,7 @@ Completed program should:
 - Hint: Use `for key, value in dictionary.items():` to loop through pairs
 - Hint: Think about filtering: which grades are above/below average?
 
-### 🛠️ Sets and Unique Values
+### 🛠️ Sets and Unique Values (`Both`)
 
 #### Description
 Use sets to eliminate duplicates and perform set operations.

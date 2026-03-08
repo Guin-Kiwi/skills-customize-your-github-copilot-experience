@@ -92,7 +92,7 @@ ____:
     file.close()
 ```
 
-## ⏱️ 30-Minute Chunk Plan
+## ⏱️ 20-Minute Chunk Plan
 
 - `4.1` (20 min): Read files safely using context managers.
 - `4.2` (20 min): Write and append output files.
@@ -101,7 +101,7 @@ ____:
 
 ## 📝 Tasks
 
-### 🛠️ Reading Files
+### 🛠️ Reading Files (`Both`)
 
 #### Description
 Read data from a text file and process the content.
@@ -118,7 +118,7 @@ Completed program should:
 - Hint: Use `with open(...) as file:` to automatically close files
 - Hint: Use `.strip()` to remove newline characters from lines
 
-### 🛠️ Writing and Appending Files
+### 🛠️ Writing and Appending Files (`Both`)
 
 #### Description
 Create new files and add content to existing files.
@@ -134,7 +134,7 @@ Completed program should:
 - Hint: Use `"w"` to write (overwrites), `"a"` to append (keeps existing content)
 - Hint: Remember to include `\n` to create new lines when writing
 
-### 🛠️ Error Handling and Validation
+### 🛠️ Error Handling and Validation (`Both`)
 
 #### Description
 Build robust code that handles various errors gracefully.

@@ -1,121 +1,69 @@
-
 # 📘 Assignment: Level 0 - Python Basics
 
 ## 🎯 Objective
 
-Practice fundamental Python programming skills including user input, string formatting, arithmetic operations, and conditional statements by implementing simple functions.
+Build your first complete Python workflow: read input, clean values, apply logic, and return a trustworthy result.
 
 ## 🔗 Builds On
 
-- `No prerequisites. This is an entry module.`
+- `No prerequisites. This is the entry module for all tracks.`
 
 ## 🚀 Unlocks Next
 
 - `Level 1: Games in Python`
 
-## ⏱️ 30-Minute Chunk Plan
+## ⏱️ 20-Minute Chunk Plan
 
-- `0.1` (20 min): Capture input and store in variables.
-- `0.2` (20 min): Convert input types and perform arithmetic.
-- `0.3` (20 min): Use boolean expressions and conditionals.
-- `0.4` (20 min): Integrate input -> processing -> output in one flow.
+- `0.1` (20 min): Capture user input and format readable output.
+- `0.2` (20 min): Convert text input to numeric values safely.
+- `0.3` (20 min): Write conditional checks for pass/fail logic.
+- `0.4` (20 min): Combine input, transformation, and logic into one mini flow.
 
 ## 📝 Tasks
 
-### 🛠️ User Input and String Formatting
+### 🛠️ Welcome and Input Flow (`Both`)
 
 #### Description
-Write a function called `welcome_message()` that interacts with the user and returns a formatted welcome message.
-
-#### Concept: F-Strings
-F-strings let you embed variables directly in strings. They start with `f` before the quote.
-
-**Try it yourself:**
-<!--exercise:answer=f,hint=F-strings start with the letter f before the opening quote-->
-
-```python
-name = "Alice"
-greeting = ____"Hello, {name}!"
-print(greeting)  # Output: Hello, Alice!
-```
+Create a function that asks for user details and returns a clean, formatted message.
 
 #### Requirements
 Completed program should:
 
-- Ask the user for their name, age, and favorite color using `input()`.
-- Return a welcome message formatted as:
-  `Hello, [name]! You are [age] years old and your favorite color is [color].`
-- Example output:
-  `Hello, Alice! You are 25 years old and your favorite color is blue.`
-- Hint: Save each `input()` result to a variable (`name`, `age`, `color`) before formatting the message.
-- Hint: Use an f-string like `f"Hello, {name}! ..."` for cleaner string formatting.
+- Define `welcome_message()` that asks for name, age, and favorite color.
+- Return one formatted string using f-strings.
+- Keep prompts and output easy to read for a beginner user.
+- Handle accidental leading or trailing spaces with `.strip()`.
 
-### 🛠️ Basic Arithmetic
+### 🛠️ Numeric Conversion and Calculation (`Both`)
 
 #### Description
-Write a function called `add_two_numbers()` that prompts the user for two numbers and prints their sum.
-
-#### Concept: Converting Input to Numbers
-The `input()` function always returns a string. To do math, you need to convert it to a number first.
-
-**Try it yourself:**
-<!--exercise:answer=int,hint=Use int() to convert strings to whole numbers-->
-
-```python
-age = ____(input("Enter your age: "))
-age = age + 1
-print(f"Next year you will be {age}")
-```
+Collect two numbers from input, convert them, and compute a result.
 
 #### Requirements
 Completed program should:
 
-- Ask the user to enter two numbers.
-- Add the numbers together.
-- Print the result. Example:
-  Enter the first number: 3
-  Enter the second number: 7
-  10
-- Hint: Convert input values to numbers using `int()` or `float()` before adding.
-- Hint: Return the result too, so your function is easier to test later.
+- Define `add_two_numbers()` that prompts for two numeric values.
+- Convert values with `int()` or `float()` before calculation.
+- Print and return the sum.
+- Add one guard path for invalid input using `try/except`.
 
-### 🛠️ Conditional Statements
+### 🛠️ Basic Decision Rule (`Both`)
 
 #### Description
-Write a function called `is_even()` that checks if a number is even.
-
-#### Concept: The Modulo Operator
-The modulo operator `%` returns the remainder after division. Even numbers have no remainder when divided by 2.
-
-**Try it yourself:**
-<!--exercise:answer=%,hint=The modulo operator is the percent symbol-->
-
-```python
-def is_even(number):
-    return number ____ 2 == 0
-
-print(is_even(4))  # True
-print(is_even(7))  # False
-```
+Implement and test a parity checker that returns whether a number is even.
 
 #### Requirements
 Completed program should:
 
-- Take a single integer argument.
-- Return `True` if the number is even, and `False` if it is odd.
-- Example usage:
-  ```python
-  print(is_even(4))  # True
-  print(is_even(5))  # False
-  ```
-- Hint: Use the modulo operator `%` and check whether `number % 2 == 0`.
-- Hint: Start by testing easy values like `0`, `1`, `2`, and `-2`.
+- Define `is_even(number)` and return `True` or `False`.
+- Use modulo logic `number % 2 == 0`.
+- Demonstrate at least 4 test calls including `0` and a negative number.
+- Write one sentence explaining where this kind of rule is useful in data checks.
 
 ## 🏆 Achievement Evidence
 
 To mark this assignment complete, submit:
 
 - `Code Artifact`: Completed implementations of `welcome_message`, `add_two_numbers`, and `is_even`.
-- `Interpretation Artifact`: A short note explaining how input and output flow through one function.
-- `Verification Artifact`: Console output screenshots or test print results for all three tasks.
-
+- `Interpretation Artifact`: A short note describing the input -> process -> output flow in one function.
+- `Verification Artifact`: Console output that shows expected behavior for valid and invalid cases.

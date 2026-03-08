@@ -1,4 +1,4 @@
-// Mergington High School - Computer Science Portal JavaScript
+// Computer Science Portal JavaScript
 
 class AssignmentPortal {
   constructor() {

@@ -1,10 +1,18 @@
-# 📘 Assignment: Level 6 - Agentic Timer App
+# 📘 Assignment: Level 9 - Agentic Timer App
 
 ## 🎯 Objective
 
 Build a small timer application by co-engineering with custom prompts or custom agents. You will practice a full software process from requirements to architecture, implementation, and validation.
 
-## ⏱️ 30-Minute Chunk Plan
+## 🔗 Builds On
+
+- `Level 7: Testing with Pytest`
+
+## 🚀 Unlocks Next
+
+- `Level 13: KPI Design and Business Questions`
+
+## ⏱️ 20-Minute Chunk Plan
 
 - `9.1` (30 min): Draft measurable requirements with IDs.
 - `9.2` (30 min): Design architecture and trace components to requirements.
@@ -15,7 +23,7 @@ Build a small timer application by co-engineering with custom prompts or custom 
 
 ## 📝 Tasks
 
-### 🛠️ Specification of Requirements
+### 🛠️ Specification of Requirements (`Both`)
 
 #### Description
 Define what your app must do before writing code. The app must include both a countdown timer and a pomodoro timer, plus additional features of your choice.
@@ -32,7 +40,7 @@ Completed program should:
 - Hint prompt pattern: `You are a product requirements analyst. Draft measurable requirements for a timer app with countdown and pomodoro modes.`
 - Hint file checklist: `specification.md`, `prompts/requirements.prompt.md`, `artifacts/requirements-session.md`.
 
-### 🛠️ Design the Software Architecture
+### 🛠️ Design the Software Architecture (`Both`)
 
 #### Description
 Design the app structure so your implementation can be built in small, testable parts. Explain components, data flow, and how requirements map to architecture.
@@ -49,7 +57,7 @@ Completed program should:
 - Hint prompt pattern: `Design a modular architecture for a timer app and explain why each component exists.`
 - Hint file checklist: `architecture.md`, `prompts/architecture.prompt.md`, `artifacts/architecture-session.md`.
 
-### 🛠️ Implement the Timer App
+### 🛠️ Implement the Timer App (`Both`)
 
 #### Description
 Implement your design using your chosen tech stack. Keep code organized and align implementation with the documented requirements.
@@ -67,7 +75,7 @@ Completed program should:
 - Hint prompt pattern: `Generate implementation steps for a countdown + pomodoro app with requirement traceability.`
 - Hint process strategy: implement one requirement ID at a time and update status as done.
 
-### 🛠️ Validate with Code Review and Testing
+### 🛠️ Validate with Code Review and Testing (`Both`)
 
 #### Description
 Validate quality through automated tests and review feedback. Show that your app behavior matches requirements.
@@ -84,3 +92,11 @@ Completed program should:
 - Confirm that the final app is well-specified, traceable to requirements, and validated by review plus tests.
 - Hint prompt pattern: `Review this timer app for correctness, edge cases, and missing tests. Suggest concrete fixes.`
 - Hint testing strategy: write tests by requirement ID and include edge cases like zero durations, pause/resume transitions, and invalid input.
+
+## 🏆 Achievement Evidence
+
+To mark this assignment complete, submit:
+
+- `Code Artifact`: Timer app implementation with countdown, pomodoro, and added features.
+- `Interpretation Artifact`: Requirement-to-architecture and review summary across agentic steps.
+- `Verification Artifact`: Test results and traceability matrix linking requirement IDs to tests.

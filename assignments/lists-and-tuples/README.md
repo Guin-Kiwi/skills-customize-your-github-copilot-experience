@@ -72,7 +72,7 @@ point = ____10, 20____
 print(point)  # Output: (10, 20)
 ```
 
-## ⏱️ 30-Minute Chunk Plan
+## ⏱️ 20-Minute Chunk Plan
 
 - `2.1` (20 min): Create lists and practice indexing.
 - `2.2` (20 min): Use append/remove and basic list methods.
@@ -81,7 +81,7 @@ print(point)  # Output: (10, 20)
 
 ## 📝 Tasks
 
-### 🛠️ List Creation and Indexing
+### 🛠️ List Creation and Indexing (`Both`)
 
 #### Description
 Create a list, access elements by index, and use list methods to add and remove items.
@@ -97,7 +97,7 @@ Completed program should:
 - Hint: Remember that Python uses 0-based indexing (first item is at index 0)
 - Hint: Use negative indexing to access items from the end (`list[-1]` for the last item)
 
-### 🛠️ Slicing and List Operations
+### 🛠️ Slicing and List Operations (`Both`)
 
 #### Description
 Use slicing to extract portions of a list and combine lists together.
@@ -113,7 +113,7 @@ Completed program should:
 - Hint: Slicing syntax is `list[start:end:step]` where step can be negative
 - Hint: Remember `list[1:4]` includes index 1, 2, 3 but NOT 4
 
-### 🛠️ Tuples and Immutability
+### 🛠️ Tuples and Immutability (`Both`)
 
 #### Description
 Create tuples, understand why they're useful, and convert between lists and tuples.

@@ -4,7 +4,15 @@
 
 Build an interactive Streamlit dashboard that allows users to upload tabular data, explore it with filters, and visualize insights.
 
-## ⏱️ 30-Minute Chunk Plan
+## 🔗 Builds On
+
+- `Level 8: Building REST APIs with FastAPI`
+
+## 🚀 Unlocks Next
+
+- `Level 13: KPI Design and Business Questions`
+
+## ⏱️ 20-Minute Chunk Plan
 
 - `12.1` (20 min): Build upload and dataset preview UI.
 - `12.2` (25 min): Add sidebar filters and filtered table view.
@@ -13,7 +21,7 @@ Build an interactive Streamlit dashboard that allows users to upload tabular dat
 
 ## 📝 Tasks
 
-### 🛠️ Build the Dashboard Layout
+### 🛠️ Build the Dashboard Layout (`Both`)
 
 #### Description
 Set up a clear page structure with upload, filter, chart, and summary sections.
@@ -29,7 +37,7 @@ Completed program should:
 - Hint: Start with `st.file_uploader` and `st.dataframe` before adding charts.
 - Hint: Use clear labels so users understand each control quickly.
 
-### 🛠️ Add Interactive Analysis
+### 🛠️ Add Interactive Analysis (`Both`)
 
 #### Description
 Enable filtering and plotting so users can explore trends without editing code.
@@ -45,7 +53,7 @@ Completed program should:
 - Hint: Keep plotting functions reusable so each chart has a single responsibility.
 - Hint: Guard against empty filtered datasets and show a friendly message.
 
-### 🛠️ Validate Inputs and Package the App
+### 🛠️ Validate Inputs and Package the App (`Both`)
 
 #### Description
 Add data validation and provide clear run instructions.
@@ -60,3 +68,11 @@ Completed program should:
 - Include at least 6 tests in `tests/test_dashboard_logic.py` for filtering and summary helper functions.
 - Hint: Move data transformation logic into plain functions so tests are straightforward.
 - Hint: Keep Streamlit UI code thin and business logic in helpers.
+
+## 🏆 Achievement Evidence
+
+To mark this assignment complete, submit:
+
+- `Code Artifact`: Working Streamlit app with upload, filters, and charts.
+- `Interpretation Artifact`: A short insight summary tied to one filtered dashboard state.
+- `Verification Artifact`: Test output plus a run log or screenshot-equivalent evidence of dashboard behavior.

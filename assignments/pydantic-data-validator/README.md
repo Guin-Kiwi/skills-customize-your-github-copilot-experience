@@ -4,7 +4,15 @@
 
 Build a robust data intake script that reads CSV and JSON records, validates them with Pydantic models, and produces both clean output and a clear error report.
 
-## ⏱️ 30-Minute Chunk Plan
+## 🔗 Builds On
+
+- `Level 5: Python Classes`
+
+## 🚀 Unlocks Next
+
+- `Level 11: Database Programming with SQLAlchemy`
+
+## ⏱️ 20-Minute Chunk Plan
 
 - `10.1` (20 min): Define strict Pydantic schemas and constraints.
 - `10.2` (25 min): Parse CSV/JSON inputs and validate each row.
@@ -13,7 +21,7 @@ Build a robust data intake script that reads CSV and JSON records, validates the
 
 ## 📝 Tasks
 
-### 🛠️ Define Validation Schemas
+### 🛠️ Define Validation Schemas (`Both`)
 
 #### Description
 Create strict Pydantic models that represent incoming records and enforce quality rules.
@@ -28,7 +36,7 @@ Completed program should:
 - Hint: Use descriptive validation messages so students can quickly diagnose bad input.
 - Hint: Keep schemas small and focused so they are easy to test.
 
-### 🛠️ Build the Intake Pipeline
+### 🛠️ Build the Intake Pipeline (`Both`)
 
 #### Description
 Read raw input files, validate each record, and separate valid data from invalid data.
@@ -44,7 +52,7 @@ Completed program should:
 - Hint: Wrap per-row validation in `try/except` so one bad row does not stop the whole pipeline.
 - Hint: Include row number or record ID in each error log entry.
 
-### 🛠️ Test and Report Data Quality
+### 🛠️ Test and Report Data Quality (`Both`)
 
 #### Description
 Create tests and a summary report showing how well the pipeline performs.
@@ -58,3 +66,11 @@ Completed program should:
 - Add a short `validation-summary.txt` explaining the most common input errors.
 - Hint: Test at least one missing field, one wrong type, and one invalid format case.
 - Hint: Keep test names specific, such as `test_rejects_invalid_email`.
+
+## 🏆 Achievement Evidence
+
+To mark this assignment complete, submit:
+
+- `Code Artifact`: Pydantic schemas and validation pipeline scripts for CSV and JSON intake.
+- `Interpretation Artifact`: A short summary explaining top error patterns and schema decisions.
+- `Verification Artifact`: Test output and validation logs showing valid/invalid record handling.

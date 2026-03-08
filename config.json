@@ -1,7 +1,7 @@
 {
   "course": {
     "title": "Computer Science",
-    "school": "Mergington High School",
+    "school": "Computer Science Portal",
     "description": "Introduction to programming and computer science"
   },
   "programs": [
@@ -44,6 +44,7 @@
       "path": "assignments/python-basics",
       "program": "foundations",
       "moduleOrder": 1,
+      "track": "Both",
       "prerequisites": [],
       "timeToComplete": "45-60 minutes",
       "attachments": [
@@ -61,6 +62,8 @@
       "path": "assignments/games-in-python",
       "program": "foundations",
       "moduleOrder": 2,
+      "track": "Both",
+      "milestoneGate": true,
       "prerequisites": ["python-basics"],
       "timeToComplete": "1.5-2.5 hours"
     },
@@ -71,6 +74,7 @@
       "path": "assignments/lists-and-tuples",
       "program": "foundations",
       "moduleOrder": 3,
+      "track": "Both",
       "prerequisites": ["games-in-python"],
       "timeToComplete": "60-90 minutes",
       "attachments": [
@@ -88,6 +92,8 @@
       "path": "assignments/dictionaries-and-sets",
       "program": "foundations",
       "moduleOrder": 4,
+      "track": "Both",
+      "milestoneGate": true,
       "prerequisites": ["lists-and-tuples"],
       "timeToComplete": "60-90 minutes",
       "attachments": [
@@ -105,6 +111,7 @@
       "path": "assignments/files-and-exceptions",
       "program": "foundations",
       "moduleOrder": 5,
+      "track": "Both",
       "prerequisites": ["dictionaries-and-sets"],
       "timeToComplete": "75-100 minutes",
       "attachments": [
@@ -122,6 +129,8 @@
       "path": "assignments/python-classes",
       "program": "foundations",
       "moduleOrder": 6,
+      "track": "Both",
+      "milestoneGate": true,
       "prerequisites": ["files-and-exceptions"],
       "timeToComplete": "1-1.5 hours",
       "attachments": [
@@ -139,6 +148,7 @@
       "path": "assignments/data-analysis",
       "program": "data-ai",
       "moduleOrder": 1,
+      "track": "Both",
       "prerequisites": ["python-classes"],
       "timeToComplete": "2-3 hours",
       "attachments": [
@@ -161,6 +171,8 @@
       "path": "assignments/testing-with-pytest",
       "program": "data-ai",
       "moduleOrder": 2,
+      "track": "Both",
+      "milestoneGate": true,
       "prerequisites": ["data-analysis"],
       "timeToComplete": "2-3 hours",
       "attachments": [
@@ -178,6 +190,7 @@
       "path": "assignments/fastapi-rest-apis",
       "program": "app-builder",
       "moduleOrder": 3,
+      "track": "JDS",
       "prerequisites": ["sqlalchemy-experiment-tracker"],
       "timeToComplete": "3-4 hours",
       "attachments": [
@@ -189,12 +202,13 @@
       ]
     },
     {
-      "id": "agentic-timer-app",
-      "title": "Level 9: Agentic Timer App",
-      "description": "Co-engineer a small software project using custom prompts or agents across requirements, architecture, implementation, and validation",
-      "path": "assignments/agentic-timer-app",
+      "id": "ai-analyst-workflow-lab",
+      "title": "Level 9: AI Analyst Workflow Lab",
+      "description": "Use AI coding assistance with structured validation, review, and evidence-driven analyst workflows",
+      "path": "assignments/ai-analyst-workflow-lab",
       "program": "data-ai",
       "moduleOrder": 3,
+      "track": "Both",
       "prerequisites": ["testing-with-pytest"],
       "timeToComplete": "4-6 hours",
       "attachments": [
@@ -212,6 +226,7 @@
       "path": "assignments/pydantic-data-validator",
       "program": "app-builder",
       "moduleOrder": 1,
+      "track": "Both",
       "prerequisites": ["python-classes"],
       "timeToComplete": "2-3 hours",
       "attachments": [
@@ -229,6 +244,8 @@
       "path": "assignments/sqlalchemy-experiment-tracker",
       "program": "app-builder",
       "moduleOrder": 2,
+      "track": "Both",
+      "milestoneGate": true,
       "prerequisites": ["pydantic-data-validator"],
       "timeToComplete": "2.5-3.5 hours",
       "attachments": [
@@ -246,8 +263,85 @@
       "path": "assignments/streamlit-data-dashboard",
       "program": "app-builder",
       "moduleOrder": 4,
+      "track": "BA",
+      "milestoneGate": true,
       "prerequisites": ["fastapi-rest-apis"],
       "timeToComplete": "2-3 hours",
+      "attachments": [
+        {
+          "name": "Starter Code",
+          "file": "starter-code.py",
+          "type": "python"
+        }
+      ]
+    },
+    {
+      "id": "kpi-design-business-questions",
+      "title": "Level 13: KPI Design and Business Questions",
+      "description": "Design decision-ready KPIs and business question trees that guide high-impact analysis",
+      "path": "assignments/kpi-design-business-questions",
+      "program": "data-ai",
+      "moduleOrder": 4,
+      "track": "BA",
+      "roleForkPoint": true,
+      "prerequisites": ["ai-analyst-workflow-lab"],
+      "timeToComplete": "1.5-2.5 hours",
+      "attachments": [
+        {
+          "name": "Starter Code",
+          "file": "starter-code.py",
+          "type": "python"
+        }
+      ]
+    },
+    {
+      "id": "statistics-and-hypothesis-testing",
+      "title": "Level 14: Statistics and Hypothesis Testing",
+      "description": "Run statistical tests and interpret uncertainty for evidence-based decisions",
+      "path": "assignments/statistics-and-hypothesis-testing",
+      "program": "data-ai",
+      "moduleOrder": 5,
+      "track": "JDS",
+      "prerequisites": ["ai-analyst-workflow-lab"],
+      "timeToComplete": "2-3 hours",
+      "attachments": [
+        {
+          "name": "Starter Code",
+          "file": "starter-code.py",
+          "type": "python"
+        }
+      ]
+    },
+    {
+      "id": "baseline-modeling-and-evaluation",
+      "title": "Level 15: Baseline Modeling and Evaluation",
+      "description": "Build a reproducible baseline model and evaluate performance against benchmarks",
+      "path": "assignments/baseline-modeling-and-evaluation",
+      "program": "data-ai",
+      "moduleOrder": 6,
+      "track": "JDS",
+      "milestoneGate": true,
+      "prerequisites": ["statistics-and-hypothesis-testing"],
+      "timeToComplete": "2-3 hours",
+      "attachments": [
+        {
+          "name": "Starter Code",
+          "file": "starter-code.py",
+          "type": "python"
+        }
+      ]
+    },
+    {
+      "id": "data-storytelling-memo",
+      "title": "Level 16: Data Storytelling Memo",
+      "description": "Communicate data findings through a concise recommendation memo for stakeholders",
+      "path": "assignments/data-storytelling-memo",
+      "program": "data-ai",
+      "moduleOrder": 7,
+      "track": "BA",
+      "milestoneGate": true,
+      "prerequisites": ["kpi-design-business-questions"],
+      "timeToComplete": "1-2 hours",
       "attachments": [
         {
           "name": "Starter Code",

@@ -57,7 +57,7 @@ result = ____(display)
 print(result)  # Output: _ p _ _ _ _
 ```
 
-## ⏱️ 30-Minute Chunk Plan
+## ⏱️ 20-Minute Chunk Plan
 
 - `1.1` (20 min): Select a random word and initialize game state.
 - `1.2` (25 min): Build the main game loop and collect guesses.
@@ -66,7 +66,7 @@ print(result)  # Output: _ p _ _ _ _
 
 ## 📝 Tasks
 
-### 🛠️ Build the Hangman Game
+### 🛠️ Build the Hangman Game (`Both`)
 
 #### Description
 Create a fully functional Hangman game that challenges players to guess a hidden word by suggesting letters within a limited number of attempts.

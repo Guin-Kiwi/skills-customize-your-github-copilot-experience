@@ -6,7 +6,7 @@ argument-hint: Provide assignment details
 
 # Create New Programming Assignment
 
-Your goal is to generate a new homework assignment for the Mergington High School students.
+Your goal is to generate a new homework assignment for students.
 
 ## Step 1: Gather Assignment Information
 
