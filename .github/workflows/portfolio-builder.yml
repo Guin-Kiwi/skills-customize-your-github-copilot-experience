@@ -1,0 +1,40 @@
+# .github/workflows/portfolio-builder.yml
+name: Portfolio Builder
+
+on:
+  workflow_dispatch:
+    inputs:
+      program:
+        description: "Program completed (foundations|app-builder|data-ai)"
+        required: true
+        default: "foundations"
+
+permissions:
+  contents: write
+
+jobs:
+  update-portfolio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ensure portfolio file
+        run: |
+          test -f .github/STUDENT_PORTFOLIO.md || cat > .github/STUDENT_PORTFOLIO.md <<EOF
+          # Student Portfolio
+          ## Program Milestones
+          EOF
+
+      - name: Append milestone
+        run: |
+          echo "- $(date -u +%F): Completed program '${{ github.event.inputs.program }}'" >> .github/STUDENT_PORTFOLIO.md
+          echo "- Suggested next step: publish your best snippet as a Gist." >> .github/STUDENT_PORTFOLIO.md
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/STUDENT_PORTFOLIO.md
+          git commit -m "Update student portfolio milestone (${{
+            github.event.inputs.program }})" || echo "No changes"
+          git push

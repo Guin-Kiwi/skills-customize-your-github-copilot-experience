@@ -1,0 +1,96 @@
+# .github/workflows/validate-foundation.yml
+name: Validate Foundation Assignment
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: validate-foundation-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    if: contains(github.event.comment.body, '/@validate assignments/')
+    runs-on: ubuntu-latest
+    env:
+      COMMENT: ${{ github.event.comment.body }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Parse assignment id
+        id: parse
+        run: |
+          ID=$(echo "$COMMENT" | sed -n 's#.*\/@validate assignments/\([a-z0-9-]*\).*#\1#p')
+          echo "id=$ID" >> "$GITHUB_OUTPUT"
+          case "$ID" in
+            python-basics|string-validation-and-data-quality|lists-and-tuples|dictionaries-and-sets|files-and-exceptions|python-classes) ;;
+            *) echo "unsupported=true" >> "$GITHUB_OUTPUT" ;;
+          esac
+
+      - name: Validate folder exists
+        id: folder
+        if: steps.parse.outputs.unsupported != 'true'
+        run: |
+          test -d "assignments/${{ steps.parse.outputs.id }}" && echo "ok=true" >> "$GITHUB_OUTPUT"
+
+      - name: Validate code artifact
+        id: code
+        if: steps.folder.outputs.ok == 'true'
+        run: |
+          test -f "assignments/${{ steps.parse.outputs.id }}/starter-code.py" && echo "ok=true" >> "$GITHUB_OUTPUT"
+
+      - name: Optional syntax check
+        id: syntax
+        if: steps.code.outputs.ok == 'true'
+        run: |
+          python3 -m py_compile "assignments/${{ steps.parse.outputs.id }}/starter-code.py" && echo "ok=true" >> "$GITHUB_OUTPUT" || echo "ok=false" >> "$GITHUB_OUTPUT"
+
+      - name: Optional test check
+        id: tests
+        if: steps.code.outputs.ok == 'true'
+        run: |
+          if ls assignments/${{ steps.parse.outputs.id }}/test_*.py >/dev/null 2>&1; then
+            pytest -q assignments/${{ steps.parse.outputs.id }}/test_*.py
+            echo "status=pass" >> "$GITHUB_OUTPUT"
+          else
+            echo "status=missing" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Post validation summary
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const unsupported = "${{ steps.parse.outputs.unsupported }}" === "true";
+            const id = "${{ steps.parse.outputs.id }}";
+            const folderOk = "${{ steps.folder.outputs.ok }}" === "true";
+            const codeOk = "${{ steps.code.outputs.ok }}" === "true";
+            const syntaxOk = "${{ steps.syntax.outputs.ok }}" === "true";
+            const testStatus = "${{ steps.tests.outputs.status }}";
+
+            let lines = [];
+            if (unsupported) {
+              lines.push("Unsupported assignment id for foundation validator.");
+              lines.push("Use one of: python-basics, string-validation-and-data-quality, lists-and-tuples, dictionaries-and-sets, files-and-exceptions, python-classes.");
+            } else {
+              lines.push(`Validation results for assignments/${id}`);
+              lines.push(`- Code artifact (starter-code.py): ${codeOk ? "PASS" : "FAIL"}`);
+              lines.push(`- Python syntax: ${syntaxOk ? "PASS" : "WARN/FAIL"}`);
+              lines.push(`- Tests: ${testStatus === "pass" ? "PASS" : testStatus === "missing" ? "WARN (no tests found yet)" : "FAIL"}`);
+              lines.push("");
+              lines.push("Optional reflection (reply to this comment):");
+              lines.push("1. What did you learn?");
+              lines.push("2. What was hardest?");
+              lines.push("3. What would you improve next?");
+            }
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: lines.join("\n")
+            });

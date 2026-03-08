@@ -1,0 +1,62 @@
+# .github/workflows/portal-onboarding.yml
+name: Portal Onboarding
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: portal-onboarding-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  onboarding:
+    if: contains(github.event.comment.body, '/@setup-portal')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build profile file
+        run: |
+          REPO="${{ github.repository }}"
+          OWNER="${{ github.repository_owner }}"
+          URL="https://${OWNER}.github.io/$(basename "$REPO")/"
+          cat > .github/STUDENT_PROFILE.md <<EOF
+          # Student Profile
+          - Repository: ${REPO}
+          - Suggested Pages URL: ${URL}
+          - Setup Command: /@setup-portal
+          - Validation Command: /@validate assignments/python-basics
+          EOF
+
+      - name: Commit profile
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/STUDENT_PROFILE.md
+          git commit -m "Add student onboarding profile" || echo "No changes"
+          git push
+
+      - name: Comment guidance
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = [
+              "Portal setup initialized.",
+              "",
+              "Checklist:",
+              "- Enable GitHub Pages in Settings -> Pages",
+              "- Visit your Pages URL",
+              "- Use the Progress button in portal header if needed",
+              "- Run validation with `/@validate assignments/python-basics`",
+            ].join("\n");
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
+            });
