@@ -22,14 +22,56 @@
     {
       "id": "games-in-python",
       "title": "Level 1: Games in Python",
-      "description": "Creating games using Python",
+      "description": "Creating games using Python with strings, loops, and random selection",
       "path": "assignments/games-in-python",
       "timeToComplete": "1.5-2.5 hours"
     },
     {
+      "id": "lists-and-tuples",
+      "title": "Level 2: Lists and Tuples",
+      "description": "Master lists, tuples, indexing, slicing, and list methods for data collections",
+      "path": "assignments/lists-and-tuples",
+      "timeToComplete": "60-90 minutes",
+      "attachments": [
+        {
+          "name": "Starter Code",
+          "file": "starter-code.py",
+          "type": "python"
+        }
+      ]
+    },
+    {
+      "id": "dictionaries-and-sets",
+      "title": "Level 3: Dictionaries and Sets",
+      "description": "Learn key-value data storage with dictionaries and unique collections with sets",
+      "path": "assignments/dictionaries-and-sets",
+      "timeToComplete": "60-90 minutes",
+      "attachments": [
+        {
+          "name": "Starter Code",
+          "file": "starter-code.py",
+          "type": "python"
+        }
+      ]
+    },
+    {
+      "id": "files-and-exceptions",
+      "title": "Level 4: Files and Exceptions",
+      "description": "Read and write files, handle errors with try-except blocks for robust programs",
+      "path": "assignments/files-and-exceptions",
+      "timeToComplete": "75-100 minutes",
+      "attachments": [
+        {
+          "name": "Starter Code",
+          "file": "starter-code.py",
+          "type": "python"
+        }
+      ]
+    },
+    {
       "id": "python-classes",
-      "title": "Level 2: Python Classes",
-      "description": "Defining and using classes in Python",
+      "title": "Level 5: Python Classes",
+      "description": "Defining and using classes in Python for object-oriented programming",
       "path": "assignments/python-classes",
       "timeToComplete": "1-1.5 hours",
       "attachments": [
@@ -42,8 +84,8 @@
     },
     {
       "id": "data-analysis",
-      "title": "Level 3: Data Analysis",
-      "description": "Basics of data analysis: loading, exploring, and visualizing data in Python.",
+      "title": "Level 6: Data Analysis",
+      "description": "Basics of data analysis: loading, exploring, and visualizing data in Python with pandas",
       "path": "assignments/data-analysis",
       "timeToComplete": "2-3 hours",
       "attachments": [
@@ -61,8 +103,8 @@
     },
     {
       "id": "testing-with-pytest",
-      "title": "Level 4: Testing with Pytest",
-      "description": "Learn unit testing with pytest by covering normal behavior, edge cases, and invalid inputs.",
+      "title": "Level 7: Testing with Pytest",
+      "description": "Learn unit testing with pytest by covering normal behavior, edge cases, and invalid inputs",
       "path": "assignments/testing-with-pytest",
       "timeToComplete": "2-3 hours",
       "attachments": [
@@ -75,7 +117,7 @@
     },
     {
       "id": "fastapi-rest-apis",
-      "title": "Level 5: Building REST APIs with FastAPI",
+      "title": "Level 8: Building REST APIs with FastAPI",
       "description": "Learn to build modern REST APIs with FastAPI framework, including CRUD operations and data validation",
       "path": "assignments/fastapi-rest-apis",
       "timeToComplete": "3-4 hours",
@@ -89,8 +131,8 @@
     },
     {
       "id": "agentic-timer-app",
-      "title": "Level 6: Agentic Timer App",
-      "description": "Co-engineer a small software project using custom prompts or agents across requirements, architecture, implementation, and validation.",
+      "title": "Level 9: Agentic Timer App",
+      "description": "Co-engineer a small software project using custom prompts or agents across requirements, architecture, implementation, and validation",
       "path": "assignments/agentic-timer-app",
       "timeToComplete": "4-6 hours",
       "attachments": [
