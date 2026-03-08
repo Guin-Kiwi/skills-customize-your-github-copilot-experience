@@ -115,10 +115,167 @@ class AssignmentPage {
       
       // Process interactive exercises
       this.processExercises();
+
+      // Convert chunk plans into clickable paged sections
+      this.setupChunkPages();
     } catch (error) {
       console.error("Failed to load README:", error);
       this.showError("Failed to load assignment content");
     }
+  }
+
+  setupChunkPages() {
+    const content = document.getElementById("assignment-content");
+    const headings = Array.from(content.querySelectorAll("h2"));
+    const chunkHeading = headings.find((h) => /chunk\s*plan/i.test(h.textContent));
+    const tasksHeading = headings.find((h) => /tasks/i.test(h.textContent));
+
+    if (!chunkHeading || !tasksHeading) {
+      return;
+    }
+
+    const chunkList = this.findNextElementByTag(chunkHeading, "UL");
+    if (!chunkList) {
+      return;
+    }
+
+    const chunkItems = Array.from(chunkList.querySelectorAll("li"));
+    const taskSections = this.collectTaskSections(tasksHeading);
+
+    if (chunkItems.length === 0 || taskSections.length === 0) {
+      return;
+    }
+
+    // Normalize heading to the requested cadence.
+    chunkHeading.textContent = chunkHeading.textContent.replace("30-Minute", "20-Minute");
+
+    const pageCount = Math.min(chunkItems.length, taskSections.length);
+    const nav = document.createElement("div");
+    nav.className = "chunk-nav";
+
+    const pagesContainer = document.createElement("div");
+    pagesContainer.className = "chunk-pages";
+
+    const pageElements = [];
+
+    for (let i = 0; i < pageCount; i++) {
+      const label = this.extractChunkLabel(chunkItems[i].textContent, i);
+
+      const btn = document.createElement("button");
+      btn.className = "chunk-btn";
+      btn.type = "button";
+      btn.dataset.chunkIndex = String(i);
+      btn.textContent = `${label} (20 min)`;
+      nav.appendChild(btn);
+
+      const page = document.createElement("section");
+      page.className = "chunk-page";
+      page.dataset.chunkIndex = String(i);
+
+      taskSections[i].nodes.forEach((node) => page.appendChild(node));
+      pagesContainer.appendChild(page);
+      pageElements.push(page);
+    }
+
+    const controls = document.createElement("div");
+    controls.className = "chunk-controls";
+
+    const prevBtn = document.createElement("button");
+    prevBtn.type = "button";
+    prevBtn.className = "btn chunk-control-btn";
+    prevBtn.textContent = "Previous";
+
+    const nextBtn = document.createElement("button");
+    nextBtn.type = "button";
+    nextBtn.className = "btn chunk-control-btn";
+    nextBtn.textContent = "Next";
+
+    controls.appendChild(prevBtn);
+    controls.appendChild(nextBtn);
+
+    tasksHeading.insertAdjacentElement("afterend", nav);
+    nav.insertAdjacentElement("afterend", pagesContainer);
+    pagesContainer.insertAdjacentElement("afterend", controls);
+
+    let currentPage = 0;
+    const navButtons = Array.from(nav.querySelectorAll(".chunk-btn"));
+
+    const showPage = (index) => {
+      currentPage = Math.max(0, Math.min(index, pageElements.length - 1));
+
+      pageElements.forEach((pageEl, pageIndex) => {
+        pageEl.classList.toggle("active", pageIndex === currentPage);
+      });
+
+      navButtons.forEach((btn, btnIndex) => {
+        btn.classList.toggle("active", btnIndex === currentPage);
+      });
+
+      prevBtn.disabled = currentPage === 0;
+      nextBtn.disabled = currentPage === pageElements.length - 1;
+    };
+
+    navButtons.forEach((btn, index) => {
+      btn.addEventListener("click", () => showPage(index));
+    });
+
+    prevBtn.addEventListener("click", () => showPage(currentPage - 1));
+    nextBtn.addEventListener("click", () => showPage(currentPage + 1));
+
+    showPage(0);
+  }
+
+  findNextElementByTag(startEl, tagName) {
+    let current = startEl.nextElementSibling;
+    while (current) {
+      if (current.tagName === tagName) {
+        return current;
+      }
+      if (current.tagName === "H2") {
+        return null;
+      }
+      current = current.nextElementSibling;
+    }
+    return null;
+  }
+
+  collectTaskSections(tasksHeading) {
+    const sections = [];
+    let currentSection = null;
+    let current = tasksHeading.nextElementSibling;
+
+    while (current) {
+      if (current.tagName === "H2") {
+        break;
+      }
+
+      const next = current.nextElementSibling;
+
+      if (current.tagName === "H3") {
+        currentSection = { nodes: [current] };
+        sections.push(currentSection);
+      } else if (currentSection) {
+        currentSection.nodes.push(current);
+      }
+
+      current = next;
+    }
+
+    return sections;
+  }
+
+  extractChunkLabel(text, index) {
+    const codeMatch = text.match(/`([^`]+)`/);
+    if (codeMatch) {
+      return codeMatch[1];
+    }
+
+    const numberMatch = text.match(/(\d+(?:\.\d+)?)/);
+    if (numberMatch) {
+      return `Chunk ${numberMatch[1]}`;
+    }
+
+    return `Chunk ${index + 1}`;
   }
 
   processExercises() {

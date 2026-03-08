@@ -703,3 +703,65 @@ body {
 .exercise-progress .progress-icon {
   font-size: 1.2rem;
 }
+
+/* Chunk Paging */
+.chunk-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0 1.25rem;
+}
+
+.chunk-btn {
+  background: #eef5ff;
+  border: 1px solid #bfd7ff;
+  border-radius: 999px;
+  color: #1f4f9b;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.chunk-btn:hover {
+  background: #dceaff;
+  border-color: #9ec0ff;
+}
+
+.chunk-btn.active {
+  background: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: #fff;
+}
+
+.chunk-pages {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+}
+
+.chunk-page {
+  display: none;
+}
+
+.chunk-page.active {
+  display: block;
+}
+
+.chunk-controls {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.chunk-control-btn {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.chunk-control-btn:disabled {
+  background: #9db6d3;
+  cursor: not-allowed;
+}
