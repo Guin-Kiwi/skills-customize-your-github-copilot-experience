@@ -4,6 +4,7 @@ class AssignmentPage {
   constructor() {
     this.config = null;
     this.assignmentId = null;
+    this.chunkId = null;
     this.assignment = null;
     this.init();
   }
@@ -11,6 +12,7 @@ class AssignmentPage {
   async init() {
     try {
       this.assignmentId = this.getAssignmentIdFromUrl();
+      this.chunkId = this.getChunkIdFromUrl();
       if (!this.assignmentId) {
         throw new Error("No assignment ID provided");
       }
@@ -32,6 +34,11 @@ class AssignmentPage {
   getAssignmentIdFromUrl() {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get("id");
+  }
+
+  getChunkIdFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get("chunk");
   }
 
   async loadConfig() {
@@ -158,8 +165,14 @@ class AssignmentPage {
 
     const pageElements = [];
 
+    let initialIndex = 0;
+
     for (let i = 0; i < pageCount; i++) {
       const label = this.extractChunkLabel(chunkItems[i].textContent, i);
+
+      if (this.chunkId && this.chunkId === label) {
+        initialIndex = i;
+      }
 
       const btn = document.createElement("button");
       btn.className = "chunk-btn";
@@ -213,6 +226,14 @@ class AssignmentPage {
 
       prevBtn.disabled = currentPage === 0;
       nextBtn.disabled = currentPage === pageElements.length - 1;
+
+      const activeBtn = navButtons[currentPage];
+      if (activeBtn) {
+        const activeChunk = activeBtn.textContent.split(" ")[0];
+        const url = new URL(window.location.href);
+        url.searchParams.set("chunk", activeChunk);
+        window.history.replaceState({}, "", url.toString());
+      }
     };
 
     navButtons.forEach((btn, index) => {
@@ -222,7 +243,7 @@ class AssignmentPage {
     prevBtn.addEventListener("click", () => showPage(currentPage - 1));
     nextBtn.addEventListener("click", () => showPage(currentPage + 1));
 
-    showPage(0);
+    showPage(initialIndex);
   }
 
   findNextElementByTag(startEl, tagName) {

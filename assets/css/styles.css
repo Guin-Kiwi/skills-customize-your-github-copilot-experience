@@ -257,6 +257,25 @@ body {
   align-items: center;
 }
 
+.assignment-chunks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.btn-chunk {
+  background: #f1f8ff;
+  border: 1px solid #b7d4ff;
+  color: #1d4e9b;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.65rem;
+}
+
+.btn-chunk:hover {
+  background: #dcecff;
+}
+
 
 
 .time-estimate {
